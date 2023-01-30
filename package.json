@@ -1,0 +1,10 @@
+{
+  "name": "solecooler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.php",
+  "type": "module",
+  "dependencies": {
+    "roddeh-i18n": "^1.2.1"
+  }
+}
