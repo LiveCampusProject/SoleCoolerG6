@@ -1,13 +1,15 @@
 {
     "version": 3,
-    "mappings": "AKEA,AAAA,IAAI,CAAC;EACD,gBAAgB,EHHV,KAAK;CGId",
+    "mappings": "AMAA,AAEQ,OAFD,CAEE,WAAI,CAAC;EACF,UAAU,EAAE,MAAM;CACrB",
     "sources": [
         "main.scss",
         "_fonts.scss",
         "_colors.scss",
-        "_variables.scss",
+        "_animations.scss",
+        "_responsive.scss",
         "components/buttons.scss",
-        "page.scss"
+        "pages/header.scss",
+        "pages/page.scss"
     ],
     "names": [],
     "file": "main.css"
