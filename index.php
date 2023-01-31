@@ -6,7 +6,7 @@
      */
 
     $js = "";
-    $css ="";
+    $css ="./css/main.css";
     $titre = "SoleCooler";
     require_once("./inc/head.php");
     require_once("./inc/nav.php");
@@ -14,7 +14,7 @@
 
 ?>
 
-  <body>
+  
     <form>
       <fieldset>
         <legend>Choose a language:</legend>
@@ -46,6 +46,3 @@
         </ul>
       </aside>
     </main>
-
-  </body>
-</html>

@@ -18,3 +18,11 @@
     <?php endif?>
     <title><?php echo $titre?> </title>
 </head>
+
+<body>
+
+<div id="header">
+    <div id="banner-top">
+        <span>Livraison en France et à l’international</span>
+    </div>
+</div>
