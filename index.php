@@ -8,13 +8,10 @@
     $js = "";
     $css ="";
     $titre = "SoleCooler";
-    require_once("./inc/head.php");
-    require_once("./inc/nav.php");
-    require_once("./inc/footer.php");
 
 ?>
 
-  <body>
+  <?php include("./inc/head.php"); ?>
     <form>
       <fieldset>
         <legend>Choose a language:</legend>
@@ -47,5 +44,5 @@
       </aside>
     </main>
 
-  </body>
+    <?php include("./inc/footer.php"); ?>
 </html>

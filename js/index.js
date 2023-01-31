@@ -5,7 +5,7 @@ var translator = new Translator({
   languages: ["de", "en", "es", "fr"],
   defaultLanguage: "en",
   detectLanguage: true,
-  filesLocation: "/SoleCoolerG6/i18n"
+  filesLocation: "/i18n/"
 });
 
 translator.load();
