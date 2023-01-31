@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "AKEA,AAAA,IAAI,CAAC;EACD,gBAAgB,EHHV,KAAK;CGId",
+    "sources": [
+        "main.scss",
+        "_fonts.scss",
+        "_colors.scss",
+        "_variables.scss",
+        "components/buttons.scss",
+        "page.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}
