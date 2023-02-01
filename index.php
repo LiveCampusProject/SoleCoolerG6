@@ -9,23 +9,12 @@
     $css ="./css/main.css";
     $titre = "SoleCooler";
     require_once("./inc/head.php");
+    require_once("./inc/header.php");
     require_once("./inc/nav.php");
     require_once("./inc/footer.php");
 
 ?>
 
-  
-    <form>
-      <fieldset>
-        <legend>Choose a language:</legend>
-
-        <label>
-          <input type="radio" name="lang" value="en" checked /> English
-        </label>
-        <label> <input type="radio" name="lang" value="de" /> German </label>
-        <label> <input type="radio" name="lang" value="es" /> Spanish </label>
-      </fieldset>
-    </form>
     <main>
       <article>
         <h1 data-i18n="title">How To Cook A Juicy Chicken Breast</h1>
