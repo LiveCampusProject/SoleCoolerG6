@@ -137,6 +137,7 @@
                             left: 0;
                             bottom: -25%;
                             border-bottom: 2px solid $black;
+                            pointer-events: none;
                         }
 
                         select {
