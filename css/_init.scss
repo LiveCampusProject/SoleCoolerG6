@@ -20,3 +20,20 @@ ul {
         padding: 16px;
     }
 }
+
+.space {
+    &-arround {
+        margin-top: $space-large;
+        margin-bottom: $space-large;
+    }
+}
+
+
+
+
+h2.h2-tiny {
+    font-size: $font-normal;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 32px;
+}

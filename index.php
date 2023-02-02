@@ -72,11 +72,57 @@ require_once("./inc/footer.php");
   </div>
 
 
+  <section class="container space-arround">
+    <h2 class="h2-tiny">Nos partenaires</h2>
+    <div class="customer-logos slider">
+      <div class="slide"><img src="./assets/img/logos/logo Elkem.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo - agefiph.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ansys fluent.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ceei.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Initiative.png"></div>
+      <div class="slide"><img src="./assets/img/logos/logo Elkem.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo - agefiph.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ansys fluent.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ceei.png"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Initiative.png"></div>
+      <!-- <div class="slide"><img src="./assets/img/logos/"></div> -->
+    </div>
+  </section>
+
+
+  <section id="product" class="container space-arround">
+    <div class="contents">
+
+      <img src="./assets/img/products/Produit SoleCooler.png" alt="">
+
+      <div>
+        <h2>CLIMFEET : La semelle réversible thermo-régulée</h2>
+        <p>
+          Une semelle souple alvéolaire qui produit de la chaleur et du froid par la seule pression de vos pas et sans empreinte carbone.
+          <br><br>
+          Elle garde vos pieds au chaud en situation de froid tout en créant du frais durant les périodes estivales.
+        </p>
+        <a href="#" class="button-2">
+          <span>Acheter</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="points">
+      <div class="grid">
+        <div class="card">
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
 
 
 
 
-  <article>
+
+
+  <!-- <article>
     <h1 data-i18n="title">How To Cook A Juicy Chicken Breast</h1>
     <p data-i18n="content">
       There’s a big difference between juicy chicken breasts and rubbery
@@ -93,5 +139,5 @@ require_once("./inc/footer.php");
       <li data-i18n="ingredients.$1">2 teaspoons olive oil</li>
       <li data-i18n="ingredients.$2">salt and pepper</li>
     </ul>
-  </aside>
+  </aside> -->
 </main>

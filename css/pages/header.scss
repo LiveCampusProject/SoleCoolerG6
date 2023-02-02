@@ -73,7 +73,7 @@
             ul {
                 display: flex;
                 justify-content: space-evenly;
-                margin: $space-small;
+                margin: $space_small;
 
                 @media (max-width: $tablet) {
                     justify-content: space-between;
@@ -88,7 +88,7 @@
 
                 li {
                     a {
-                        padding: $space-small;
+                        padding: $space_small;
                         text-decoration: none;
                         color: $black;
 
@@ -98,7 +98,7 @@
                     }
 
                     @media (max-width: $mobile) {
-                        margin: $space-small;
+                        margin: $space_small;
                     }
                 }
             }
@@ -110,8 +110,8 @@
                     display: block;
                     height: 24px;
                     position: absolute;
-                    top: $space-small;
-                    right: $space-small;
+                    top: $space_small;
+                    right: $space_small;
                 }
             }
         }
@@ -133,7 +133,7 @@
                 justify-content: flex-end;
 
                 li {
-                    margin: $space-small;
+                    margin: $space_small;
 
                     form {
                         position: relative;
