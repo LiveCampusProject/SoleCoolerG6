@@ -1,4 +1,12 @@
 #header {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+
     #banner {
         &-top {
             background-color: $color_1;
@@ -97,13 +105,13 @@
             img#mobile-menu-toggle-close {
                 display: none;
 
-              @media (max-width: $mobile) {
-                display: block;
-                height: 24px;
-                position: absolute;
-                top: $space-small;
-                right: $space-small;
-              }
+                @media (max-width: $mobile) {
+                    display: block;
+                    height: 24px;
+                    position: absolute;
+                    top: $space-small;
+                    right: $space-small;
+                }
             }
         }
 
@@ -168,7 +176,7 @@
 
 .toggle {
     &-menu {
-        transform: translateX(100%)!important;
+        transform: translateX(100%) !important;
         transition: transform 1s;
     }
 }

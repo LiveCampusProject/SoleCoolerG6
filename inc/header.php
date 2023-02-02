@@ -1,8 +1,8 @@
 <header id="header">
     <!-- Top Banner -->
-    <div id="banner-top">
+    <!-- <div id="banner-top">
         <div class="container">Livraison en France et à l’international</div>
-    </div>
+    </div> -->
     <!-- End Top Banner -->
 
 

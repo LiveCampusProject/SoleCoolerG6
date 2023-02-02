@@ -19,5 +19,5 @@
     <title><?php echo $titre?> </title>
 </head>
 
-<body>
+<body <?= $bodyId ? 'id="'. $bodyId .'"' : '' ?>>
 
