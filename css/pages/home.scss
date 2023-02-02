@@ -1,7 +1,8 @@
 #index {
     #hero {
         background-image: url('../assets/img/home/Hero\ Bg.jpg');
-        height: 850px;
+        height: 100vh;
+        min-height: 750px;
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -111,16 +112,34 @@
         .contents {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+
+            >img,
+            >div {
+                width: 50%;
+
+                @media (max-width: $mobile) {
+                    width: 100%;
+                }
+            }
+
+            >div {
+
+                >h2,
+                >p,
+                >a {
+                    margin-bottom: $space-standard;
+                }
+            }
         }
 
         .points {
+            background-color: $white;
+
             .grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                text-align: center;
+                @include grid;
 
-                .card {
-
+                .cards {
                     &:nth-of-type(even) {
                         svg {
                             transform-box: fill-box;
@@ -140,19 +159,6 @@
                                 transform-origin: center;
                                 animation: rotate 20s infinite linear alternate-reverse;
                             }
-                        }
-                    }
-
-                    >p {
-                        font-size: 18px;
-                        line-height: 120%;
-
-                        &:first-of-type {
-                            font-weight: bold;
-                        }
-
-                        &:last-of-type {
-                            font-weight: 400;
                         }
                     }
                 }

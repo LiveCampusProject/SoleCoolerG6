@@ -2,6 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color-bg;
 }
 
 ul {
@@ -17,7 +22,7 @@ ul {
     margin: auto;
 
     @media (max-width: $tablet) {
-        padding: 16px;
+        padding: 0 50px;
     }
 }
 

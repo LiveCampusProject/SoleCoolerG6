@@ -41,6 +41,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #E7F3FD;
 }
 
 ul {
@@ -53,7 +58,7 @@ ul {
 }
 @media (max-width: 992px) {
   .container {
-    padding: 16px;
+    padding: 0 50px;
   }
 }
 
@@ -83,20 +88,20 @@ h2.h2-tiny {
 }
 
 .button-1 {
-  color: #efefef;
+  color: #F9F9FA;
   background-color: #E54138;
 }
 .button-1:hover {
-  color: #efefef;
+  color: #F9F9FA;
   background-color: #0C579D;
 }
 
 .button-2 {
-  color: #efefef;
+  color: #F9F9FA;
   background-color: #0C579D;
 }
 .button-2:hover {
-  color: #efefef;
+  color: #F9F9FA;
   background-color: #E54138;
 }
 
@@ -259,7 +264,7 @@ h2.h2-tiny {
     left: -100%;
     bottom: 0;
     background-color: #0C579D;
-    color: #efefef;
+    color: #F9F9FA;
     z-index: 9;
     transform: translateX(0);
     transition: transform 1s;
@@ -290,7 +295,7 @@ h2.h2-tiny {
 }
 @media (max-width: 768px) {
   #header #navbar #main-nav ul li a {
-    color: #efefef;
+    color: #F9F9FA;
   }
 }
 @media (max-width: 768px) {
@@ -369,13 +374,45 @@ h2.h2-tiny {
 }
 
 .menu-bg {
-  background: #efefef !important;
+  background: #F9F9FA !important;
   transition: 0.4s;
+}
+
+footer #reassurance {
+  background-color: #1C2938;
+  color: #F9F9FA;
+}
+footer #reassurance .points .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+@media (max-width: 768px) {
+  footer #reassurance .points .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  footer #reassurance .points .grid .card {
+    padding: 16px 0;
+  }
+}
+footer #reassurance .points .grid .card > p {
+  font-size: 18px;
+  line-height: 120%;
+}
+footer #reassurance .points .grid .card > p:first-of-type {
+  font-weight: bold;
+}
+footer #reassurance .points .grid .card > p:last-of-type {
+  font-weight: 400;
+  margin-top: 16px;
 }
 
 #index #hero {
   background-image: url("../assets/img/home/Hero Bg.jpg");
-  height: 850px;
+  height: 100vh;
+  min-height: 750px;
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -461,26 +498,40 @@ h2.h2-tiny {
 #index #product .contents {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+}
+#index #product .contents > img,
+#index #product .contents > div {
+  width: 50%;
+}
+@media (max-width: 768px) {
+  #index #product .contents > img,
+#index #product .contents > div {
+    width: 100%;
+  }
+}
+#index #product .contents > div > h2,
+#index #product .contents > div > p,
+#index #product .contents > div > a {
+  margin-bottom: 32px;
+}
+#index #product .points {
+  background-color: #F9F9FA;
 }
 #index #product .points .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   text-align: center;
 }
-#index #product .points .grid .card:nth-of-type(even) svg {
-  transform-box: fill-box;
+@media (max-width: 768px) {
+  #index #product .points .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-#index #product .points .grid .card:nth-of-type(even) svg > path:first-of-type {
-  transform-origin: center;
-  -webkit-animation: rotate 20s infinite linear alternate;
-          animation: rotate 20s infinite linear alternate;
-}
-#index #product .points .grid .card:nth-of-type(odd) svg {
-  transform-box: fill-box;
-}
-#index #product .points .grid .card:nth-of-type(odd) svg > path:first-of-type {
-  transform-origin: center;
-  animation: rotate 20s infinite linear alternate-reverse;
+@media (max-width: 768px) {
+  #index #product .points .grid .card {
+    padding: 16px 0;
+  }
 }
 #index #product .points .grid .card > p {
   font-size: 18px;
@@ -491,6 +542,22 @@ h2.h2-tiny {
 }
 #index #product .points .grid .card > p:last-of-type {
   font-weight: 400;
+  margin-top: 16px;
+}
+#index #product .points .grid .cards:nth-of-type(even) svg {
+  transform-box: fill-box;
+}
+#index #product .points .grid .cards:nth-of-type(even) svg > path:first-of-type {
+  transform-origin: center;
+  -webkit-animation: rotate 20s infinite linear alternate;
+          animation: rotate 20s infinite linear alternate;
+}
+#index #product .points .grid .cards:nth-of-type(odd) svg {
+  transform-box: fill-box;
+}
+#index #product .points .grid .cards:nth-of-type(odd) svg > path:first-of-type {
+  transform-origin: center;
+  animation: rotate 20s infinite linear alternate-reverse;
 }
 #index #solecooler {
   background-repeat: no-repeat;
@@ -500,7 +567,7 @@ h2.h2-tiny {
 }
 #index #solecooler div {
   width: 50%;
-  color: #efefef;
+  color: #F9F9FA;
   padding: 100px 0;
 }
 #index #solecooler div h2 {

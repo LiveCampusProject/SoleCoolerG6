@@ -11,9 +11,6 @@ $titre = "SoleCooler";
 $bodyId = "index";
 require_once("./inc/head.php");
 require_once("./inc/header.php");
-// require_once("./inc/nav.php");
-require_once("./inc/footer.php");
-
 ?>
 
 <main>
@@ -46,7 +43,7 @@ require_once("./inc/footer.php");
         CLIMFEET : Conserver vos pieds au chaud ou au frais sans limite de temps
       </p>
 
-      <a href="#" class="button-1">
+      <a href="#product" class="button-1">
         <span>Découvrir</span>
       </a>
     </div>
@@ -90,8 +87,8 @@ require_once("./inc/footer.php");
   </section>
 
 
-  <section id="product" class="container space-arround-m">
-    <div class="contents">
+  <section id="product">
+    <div class="contents container">
 
       <img src="./assets/img/products/Produit SoleCooler.png" alt="">
 
@@ -108,8 +105,8 @@ require_once("./inc/footer.php");
       </div>
     </div>
 
-    <div class="points">
-      <div class="grid">
+    <div class="points space-arround-p">
+      <div class="grid container">
         <div class="card">
           <svg xmlns="http://www.w3.org/2000/svg" width="66" height="71" viewBox="0 0 66 71" fill="none">
             <path d="M11.0869 62.7982C-4.39152 41.5319 27.1135 0.72682 55.1036 18.2716C90.0913 40.2026 31.4023 90.7103 11.0869 62.7982Z" fill="#E7F3FD" />
@@ -190,7 +187,7 @@ require_once("./inc/footer.php");
 
 
   <section id="solecooler" style="background-image: url('./assets/img/home/solecooler_bg.jpg');">
-    <div class="container" >
+    <div class="container">
       <h2>SoleCooler : Inspiré par la Nature / Activé par vos pieds</h2>
       <p>Créée en 2019, SoleCooler a développé une semelle thermo-régulée : la CLIMFEET. Grâce à ses multiples alvéoles remplies d’air, la semelle CLIMFEET convertit directement l’énergie mécanique des pas de l'utilisateur en chaleur et en froid.</p>
       <a href="#" class="button-2">
@@ -223,3 +220,7 @@ require_once("./inc/footer.php");
     </ul>
   </aside> -->
 </main>
+
+<?php
+require_once("./inc/footer.php");
+?>
