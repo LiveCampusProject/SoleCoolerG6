@@ -23,8 +23,15 @@ ul {
 
 .space {
     &-arround {
-        margin-top: $space-large;
-        margin-bottom: $space-large;
+        &-m {
+            margin-top: $space-large;
+            margin-bottom: $space-large;
+        }
+
+        &-p {
+            padding-top: $space-large;
+            padding-bottom: $space-large;
+        }
     }
 }
 

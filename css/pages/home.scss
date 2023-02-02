@@ -114,7 +114,89 @@
         }
 
         .points {
-            
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                text-align: center;
+
+                .card {
+
+                    &:nth-of-type(even) {
+                        svg {
+                            transform-box: fill-box;
+
+                            >path:first-of-type {
+                                transform-origin: center;
+                                animation: rotate 20s infinite linear alternate;
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(odd) {
+                        svg {
+                            transform-box: fill-box;
+
+                            >path:first-of-type {
+                                transform-origin: center;
+                                animation: rotate 20s infinite linear alternate-reverse;
+                            }
+                        }
+                    }
+
+                    >p {
+                        font-size: 18px;
+                        line-height: 120%;
+
+                        &:first-of-type {
+                            font-weight: bold;
+                        }
+
+                        &:last-of-type {
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
         }
+    }
+
+
+    #solecooler {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+
+        div {
+            width: 50%;
+            color: $white;
+            padding: 100px 0;
+
+            h2 {
+                font-size: 26px;
+                font-weight: 600;
+                margin-bottom: $space-small;
+            }
+
+            p {
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: $space-large;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-90deg)scale(1);
+    }
+
+    50% {
+        transform: rotate(0)scale(.75);
+    }
+
+    100% {
+        transform: rotate(90)scale(1);
     }
 }

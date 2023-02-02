@@ -57,9 +57,13 @@ ul {
   }
 }
 
-.space-arround {
+.space-arround-m {
   margin-top: 40px;
   margin-bottom: 40px;
+}
+.space-arround-p {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 h2.h2-tiny {
@@ -454,7 +458,82 @@ h2.h2-tiny {
   opacity: 0.1;
   font-family: oxygen;
 }
-#index #product > div {
+#index #product .contents {
   display: flex;
   align-items: center;
+}
+#index #product .points .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center;
+}
+#index #product .points .grid .card:nth-of-type(even) svg {
+  transform-box: fill-box;
+}
+#index #product .points .grid .card:nth-of-type(even) svg > path:first-of-type {
+  transform-origin: center;
+  -webkit-animation: rotate 20s infinite linear alternate;
+          animation: rotate 20s infinite linear alternate;
+}
+#index #product .points .grid .card:nth-of-type(odd) svg {
+  transform-box: fill-box;
+}
+#index #product .points .grid .card:nth-of-type(odd) svg > path:first-of-type {
+  transform-origin: center;
+  animation: rotate 20s infinite linear alternate-reverse;
+}
+#index #product .points .grid .card > p {
+  font-size: 18px;
+  line-height: 120%;
+}
+#index #product .points .grid .card > p:first-of-type {
+  font-weight: bold;
+}
+#index #product .points .grid .card > p:last-of-type {
+  font-weight: 400;
+}
+#index #solecooler {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+#index #solecooler div {
+  width: 50%;
+  color: #efefef;
+  padding: 100px 0;
+}
+#index #solecooler div h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+#index #solecooler div p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(-90deg) scale(1);
+  }
+  50% {
+    transform: rotate(0) scale(0.75);
+  }
+  100% {
+    transform: rotate(90) scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg) scale(1);
+  }
+  50% {
+    transform: rotate(0) scale(0.75);
+  }
+  100% {
+    transform: rotate(90) scale(1);
+  }
 }/*# sourceMappingURL=main.css.map */
