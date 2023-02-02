@@ -1,12 +1,16 @@
 // Variables
+@import '_variables';
 @import '_fonts';
 @import '_colors';
 @import '_animations';
 @import '_responsive';
+@import '_init';
 
 // Components
 @import 'components/buttons';
+@import 'components/brands_slider';
 
 // Styles
-@import 'pages/header'; 
-@import 'pages/page'; 
+@import 'pages/header';
+@import 'pages/home';
+@import 'pages/page';
