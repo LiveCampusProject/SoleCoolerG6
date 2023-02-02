@@ -30,9 +30,15 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   openMenu();
+
+  scrollMenu();
 });
 
 
+
+/**
+ * Toggle Menu
+ */
 const openMenu = () => {
   const nav = document.querySelector('#main-nav');
 
@@ -47,5 +53,29 @@ const openMenu = () => {
   });
   document.querySelector('#mobile-menu-toggle-close').addEventListener('click', () => {
     nav.classList.toggle('toggle-menu');
+  });
+}
+
+
+/**
+ * Scrolling Menu
+ */
+const scrollMenu = () => {
+  const nav = document.querySelector('#header');
+  const top = nav.offsetTop;
+
+  if (window.scrollY <= 100) {
+    nav.classList.remove('menu-bg');
+  }
+
+  window.addEventListener('scroll', () => {
+
+    if (window.scrollY > 100) {
+      nav.classList.add('menu-bg');
+      nav.style.top = '0';
+    } else if (window.scrollY < 100) {
+      nav.classList.remove('menu-bg');
+      nav.style.top = top + 'px';
+    }
   });
 }

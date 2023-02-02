@@ -1,10 +1,11 @@
 #header {
     background: transparent;
     position: fixed;
-    top: 0;
+    top: $space-extra-2-large;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 999;
+    transition: .4s;
 
 
     #banner {
@@ -89,7 +90,7 @@
                     a {
                         padding: $space-small;
                         text-decoration: none;
-                        padding: $space-small;
+                        color: $black;
 
                         @media (max-width: $mobile) {
                             color: $white;
@@ -152,6 +153,7 @@
                             border: none;
                             font-size: $font-normal;
                             font-weight: bold;
+                            background: transparent;
                         }
                     }
 
@@ -177,6 +179,11 @@
 .toggle {
     &-menu {
         transform: translateX(100%) !important;
-        transition: transform 1s;
+        transition: transform .4s;
     }
+}
+
+.menu-bg {
+    background: $white !important;
+    transition: .4s;
 }
