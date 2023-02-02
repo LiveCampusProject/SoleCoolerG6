@@ -1,7 +1,7 @@
 #index {
     #hero {
         background-image: url('../assets/img/home/Hero\ Bg.jpg');
-        height: 100vh;
+        height: 850px;
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -27,6 +27,7 @@
         }
 
         >div.corner {
+
             &-top,
             &-bottom {
                 position: relative;
@@ -34,32 +35,32 @@
             }
 
             &-top {
-                > svg {
+                >svg {
                     position: absolute;
                     left: -20px;
                     top: -20px;
-                
-                    &:first-of-type {
+
+                    >path:first-of-type {
                         animation: wavesEffectLeft infinite 10s ease-in-out alternate;
                     }
 
-                    &:last-of-type {
+                    >path:last-of-type {
                         animation: wavesEffectLeft infinite 5s ease-in-out alternate-reverse;
                     }
                 }
             }
 
             &-bottom {
-                > svg {
+                >svg {
                     position: absolute;
                     right: -20px;
                     bottom: -20px;
 
-                    &:first-of-type {
+                    >path:first-of-type {
                         animation: wavesEffectRight infinite 10s ease-in-out alternate;
                     }
 
-                    &:last-of-type {
+                    >path:last-of-type {
                         animation: wavesEffectRight infinite 5s ease-in-out alternate-reverse;
                     }
                 }
@@ -76,17 +77,32 @@
                 max-width: var(--width);
                 font-size: 49px;
                 font-weight: 600;
-                
+                line-height: 120%;
+
                 b {
                     font-size: 62px;
                 }
             }
-            
+
             p {
                 max-width: var(--width);
                 font-size: 26px;
-                font-weight: 200;    
+                font-weight: 200;
+                margin-top: $space-standard;
+                margin-bottom: $space-large;
             }
+        }
+
+        #bg-text {
+            -webkit-text-stroke-color: white;
+            color: transparent;
+            -webkit-text-stroke-width: 3px;
+            font-size: 150px;
+            position: absolute;
+            bottom: 25%;
+            right: 0;
+            opacity: .1;
+            font-family: oxygen;
         }
     }
 }
@@ -96,17 +112,18 @@
     from {
         transform: translate(0);
     }
-    
+
     to {
-        transform: translate(20px,20px);
+        transform: translate(20px, 20px);
     }
 }
+
 @keyframes wavesEffectRight {
     from {
         transform: translate(0);
     }
-    
+
     to {
-        transform: translate(-20px,-20px);
+        transform: translate(-20px, -20px);
     }
 }

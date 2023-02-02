@@ -1,15 +1,18 @@
 #index #hero {
   background-image: url("../assets/img/home/Hero Bg.jpg");
-  height: 100vh;
+  height: 850px;
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 #index #hero::after {
-  content: "";
+  content: '';
   height: 100%;
   width: 100%;
   position: absolute;
@@ -23,83 +26,107 @@
   background-size: contain;
   pointer-events: none;
 }
+
 #index #hero > div.corner-top, #index #hero > div.corner-bottom {
   position: relative;
   pointer-events: none;
 }
+
 #index #hero > div.corner-top > svg {
   position: absolute;
   left: -20px;
   top: -20px;
 }
-#index #hero > div.corner-top > svg:first-of-type {
+
+#index #hero > div.corner-top > svg > path:first-of-type {
   -webkit-animation: wavesEffectLeft infinite 10s ease-in-out alternate;
           animation: wavesEffectLeft infinite 10s ease-in-out alternate;
 }
-#index #hero > div.corner-top > svg:last-of-type {
+
+#index #hero > div.corner-top > svg > path:last-of-type {
   animation: wavesEffectLeft infinite 5s ease-in-out alternate-reverse;
 }
+
 #index #hero > div.corner-bottom > svg {
   position: absolute;
   right: -20px;
   bottom: -20px;
 }
-#index #hero > div.corner-bottom > svg:first-of-type {
+
+#index #hero > div.corner-bottom > svg > path:first-of-type {
   -webkit-animation: wavesEffectRight infinite 10s ease-in-out alternate;
           animation: wavesEffectRight infinite 10s ease-in-out alternate;
 }
-#index #hero > div.corner-bottom > svg:last-of-type {
+
+#index #hero > div.corner-bottom > svg > path:last-of-type {
   animation: wavesEffectRight infinite 5s ease-in-out alternate-reverse;
 }
+
 #index #hero .container {
   width: 100%;
   z-index: 2;
   --width: 710px;
 }
+
 #index #hero .container h1 {
   max-width: var(--width);
   font-size: 49px;
   font-weight: 600;
+  line-height: 120%;
 }
+
 #index #hero .container h1 b {
   font-size: 62px;
 }
+
 #index #hero .container p {
   max-width: var(--width);
   font-size: 26px;
   font-weight: 200;
+  margin-top: var();
 }
 
 @-webkit-keyframes wavesEffectLeft {
   from {
-    transform: translate(0);
+    -webkit-transform: translate(0);
+            transform: translate(0);
   }
   to {
-    transform: translate(20px, 20px);
+    -webkit-transform: translate(20px, 20px);
+            transform: translate(20px, 20px);
   }
 }
 
 @keyframes wavesEffectLeft {
   from {
-    transform: translate(0);
+    -webkit-transform: translate(0);
+            transform: translate(0);
   }
   to {
-    transform: translate(20px, 20px);
+    -webkit-transform: translate(20px, 20px);
+            transform: translate(20px, 20px);
   }
 }
+
 @-webkit-keyframes wavesEffectRight {
   from {
-    transform: translate(0);
+    -webkit-transform: translate(0);
+            transform: translate(0);
   }
   to {
-    transform: translate(-20px, -20px);
+    -webkit-transform: translate(-20px, -20px);
+            transform: translate(-20px, -20px);
   }
 }
+
 @keyframes wavesEffectRight {
   from {
-    transform: translate(0);
+    -webkit-transform: translate(0);
+            transform: translate(0);
   }
   to {
-    transform: translate(-20px, -20px);
+    -webkit-transform: translate(-20px, -20px);
+            transform: translate(-20px, -20px);
   }
-}/*# sourceMappingURL=home.css.map */
+}
+/*# sourceMappingURL=home.css.map */

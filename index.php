@@ -11,7 +11,7 @@ $titre = "SoleCooler";
 $bodyId = "index";
 require_once("./inc/head.php");
 require_once("./inc/header.php");
-require_once("./inc/nav.php");
+// require_once("./inc/nav.php");
 require_once("./inc/footer.php");
 
 ?>
@@ -19,11 +19,19 @@ require_once("./inc/footer.php");
 <main>
   <div id="hero">
     <div class="corner-top">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1126" height="397" viewBox="0 0 1126 397" fill="none">
-        <path opacity="0.65" d="M0.320923 396.029C0.32092 368.91 0.278652 1.53809 0.278652 1.53809L1125.3 0.693481C994.752 21.8124 693.328 100.802 531.993 247.807C370.658 394.813 85.3573 396.029 0.320923 396.029Z" fill="#FF0000" fill-opacity="0.61" />
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="1131" height="333" viewBox="0 0 1131 333" fill="none">
-        <path opacity="0.15" d="M1.09387 332.37C1.09387 309.801 -0.000395224 0.500007 -0.000395224 0.500007L1130.05 -0.000213623C999.044 17.575 696.565 86.6803 534.656 209.019C372.748 331.358 86.4325 332.37 1.09387 332.37Z" fill="#E54138" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="1132" height="396" viewBox="0 0 1132 396" fill="none">
+        <path opacity="0.15" d="M2.09094 332.678C2.09094 310.109 0.996675 0.808113 0.996675 0.808113L1131.05 0.307892C1000.04 17.8831 697.562 86.9884 535.653 209.327C373.745 331.666 87.4296 332.678 2.09094 332.678Z" fill="url(#paint0_radial_194_4876)" />
+        <path opacity="0.65" d="M1.31799 395.337C1.31799 368.218 1.27572 0.84571 1.27572 0.84571L1126.29 0.00109863C995.749 21.12 694.325 100.109 532.99 247.115C371.655 394.121 86.3544 395.337 1.31799 395.337Z" fill="url(#paint1_radial_194_4876)" />
+        <defs>
+          <radialGradient id="paint0_radial_194_4876" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1024.55 66.5878) rotate(65.6349) scale(330.87 1068.82)">
+            <stop stop-color="#E54138" />
+            <stop offset="1" stop-color="#E54138" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint1_radial_194_4876" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020.27 78.8375) rotate(69.2405) scale(383.391 1092.26)">
+            <stop stop-color="#E54138" />
+            <stop offset="1" stop-color="#E54138" stop-opacity="0" />
+          </radialGradient>
+        </defs>
       </svg>
     </div>
 
@@ -39,42 +47,31 @@ require_once("./inc/footer.php");
       </p>
 
       <a href="#" class="button-1">
-        <span>J'achète</span>
+        <span>Découvrir</span>
       </a>
     </div>
 
-    <span>SoleCooler</span>
+    <span id="bg-text">SoleCooler</span>
 
     <div class="corner-bottom">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1442" height="846" viewBox="0 0 1442 846" fill="none">
-        <path opacity="0.55" d="M1442 0.240234C1442 58.2402 1440.5 845.741 1440.5 845.741H0C167.333 800.574 553.7 631.641 760.5 317.241C967.3 2.84079 1333 0.240192 1442 0.240234Z" fill="#0C579D" />
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="1441" height="847" viewBox="0 0 1441 847" fill="none">
-        <path opacity="0.2" d="M1440.5 0.240156C1440.5 58.2744 1438.92 846.24 1438.92 846.24H0.50024C0.49992 828.74 0.500561 837.24 0.5 823.427C199.08 756.484 537.781 570.478 728 295.24C945.412 -19.3455 1325.91 0.240114 1440.5 0.240156Z" fill="#0C579D" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="847" viewBox="0 0 1440 847" fill="none">
+        <path opacity="0.55" d="M1439.5 1C1439.5 59 1438 846.5 1438 846.5H-2.5C164.833 801.334 551.2 632.401 758 318.001C964.8 3.60056 1330.5 0.999958 1439.5 1Z" fill="url(#paint0_radial_194_4872)" />
+        <path opacity="0.2" d="M1440 0.999917C1440 59.0342 1438.42 847 1438.42 847H7.23544e-05C-0.000248077 829.5 0.000800729 804.813 0.000239968 791C198.58 724.057 537.281 571.237 727.5 296C944.912 -18.5858 1325.41 0.999875 1440 0.999917Z" fill="url(#paint1_radial_194_4872)" />
+        <defs>
+          <radialGradient id="paint0_radial_194_4872" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(718.5 423.75) rotate(90) scale(422.75 721)">
+            <stop stop-color="#0C579D" />
+            <stop offset="1" stop-color="#0C579D" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint1_radial_194_4872" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 423.88) rotate(90) scale(423.12 720)">
+            <stop stop-color="#0C579D" />
+            <stop offset="1" stop-color="#0C579D" stop-opacity="0" />
+          </radialGradient>
+        </defs>
       </svg>
     </div>
   </div>
 
 
-  <div>
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="142" viewBox="0 0 1440 142" fill="none">
-      <g filter="url(#filter0_d_147_2609)">
-        <path d="M-1 58L103.145 35.5L187.261 78.5L306.927 35.5L418.082 78.5L449.125 47L513.714 78.5L693.965 20L856.69 58L952.323 35.5L1066.48 58L1223.2 20L1296.3 58L1365.4 20L1440 58V122H-1V58Z" fill="white" />
-      </g>
-      <defs>
-        <filter id="filter0_d_147_2609" x="-6" y="0" width="1481" height="142" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-          <feOffset dx="15" />
-          <feGaussianBlur stdDeviation="10" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_147_2609" />
-          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_147_2609" result="shape" />
-        </filter>
-      </defs>
-    </svg>
-  </div>
 
 
 

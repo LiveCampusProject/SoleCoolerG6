@@ -1,3 +1,9 @@
+<?php 
+  session_start(); 
+  if (!isset($_SESSION['loggedin'])): 
+?>
+
+
 <header id="header">
     <!-- Top Banner -->
     <!-- <div id="banner-top">
@@ -52,3 +58,4 @@
     <!-- End Navbar -->
 
 </header>
+<?php endif ?>

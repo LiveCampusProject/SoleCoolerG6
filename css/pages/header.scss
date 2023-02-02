@@ -9,7 +9,7 @@
 
     #banner {
         &-top {
-            background-color: $color_1;
+            background-color: $blue;
             text-align: center;
             min-height: 50px;
             display: flex;
@@ -62,7 +62,7 @@
                 left: -100%;
                 // right: 0;
                 bottom: 0;
-                background-color: $color_1;
+                background-color: $blue;
                 color: $white;
                 z-index: 9;
                 transform: translateX(0);

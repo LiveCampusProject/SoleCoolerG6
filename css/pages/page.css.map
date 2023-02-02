@@ -1,1 +1,9 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"page.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "page.scss"
+    ],
+    "names": [],
+    "file": "page.css"
+}
