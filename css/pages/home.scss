@@ -186,23 +186,9 @@
 
             p {
                 font-size: 18px;
-                font-weight: 400;
+                font-weight: 200;
                 margin-bottom: $space-large;
             }
         }
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(-90deg)scale(1);
-    }
-
-    50% {
-        transform: rotate(0)scale(.75);
-    }
-
-    100% {
-        transform: rotate(90)scale(1);
     }
 }

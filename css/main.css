@@ -37,6 +37,28 @@
     transform: translate(-20px, -20px);
   }
 }
+@-webkit-keyframes rotate {
+  0% {
+    transform: rotate(-90deg) scale(1);
+  }
+  50% {
+    transform: rotate(0) scale(0.75);
+  }
+  100% {
+    transform: rotate(90) scale(1);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-90deg) scale(1);
+  }
+  50% {
+    transform: rotate(0) scale(0.75);
+  }
+  100% {
+    transform: rotate(90) scale(1);
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -408,6 +430,73 @@ footer #reassurance .points .grid .card > p:last-of-type {
   font-weight: 400;
   margin-top: 16px;
 }
+footer .info {
+  text-align: center;
+  margin: 64px auto;
+}
+footer .footer-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 992px) {
+  footer .footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  footer .footer-nav {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+footer .footer-nav > div {
+  margin-bottom: 32px;
+}
+footer .footer-nav > div > p {
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 32px;
+}
+footer .footer-nav > div > p::after {
+  content: "";
+  height: 100%;
+  width: 75px;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  border-bottom: 2px solid #031221;
+}
+footer .footer-nav > div > ul > li {
+  margin-bottom: 16px;
+}
+footer .footer-nav > div > ul > li a {
+  text-decoration: none;
+}
+footer .footer-nav > div > ul.contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+footer .footer-socials {
+  text-align: center;
+  margin: 16px 0;
+}
+footer .footer-socials ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+footer .copyright {
+  background-color: #1C2938;
+}
+footer .copyright p {
+  text-align: center;
+  color: #F9F9FA;
+  font-size: 12px;
+  padding: 16px 0;
+}
 
 #index #hero {
   background-image: url("../assets/img/home/Hero Bg.jpg");
@@ -576,30 +665,6 @@ footer #reassurance .points .grid .card > p:last-of-type {
 }
 #index #solecooler div p {
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 200;
   margin-bottom: 40px;
-}
-
-@-webkit-keyframes rotate {
-  0% {
-    transform: rotate(-90deg) scale(1);
-  }
-  50% {
-    transform: rotate(0) scale(0.75);
-  }
-  100% {
-    transform: rotate(90) scale(1);
-  }
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(-90deg) scale(1);
-  }
-  50% {
-    transform: rotate(0) scale(0.75);
-  }
-  100% {
-    transform: rotate(90) scale(1);
-  }
 }/*# sourceMappingURL=main.css.map */
