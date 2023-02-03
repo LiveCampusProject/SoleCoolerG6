@@ -1,5 +1,5 @@
 <?php
-    require_once '../inc/utils.php';
+    require_once './inc/utils.php';
     // On appelle la fonction d'ajout de produit
     $users = users();
     [$var1, $var2 , $produits] = produits();
@@ -8,7 +8,7 @@
     $commande = commandeModifier();
 ?>
 
-<?php require_once '../inc/head.php'; ?>
+<?php require_once './inc/head.php'; ?>
 
 <!-- Là c'est le contenu spécifique de la page -->
 <!-- Au dessus c'est habituel, toujours pareil -->
@@ -148,4 +148,4 @@
         </div>
     </div>
 <?php } ?>
-<?php include_once '../inc/footer.php'; ?>
+<?php include_once './inc/footer.php'; ?>

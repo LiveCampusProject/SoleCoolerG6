@@ -6,9 +6,10 @@
 
 $js = "";
 $css ="";
+$bodyId = "index-backoffice";
 $titre = "SoleCooler";
 
-require_once '../inc/utils.php';
+require_once './inc/utils.php';
 // On appelle listeProduits qui renverra la liste des produits
 [$titre, $description, $produits] = produits();
 $avis = avis();
@@ -17,7 +18,7 @@ $commandes = commandes();
  
 ?>
 
-<?php require_once '../inc/head.php'; ?>
+<?php require_once './inc/head.php'; ?>
 <!-- Là c'est le contenu spécifique de la page -->
 <!-- Au dessus c'est habituel, toujours pareil -->
 
@@ -72,7 +73,7 @@ $commandes = commandes();
                                 <td><?= $produit['reference'] ?></td>
                                 <td><?= $produit['price'] ?> €</td>
                                 <td class="text-center">
-                                    <a href="voir-produit.php?referenceProduit=<?= $produit['reference'] ?>">
+                                    <a href="voir-details.php?referenceProduit=<?= $produit['reference'] ?>">
                                         Voir le produit
                                     </a>
                                 </td>
@@ -116,7 +117,7 @@ $commandes = commandes();
                                     <td><?= $avi['note'] ?></td>
                                     <td><?= $avi['description'] ?></td>
                                     <td class="text-center">
-                                        <a href="voir-produit.php?referenceAvis=<?= $avi['avisID'] ?>">
+                                        <a href="voir-details.php?referenceAvis=<?= $avi['avisID'] ?>">
                                             Voir avis
                                         </a>
                                     </td>
@@ -228,4 +229,4 @@ $commandes = commandes();
 </div>
 
 
-<?php include_once '../inc/footer.php'; ?>
+<?php include_once './inc/footer.php'; ?>

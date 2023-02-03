@@ -140,7 +140,7 @@ class Translator {
         languages: ["en"],
         defaultLanguage: "",
         detectLanguage: true,
-        filesLocation: "/SoleCoolerG6/i18n"
+        filesLocation: "/i18n"
       };
     }
   }
