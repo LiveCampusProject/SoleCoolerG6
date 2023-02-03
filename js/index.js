@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
   openMenu();
 
   scrollMenu();
+
+  animateHero();
+
+
 });
 
 
@@ -80,9 +84,10 @@ const scrollMenu = () => {
   });
 }
 
-
+/**
+ * Brand Slider
+ */
 $(document).ready(function(){
-  console.log('OK');
   $('.customer-logos').slick({
       slidesToShow: 6,
       slidesToScroll: 1,
@@ -104,3 +109,20 @@ $(document).ready(function(){
       }]
   });
 });
+
+
+const animateHero = () => {
+  const header = document.querySelector('#header');
+  const hero = document.querySelector('#hero');
+  const ct = document.querySelector('.corner-top');
+  const cb = document.querySelector('.corner-bottom');
+  const bgt = document.querySelector('#bg-text');
+
+  const tl = new TimelineMax();
+
+  tl.fromTo(hero, 1, {height: "0vh"}, {height: '100vh', minHeight: '750px', ease: Power2.easeInOut})
+  .fromTo(header, 1, {opacity: "0"}, {opacity: '1', ease: Power2.easeInOut})
+  .fromTo(ct, 4, {top: "-100%"}, {top: '0%', ease: Power2.easeInOut}, "-=1")
+  .fromTo(cb, 4, {bottom: "-100%"}, {bottom: '0%', ease: Power2.easeInOut}, "-=4")
+  .fromTo(bgt, 1.2, {opacity: "0"}, {opacity: '0.1', ease: Power2.easeInOut});
+}

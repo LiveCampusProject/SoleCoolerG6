@@ -1,7 +1,8 @@
 #index {
     #hero {
         background-image: url('../assets/img/home/Hero\ Bg.jpg');
-        height: 850px;
+        height: 100vh;
+        // min-height: 750px;
         background-position: bottom center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -111,10 +112,97 @@
         .contents {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+
+            >img,
+            >div {
+                width: 50%;
+
+                @media (max-width: $mobile) {
+                    width: 100%;
+                }
+            }
+
+            >div {
+
+                >h2,
+                >p,
+                >a {
+                    margin-bottom: $space-standard;
+                }
+            }
         }
 
         .points {
-            
+            background-color: $white;
+
+            .grid {
+                @include grid;
+
+                .cards {
+                    &:nth-of-type(even) {
+                        svg {
+                            transform-box: fill-box;
+
+                            >path:first-of-type {
+                                transform-origin: center;
+                                animation: rotate 20s infinite linear alternate;
+                            }
+                        }
+                    }
+
+                    &:nth-of-type(odd) {
+                        svg {
+                            transform-box: fill-box;
+
+                            >path:first-of-type {
+                                transform-origin: center;
+                                animation: rotate 20s infinite linear alternate-reverse;
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+
+
+    #solecooler {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+
+        div {
+            width: 50%;
+            color: $white;
+            padding: 100px 0;
+
+            h2 {
+                font-size: 26px;
+                font-weight: 600;
+                margin-bottom: $space-small;
+            }
+
+            p {
+                font-size: 18px;
+                font-weight: 400;
+                margin-bottom: $space-large;
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-90deg)scale(1);
+    }
+
+    50% {
+        transform: rotate(0)scale(.75);
+    }
+
+    100% {
+        transform: rotate(90)scale(1);
     }
 }

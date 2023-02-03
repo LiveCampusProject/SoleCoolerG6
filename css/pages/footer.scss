@@ -1,0 +1,12 @@
+footer {
+    #reassurance {
+        background-color: $color-separator;
+        color: $white;
+
+        .points {
+            .grid {
+                @include grid;
+            }
+        }
+    }
+}
