@@ -1,5 +1,8 @@
 <?php
 	require_once '../inc/utils.php';
-	supprimer();
-	header('Location: ./produits.php')
+	produitSupprimer();
+	avisSupprimer();
+	userSupprimer();
+	commandeSupprimer();
+	//header('Location: ./index.php')
 ?>

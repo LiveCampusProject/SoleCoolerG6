@@ -1,7 +1,7 @@
 <?php
 require_once '../inc/utils.php';
 // On appelle la fonction d'ajout de produit
-$info = ajouterProduit();
+$info = ajouterUser();
 
 ?>
 
@@ -13,7 +13,7 @@ $info = ajouterProduit();
 
 <div class="container mt-3">
     <div class="row">
-        <h1 class="text-center">Ajouter un produit</h1>
+        <h1 class="text-center">Ajouter un utilisateur</h1>
     </div>
     
     <!-- Message d'erreur ou de succès de l'ajout -->
@@ -30,36 +30,32 @@ $info = ajouterProduit();
         ?>
     </div>
     <div class="row">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST">
             <div class="row">
                 <div class="col">
-                    <label for="reference" class="form-label">Référence</label>
-                    <input type="text" name="reference" id="reference" class="form-control" required />
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" name="name" id="name" class="form-control" required />
                 </div>
                 <div class="col">
-                    <label for="libelle" class="form-label">Libellé</label>
-                    <input type="text" name="libelle" id="libelle" class="form-control" required />
+                    <label for="mail" class="form-label">Email</label>
+                    <input type="email" name="mail" id="mail" class="form-control" required />
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" name="description" id="description" class="form-control" required />
+                <div class="col align-items-center d-flex">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="administrateur" id="administrateur">
+                        <label class="form-check-label" for="administrateur">Administrateur</label>
+                    </div>
                 </div>
                 <div class="col">
-                    <label for="price" class="form-label">Prix</label>
-                    <input type="number" name="price" id="price" class="form-control" required />
-                </div>
-            </div> <br>
-            <div class="row">
-                <div class="col">
-                    <label for="productFile" class="form-label">Choisir un fichier</label>
-                    <input class="form-control" type="file" id="productFile" name="productFile">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" id="password" class="form-control" required />
                 </div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
-                    <input type="submit" value="Envoyer" class="btn btn-success"/>
+                    <input type="submit" value="Ajouter" class="btn btn-success"/>
                 </div>
             </div>
         </form>
