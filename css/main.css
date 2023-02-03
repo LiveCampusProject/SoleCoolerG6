@@ -412,7 +412,6 @@ footer #reassurance .points .grid .card > p:last-of-type {
 #index #hero {
   background-image: url("../assets/img/home/Hero Bg.jpg");
   height: 100vh;
-  min-height: 750px;
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;

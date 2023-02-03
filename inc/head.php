@@ -14,14 +14,22 @@
     <?php if (!$css == "") : ?>
         <link rel="stylesheet" href=<?php echo $css ?>>
     <?php endif ?>
-    <?php if (!$js == "") : ?>
-        <script type="text/javascript" src=<?php echo $js ?>></script>
-    <?php endif ?>
+
 
 
     <!-- CDN -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+
+    <!-- Page Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+
+
+    <?php if (!$js == "") : ?>
+        <script type="text/javascript" src=<?php echo $js ?>></script>
+    <?php endif ?>
+
 
 
     <title><?php echo $titre ?> </title>
