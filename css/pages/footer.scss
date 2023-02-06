@@ -9,4 +9,93 @@ footer {
             }
         }
     }
+
+    .info {
+        text-align: center;
+        margin: 64px auto;
+    }
+
+    .footer {
+        &-nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            @media (max-width: $tablet) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: $mobile) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            >div {
+                margin-bottom: 32px;
+                
+                >p {
+                    font-size: 18px;
+                    font-weight: bold;
+                    position: relative;
+                    margin-bottom: 32px;
+
+                    &::after {
+                        content: '';
+                        height: 100%;
+                        width: 75px;
+                        position: absolute;
+                        left: 0;
+                        bottom: -4px;
+                        border-bottom: 2px solid $black;
+                    }
+                }
+
+                >ul {
+                    >li {
+                        margin-bottom: 16px;
+
+                        a {
+                            text-decoration: none;
+                            color: $black;
+
+                            &:hover {
+                                color: $red;
+                            }
+                        }
+                    }
+
+                    &.contact {
+                        li {
+                            display: flex;
+                            align-items: flex-start;
+                            gap: 16px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-socials {
+            text-align: center;
+            margin: $space-small 0;
+
+            ul {
+                display: inline-flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+            }
+        }
+
+    }
+
+    .copyright {
+        background-color: $color-separator;
+
+        p {
+            text-align: center;
+            color: $white;
+            font-size: 12px;
+            padding: $space-small 0;
+        }
+    }
 }

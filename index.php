@@ -14,6 +14,7 @@ require_once("./inc/header.php");
 ?>
 
 <main>
+  <!-- Hero -->
   <div id="hero">
     <div class="corner-top">
       <svg xmlns="http://www.w3.org/2000/svg" width="1132" height="396" viewBox="0 0 1132 396" fill="none">
@@ -67,8 +68,10 @@ require_once("./inc/header.php");
       </svg>
     </div>
   </div>
+  <!-- End Hero -->
 
 
+  <!-- Partnership -->
   <section class="container space-arround-m">
     <h2 class="h2-tiny">Nos partenaires</h2>
     <div class="customer-logos slider">
@@ -85,8 +88,10 @@ require_once("./inc/header.php");
       <!-- <div class="slide"><img src="./assets/img/logos/"></div> -->
     </div>
   </section>
+  <!-- Enf Partnership -->
 
 
+  <!-- Product -->
   <section id="product">
     <div class="contents container">
 
@@ -184,8 +189,10 @@ require_once("./inc/header.php");
       </div>
     </div>
   </section>
+  <!-- End Product -->
 
 
+  <!-- Company -->
   <section id="solecooler" style="background-image: url('./assets/img/home/solecooler_bg.jpg');">
     <div class="container">
       <h2>SoleCooler : Inspiré par la Nature / Activé par vos pieds</h2>
@@ -195,9 +202,178 @@ require_once("./inc/header.php");
       </a>
     </div>
   </section>
+  <!-- End Company -->
+
+
+  <!-- Comments -->
+  <section id="comments">
+
+    <div class="container space-arround-m">
+      <h2 class="h2-tiny">Ils nous ont fait confiance</h2>
+
+      <div class="swiper-container swiper-testimonial">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="review-box">
+              <div class="header">
+                <img src="./assets/img/comments/Vanessa-1920w.webp" alt="Generic placeholder image">
+                <div class="media-body">
+                  <div class="title">Vanessa Moralès</div>
+                  <p class="user-post">Athlète de haut niveau</p>
+                </div>
+              </div>
+
+              <p>
+                J'utilise les semelles CLIMFEET durant mes entraînements et mes défis sportifs les plus fous ! Ce fut le cas lors de l'Ultra Run Raramuri en avril 2022 : une course de 190 km dans les Canyons du Mexique. J'ai ainsi pu les porter côté chaud durant la nuit et côté froid en journée. Amateurs ou professionnels, je recommande !
+              </p>
+
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-box">
+              <div class="header">
+                <img src="https://picsum.photos/id/4/50/50" alt="Generic placeholder image">
+                <div class="media-body">
+                  <div class="title">Amanda Jackson</div>
+                  <p class="user-post">CEO, NRD Group</p>
+                </div>
+              </div>
+
+              <p>
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the race.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-box">
+              <div class="header">
+                <img src="https://picsum.photos/id/3/50/50" alt="Generic placeholder image">
+                <div class="media-body">
+                  <div class="title">Amanda Jackson</div>
+                  <p class="user-post">CEO, NRD Group</p>
+                </div>
+              </div>
+
+              <p>
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the race.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-box">
+              <div class="header">
+                <img src="https://picsum.photos/id/2/50/50" alt="Generic placeholder image">
+                <div class="media-body">
+                  <div class="title">Amanda Jackson</div>
+                  <p class="user-post">CEO, NRD Group</p>
+                </div>
+              </div>
+
+              <p>
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the race.
+              </p>
+
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="review-box">
+              <div class="header">
+                <img src="https://picsum.photos/id/1/50/50" alt="Generic placeholder image">
+                <div class="media-body">
+                  <div class="title">Amanda Jackson</div>
+                  <p class="user-post">CEO, NRD Group</p>
+                </div>
+              </div>
+
+              <p>
+                It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the race.
+              </p>
+
+            </div>
+          </div>
 
 
 
+        </div>
+
+
+        <!-- Add Pagination -->
+        <div class="navigation">
+
+          <div class="swiper-button-prev-test">
+            <svg height="24" width="24">
+              <use xlink:href="#arrow" />
+            </svg>
+          </div>
+
+          <div class="swiper-button-next-test">
+            <svg height="24" width="24">
+              <use xlink:href="#arrow-right" />
+            </svg>
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="arrow" viewBox="0 0 512.000000 512.000000" style="enable-background:new 0 0 400.004 400.004;" xml:space="preserve">
+              <g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                <path d="M3295 4306 c-16 -8 -402 -387 -857 -843 -898 -900 -851 -846 -833 -940 6 -34 100 -131 843 -875 909 -909 855 -861 949 -843 49 9 109 69 118 118 18 94 59 46 -768 875 l-762 762 762 763 c675 675 762 766 768 800 24 133 -101 237 -220 183z" />
+              </g>
+            </symbol>
+            <symbol id="arrow-right" viewBox="0 0 512.000000 512.000000" style="enable-background:new 0 0 400.004 400.004;" xml:space="preserve">
+              <g xmlns="http://www.w3.org/2000/svg" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                <path d="M1695 4306 c-67 -29 -105 -105 -90 -183 6 -34 93 -125 768 -800 l762 -763 -762 -762 c-827 -829 -786 -781 -768 -875 9 -49 69 -109 118 -118 94 -18 40 -66 949 843 743 744 837 841 843 874 18 95 65 41 -833 942 -481 482 -840 834 -859 842 -40 17 -89 17 -128 0z" />
+              </g>
+            </symbol>
+          </svg>
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="270" height="289" viewBox="0 0 270 289" fill="none">
+      <path opacity="0.8" d="M256.224 74.9165C171.241 -47.8657 44.7927 17.2534 0 17.2534V150.5V286.754C83.6492 307.346 330.577 182.341 256.224 74.9165Z" fill="#E3F0FD" />
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="267" height="289" viewBox="0 0 267 289" fill="none">
+      <path opacity="0.8" d="M270 17.2534V286.754C186.351 307.346 -60.577 182.341 13.7762 74.9165C98.7591 -47.8658 225.207 17.2533 270 17.2534Z" fill="#FBE5E4" />
+    </svg>
+
+  </section>
+  <!-- Enf Comments -->
+
+
+  <section id="creator" class="container space-arround-m">
+    <h2>Le fondateur</h2>
+
+    <div>
+      <p>
+
+        Bruno Aubert est le président de Solecooler. Il est diplômé de l’ ENSCI et est, depuis 38 ans, un expert de l’innovation. Après avoir développé pendant 13 ans de nouveaux procédés de traitements de déchets dans l’industrie nucléaire, il a créé Occigerm, en 1996 pour industrialiser un procédé innovant de désinfection des déchets médicaux qu’il a vendu un peu partout dans le monde (US Navy, Hitachi Medical, Marine Française…).
+
+        Il a ensuite été consultant auprès de grands groupes comme Bekaert pour développer un procédé de filtration des bio-aérosols dans les hôpitaux, puis a co-fondé Occipol puis EM Research Lab pour développer un procédé d’extraction de métaux (lourds, précieux…) sans effluents.
+
+        En 2006 il crée Cairpol pour industrialiser un nouveau capteur miniature de pollution de l’air qui est largement utilisé dans le monde (USA, Mexique, Chili, Corée, Japon…) pour la surveillance, en réseaux autonomes et sans fils, des sites sensibles de centres de traitements de déchets (Véolia, Suez, Degremont, NASA, EPA, Total…). En 2019, il crée Solecooler pour développer une semelle thermo-régulée avec la seule énergie mécanique de nos propres pas et sans empreinte carbone.
+      </p>
+
+      <img src="./assets/img/home/bruno-aubert.png" alt="Bruno Aubert">
+    </div>
+  </section>
 
 
 

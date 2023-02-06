@@ -1,5 +1,5 @@
 <footer>
-    <section id="reassurance">
+    <div id="reassurance">
         <div class="points space-arround-p">
             <div class="grid container">
                 <div class="card">
@@ -55,7 +55,102 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="container">
+        <div class="info">
+            <img src="./assets/img/general/Logo SoleCooler.svg" alt="logo SoleCooler">
+            <p>
+                SoleCooler a développé une semelle réversible thermo-régulée : la CLIMFEET
+                <br>
+                Cette semelle garde les pieds au chaud en situation de froid tout en créant du frais durant les périodes estivales.
+            </p>
+        </div>
+
+        <div class="footer-nav">
+            <div>
+                <p>Liens utiles</p>
+
+                <ul>
+                    <li><a href="#">La semelle</a></li>
+                    <li><a href="#">Comment ça marche</a></li>
+                    <li><a href="#">Notre histoire</a></li>
+                    <li><a href="#">Actualités</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>Informations pratique</p>
+
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politiques de confidentialité</a></li>
+                    <li><a href="#">Expédition et paiements</a></li>
+                    <li><a href="#">Politique de retours</a></li>
+                    <li><a href="#">CGV</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>Mon compte</p>
+
+                <ul>
+                    <li><a href="#">Suivre mes commandes</a></li>
+                    <li><a href="#">Se connecter</a></li>
+                    <li><a href="#">Créer un compte</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>Nous contacter</p>
+
+                <ul class="contact">
+                    <li>
+                        <img src="./assets/img/icons/icon_maps-and-flags.svg">
+                        <p>
+                            SoleCooler
+                            <br>
+                            280 rue James Watt
+                            <br>
+                            Site 21 Tecnosud Bât plot A
+                            <br>
+                            66 100 Perpignan
+                            <br>
+                            France
+                        </p>
+                    </li>
+                    <li>
+                        <img src="./assets/img/icons/icon_call.svg">
+                        <a href="tel:+33756998504">+33 (0)7 56 99 85 04</a>
+                    </li>
+                    <li>
+                        <img src="./assets/img/icons/icon_email.svg">
+                        <a href="mailto:info@solecooler.com">info@solecooler.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-socials">
+            <ul>
+                <li><a href="#"><img src="./assets/img/icons/icon_facebook.svg" alt="Facebook"></a></li>
+                <li><a href="#"><img src="./assets/img/icons/icon_twitter.svg" alt="Tweeter"></a></li>
+                <li><a href="#"><img src="./assets/img/icons/icon_instagram.svg" alt="Instagram"></a></li>
+                <li><a href="#"><img src="./assets/img/icons/icon_youtube.svg" alt="YouTube"></a></li>
+                <li><a href="#"><img src="./assets/img/icons/icon_linkedin.svg" alt="LinkedIn"></a></li>
+                <li><a href="#"><img src="./assets/img/icons/icon_pinterest.svg" alt="Pinterest"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <p>
+                ©2023 - SoleCooler
+                <br>
+                Climfeet, Feetclim, Flexclim, Climwear, Extremwheel, Feetherm, Feetpump, Greendeeptech, Kinfeet, Sole4outdoor, ExtreMWear, SoleCooler, StrideCooler, FeetCooler, PadCooler, GloveCooler, SoleHeater
+            </p>
+        </div>
+    </div>
 </footer>
 
 </body>
