@@ -1,7 +1,10 @@
 footer {
     #reassurance {
         background-color: $color-separator;
-        color: $white;
+
+        * {
+            color: $white;
+        }
 
         .points {
             .grid {

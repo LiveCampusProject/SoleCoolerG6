@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
 * {
   font-family: "Poppins", sans-serif;
+  color: #031221;
 }
 
 @-webkit-keyframes wavesEffectLeft {
@@ -68,7 +69,12 @@
 
 body {
   background-color: #F6FAFE;
+}
+
+body,
+html {
   overflow-x: hidden;
+  width: 100vw;
 }
 
 ul {
@@ -403,6 +409,8 @@ h2.h2-tiny {
 
 footer #reassurance {
   background-color: #1C2938;
+}
+footer #reassurance * {
   color: #F9F9FA;
 }
 footer #reassurance .points .grid {
@@ -666,6 +674,9 @@ footer .copyright p {
   background-size: cover;
   text-align: center;
 }
+#index #solecooler * {
+  color: #F9F9FA;
+}
 #index #solecooler div {
   width: 50%;
   color: #F9F9FA;
@@ -754,4 +765,110 @@ footer .copyright p {
     flex-direction: column-reverse;
     gap: 50px;
   }
+}
+
+body:not(#index) main {
+  margin-top: 250px;
+}
+
+#contact .infos {
+  transform: translateY(-50%);
+  background: #F9F9FA;
+  border-radius: 20px;
+  box-shadow: 0 20px 30px -30px rgba(0, 0, 0, 0.15);
+}
+#contact .infos .grid {
+  grid-template-columns: repeat(3, 1fr) !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+@media (max-width: 768px) {
+  #contact .infos .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  #contact .infos .grid .card {
+    padding: 16px 0;
+  }
+}
+#contact .infos .grid .card > svg {
+  height: 40px;
+}
+#contact .infos .grid .card > p {
+  line-height: 120%;
+}
+#contact .infos .grid .card > p:first-of-type {
+  font-size: 14px;
+  font-weight: bold;
+}
+#contact .infos .grid .card > p:last-of-type {
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+@media (max-width: 768px) {
+  #contact .infos .grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+#contact form#contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "prenom nom" "email tel" "objet objet" "message message" ". submit";
+  gap: 24px 50px;
+  margin-bottom: 150px;
+}
+@media (max-width: 768px) {
+  #contact form#contact-form {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  #contact form#contact-form > div.input {
+    margin-bottom: 16px;
+  }
+}
+#contact form#contact-form > div.input input,
+#contact form#contact-form > div.input select,
+#contact form#contact-form > div.input textarea {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #F3F2F2;
+  border: none;
+}
+#contact form#contact-form > div.input:nth-of-type(5) {
+  grid-area: objet;
+}
+#contact form#contact-form > div.input:nth-of-type(6) {
+  grid-area: message;
+}
+#contact form#contact-form > div.input .req {
+  color: #E54138;
+}
+#contact form#contact-form > div:last-of-type {
+  grid-area: submit;
+}
+#contact form#contact-form > div:last-of-type input[type=submit] {
+  grid-area: submit;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  border: none;
+}
+#contact main {
+  position: relative;
+}
+#contact main > svg {
+  position: absolute;
+  z-index: -1;
+}
+#contact main > svg:first-of-type {
+  top: 50%;
+}
+#contact main > svg:last-of-type {
+  top: 75%;
+  right: 0;
 }/*# sourceMappingURL=main.css.map */

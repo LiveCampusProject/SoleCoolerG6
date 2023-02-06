@@ -1,0 +1,91 @@
+#contact {
+    .infos {
+        transform: translateY(-50%);
+        background: $white;
+        border-radius: 20px;
+        box-shadow: 0 20px 30px -30px rgba(0, 0, 0, .15);
+
+        .grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+            @include grid;
+
+            @media (max-width: $mobile) {
+                grid-template-columns: repeat(1, 1fr) !important;
+            }
+        }
+    }
+
+    form#contact-form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "prenom nom"
+            "email tel"
+            "objet objet"
+            "message message"
+            ". submit";
+        gap: 24px 50px;
+
+        margin-bottom: 150px;
+
+        @media (max-width: $mobile) {
+            display: block;
+        }
+
+        >div.input {
+            @media (max-width: $mobile) {
+                margin-bottom: 16px;
+            }
+
+            input,
+            select,
+            textarea {
+                width: 100%;
+                padding: 14px 24px;
+                background-color: $gray;
+                border: none;
+            }
+
+            &:nth-of-type(5) {
+                grid-area: objet;
+            }
+
+            &:nth-of-type(6) {
+                grid-area: message;
+            }
+
+            .req {
+                color: $red;
+            }
+        }
+
+        >div:last-of-type {
+            grid-area: submit;
+
+            input[type=submit] {
+                grid-area: submit;
+                width: fit-content;
+                float: right;
+                border: none;
+            }
+        }
+    }
+
+    main {
+        position: relative;
+
+        >svg {
+            position: absolute;
+            z-index: -1;
+
+            &:first-of-type {
+                top: 50%;
+            }
+
+            &:last-of-type {
+                top: 75%;
+                right: 0;
+            }
+        }
+    }
+}
