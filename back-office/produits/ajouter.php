@@ -1,11 +1,17 @@
 <?php
-require_once './inc/utils.php';
-// On appelle la fonction d'ajout de produit
-$info = ajouterProduit();
+$js = "";
+$css = "../css/main.css";
+$titre = "SoleCooler";
+$bodyId = "index-backoffice";
+require_once("../inc/head.php");
+require_once("../inc/header.php");
+// require_once("./inc/nav.php");
+require_once("../inc/footer.php");
+require_once '../inc/utils.php';
 
 ?>
 
-<?php require_once './inc/head.php'; ?>
+<?php require_once '../inc/head.php'; ?>
 
 <!-- Là c'est le contenu spécifique de la page -->
 <!-- Au dessus c'est habituel, toujours pareil -->
@@ -66,4 +72,4 @@ $info = ajouterProduit();
     </div>
 </div>
 
-<?php include_once './inc/footer.php'; ?>
+<?php include_once '../inc/footer.php'; ?>

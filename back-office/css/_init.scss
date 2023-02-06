@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+
+    @media (max-width: $tablet) {
+        padding: 16px;
+    }
+}
+
+.space {
+    &-arround {
+        margin-top: $space-large;
+        margin-bottom: $space-large;
+    }
+}
+
+
+
+
+h2.h2-tiny {
+    font-size: $font-normal;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 32px;
+}

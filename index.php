@@ -12,7 +12,6 @@ $bodyId = "index";
 require_once("./inc/head.php");
 require_once("./inc/header.php");
 // require_once("./inc/nav.php");
-require_once("./inc/footer.php");
 
 ?>
 
@@ -141,3 +140,5 @@ require_once("./inc/footer.php");
     </ul>
   </aside> -->
 </main>
+
+<?php require_once("./inc/footer.php"); ?>
