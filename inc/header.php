@@ -1,5 +1,6 @@
 <?php
 session_start();
+    if (!(is_user_logged_in())):
 ?>
 
 

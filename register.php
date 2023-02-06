@@ -40,13 +40,6 @@
       <input name="confirm" type="password" placeholder="ConfirmezMotdepasse" onkeyup='validatePassword()' id="confirm">
       <label>Confirmez le Motdepasse</label>
     </div>
-   
-
-    <div>
-      <label>
-        <input type="checkbox" value="remember-me"> Se souvenir de moi
-      </label>
-    </div>
 
     <button type="submit">Créer un compte</button>
   </form>
