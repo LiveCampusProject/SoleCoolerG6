@@ -33,8 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   scrollMenu();
 
-  animateHero();
+  comments();
 
+  animateHero();
 
 });
 
@@ -87,29 +88,50 @@ const scrollMenu = () => {
 /**
  * Brand Slider
  */
-$(document).ready(function(){
+$(document).ready(function () {
   $('.customer-logos').slick({
-      slidesToShow: 6,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 1500,
-      arrows: false,
-      dots: false,
-      pauseOnHover: false,
-      responsive: [{
-          breakpoint: 768,
-          settings: {
-              slidesToShow: 4
-          }
-      }, {
-          breakpoint: 520,
-          settings: {
-              slidesToShow: 3
-          }
-      }]
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 4
+      }
+    }, {
+      breakpoint: 520,
+      settings: {
+        slidesToShow: 3
+      }
+    }]
   });
 });
 
+
+const comments = () => {
+  const swiper = new Swiper('.swiper-container.swiper-testimonial', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next-test',
+      prevEl: '.swiper-button-prev-test',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    },
+  });
+}
 
 const animateHero = () => {
   const header = document.querySelector('#header');
@@ -120,9 +142,9 @@ const animateHero = () => {
 
   const tl = new TimelineMax();
 
-  tl.fromTo(hero, 1, {height: "0vh"}, {height: '100vh', minHeight: '750px', ease: Power2.easeInOut})
-  .fromTo(header, 1, {opacity: "0"}, {opacity: '1', ease: Power2.easeInOut})
-  .fromTo(ct, 4, {top: "-100%"}, {top: '0%', ease: Power2.easeInOut}, "-=1")
-  .fromTo(cb, 4, {bottom: "-100%"}, {bottom: '0%', ease: Power2.easeInOut}, "-=4")
-  .fromTo(bgt, 1.2, {opacity: "0"}, {opacity: '0.1', ease: Power2.easeInOut});
+  tl.fromTo(hero, 1, { height: "0vh" }, { height: '100vh', minHeight: '750px', ease: Power2.easeInOut })
+    .fromTo(header, 1, { opacity: "0" }, { opacity: '1', ease: Power2.easeInOut })
+    .fromTo(ct, 2, { top: "-100%" }, { top: '0%', ease: Power2.easeInOut }, "-=1")
+    .fromTo(cb, 2, { bottom: "-100%" }, { bottom: '0%', ease: Power2.easeInOut }, "-=2")
+    .fromTo(bgt, 1.2, { opacity: "0" }, { opacity: '0.1', ease: Power2.easeInOut });
 }
