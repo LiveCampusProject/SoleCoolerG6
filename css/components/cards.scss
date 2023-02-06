@@ -1,0 +1,34 @@
+@mixin grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    
+    @media (max-width: $mobile) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        @media (max-width: $mobile) {
+            padding: $space-small 0;
+        }
+
+        >svg {
+            height: 40px;
+        }
+
+        >p {
+            line-height: 120%;
+            
+            &:first-of-type {
+                font-size: 14px;
+                font-weight: bold;
+            }
+            
+            &:last-of-type {
+                font-size: 12px;
+                font-weight: 400;
+                margin-top: $space-small;
+            }
+        }
+    }
+}

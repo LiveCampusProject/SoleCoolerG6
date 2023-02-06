@@ -1,7 +1,7 @@
 // Variables
 @import '_variables';
-@import '_fonts';
 @import '_colors';
+@import '_fonts';
 @import '_animations';
 @import '_responsive';
 @import '_init';
@@ -9,8 +9,11 @@
 // Components
 @import 'components/buttons';
 @import 'components/brands_slider';
+@import 'components/cards';
 
 // Styles
 @import 'pages/header';
+@import 'pages/footer';
 @import 'pages/home';
 @import 'pages/page';
+@import 'pages/contact';

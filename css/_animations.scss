@@ -17,3 +17,17 @@
         transform: translate(-20px, -20px);
     }
 }
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-90deg)scale(1);
+    }
+
+    50% {
+        transform: rotate(0)scale(.75);
+    }
+
+    100% {
+        transform: rotate(90)scale(1);
+    }
+}
