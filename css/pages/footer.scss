@@ -54,6 +54,11 @@ footer {
 
                         a {
                             text-decoration: none;
+                            color: $black;
+
+                            &:hover {
+                                color: $red;
+                            }
                         }
                     }
 

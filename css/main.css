@@ -420,15 +420,18 @@ footer #reassurance .points .grid {
     padding: 16px 0;
   }
 }
+footer #reassurance .points .grid .card > svg {
+  height: 40px;
+}
 footer #reassurance .points .grid .card > p {
   line-height: 120%;
 }
 footer #reassurance .points .grid .card > p:first-of-type {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 footer #reassurance .points .grid .card > p:last-of-type {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   margin-top: 16px;
 }
@@ -473,6 +476,10 @@ footer .footer-nav > div > ul > li {
 }
 footer .footer-nav > div > ul > li a {
   text-decoration: none;
+  color: #031221;
+}
+footer .footer-nav > div > ul > li a:hover {
+  color: #E54138;
 }
 footer .footer-nav > div > ul.contact li {
   display: flex;
@@ -623,15 +630,18 @@ footer .copyright p {
     padding: 16px 0;
   }
 }
+#index #product .points .grid .card > svg {
+  height: 40px;
+}
 #index #product .points .grid .card > p {
   line-height: 120%;
 }
 #index #product .points .grid .card > p:first-of-type {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 #index #product .points .grid .card > p:last-of-type {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   margin-top: 16px;
 }
@@ -660,6 +670,11 @@ footer .copyright p {
   width: 50%;
   color: #F9F9FA;
   padding: 100px 0;
+}
+@media (max-width: 768px) {
+  #index #solecooler div {
+    width: 90%;
+  }
 }
 #index #solecooler div h2 {
   font-size: 26px;
@@ -727,4 +742,16 @@ footer .copyright p {
 #index #comments > svg:last-of-type {
   top: 50%;
   right: 0;
+}
+#index #creator > div {
+  display: flex;
+  align-items: center;
+  gap: 150px;
+  margin: 24px 0 150px 0;
+}
+@media (max-width: 992px) {
+  #index #creator > div {
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
 }/*# sourceMappingURL=main.css.map */

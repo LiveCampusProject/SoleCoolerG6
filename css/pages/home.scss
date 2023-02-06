@@ -178,6 +178,10 @@
             color: $white;
             padding: 100px 0;
 
+            @media (max-width: $mobile) {
+                width: 90%;
+            }
+
             h2 {
                 font-size: 26px;
                 font-weight: 600;
@@ -261,6 +265,20 @@
             &:last-of-type {
                 top: 50%;
                 right: 0;
+            }
+        }
+    }
+
+    #creator {
+        > div {
+            display: flex;
+            align-items: center;
+            gap: 150px;
+            margin: 24px 0 150px 0;
+    
+            @media (max-width: $tablet) {
+                flex-direction: column-reverse;
+                gap: 50px;
             }
         }
     }

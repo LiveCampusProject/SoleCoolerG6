@@ -12,16 +12,20 @@
             padding: $space-small 0;
         }
 
+        >svg {
+            height: 40px;
+        }
+
         >p {
             line-height: 120%;
             
             &:first-of-type {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: bold;
             }
             
             &:last-of-type {
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: 400;
                 margin-top: $space-small;
             }

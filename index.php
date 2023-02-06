@@ -358,6 +358,24 @@ require_once("./inc/header.php");
   <!-- Enf Comments -->
 
 
+  <section id="creator" class="container space-arround-m">
+    <h2>Le fondateur</h2>
+
+    <div>
+      <p>
+
+        Bruno Aubert est le président de Solecooler. Il est diplômé de l’ ENSCI et est, depuis 38 ans, un expert de l’innovation. Après avoir développé pendant 13 ans de nouveaux procédés de traitements de déchets dans l’industrie nucléaire, il a créé Occigerm, en 1996 pour industrialiser un procédé innovant de désinfection des déchets médicaux qu’il a vendu un peu partout dans le monde (US Navy, Hitachi Medical, Marine Française…).
+
+        Il a ensuite été consultant auprès de grands groupes comme Bekaert pour développer un procédé de filtration des bio-aérosols dans les hôpitaux, puis a co-fondé Occipol puis EM Research Lab pour développer un procédé d’extraction de métaux (lourds, précieux…) sans effluents.
+
+        En 2006 il crée Cairpol pour industrialiser un nouveau capteur miniature de pollution de l’air qui est largement utilisé dans le monde (USA, Mexique, Chili, Corée, Japon…) pour la surveillance, en réseaux autonomes et sans fils, des sites sensibles de centres de traitements de déchets (Véolia, Suez, Degremont, NASA, EPA, Total…). En 2019, il crée Solecooler pour développer une semelle thermo-régulée avec la seule énergie mécanique de nos propres pas et sans empreinte carbone.
+      </p>
+
+      <img src="./assets/img/home/bruno-aubert.png" alt="Bruno Aubert">
+    </div>
+  </section>
+
+
 
   <!-- <article>
     <h1 data-i18n="title">How To Cook A Juicy Chicken Breast</h1>
