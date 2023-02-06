@@ -396,7 +396,3 @@ require_once("./inc/header.php");
     </ul>
   </aside> -->
 </main>
-
-<?php
-require_once("./inc/footer.php");
-?>
