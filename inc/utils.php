@@ -383,7 +383,7 @@
     function send_activation_email(string $useremail, string $activation_code): void
     {
         // create the activation link
-        $activation_link = APP_URL . "activate.php?email=$email&activation_code=$activation_code";
+        $activation_link = APP_URL . "activate.php?email=$useremail&activation_code=$activation_code";
 
         var_dump($activation_link);
 
@@ -430,7 +430,6 @@
             
             // Si le code d'activation est expiré
             if ((int)$user['expired'] === 1) {
-                delete_user_by_id($user['id']);
                 return null;
             }
             // Vérification du code d'activation
@@ -582,7 +581,7 @@
     function send_recovery_email(string $useremail, string $activation_code): void
     {
         // create the activation link
-        $activation_link = APP_URL . "change.php?email=$email&activation_code=$activation_code";
+        $activation_link = APP_URL . "change.php?email=$useremail&activation_code=$activation_code";
         var_dump($activation_link);
 
         // Create a Transport object 
