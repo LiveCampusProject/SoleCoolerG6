@@ -121,6 +121,8 @@
 
                     #qty {
                         padding: 10px;
+                        width: 75px;
+                        font-weight: bold;
                     }
 
                     &.price {
@@ -139,6 +141,36 @@
                     border: none;
                 }
             }
+        }
+    }
+
+    .details {
+        >div {
+            margin-bottom: 50px;
+
+            .open-box {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 150px;
+
+                ol {
+                    margin-left: 50px;
+                    li {
+                        margin: 16px 0;
+                    }
+                }
+            }
+        }
+
+        h3 {
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            line-height: 150%;
+            width: 80%;
         }
     }
 }
