@@ -220,11 +220,15 @@ h2{
 .content {
   /* height: calc(100vh - 50px); */
   background-color: var(--white);
-  margin: 10px;
+  padding: 10px;
   /* padding: var(--padding);
   display: flex;
   justify-content: center;
   align-items: center; */
+}
+
+.text-center{
+  text-align: center;
 }
 
 /* Table */
@@ -233,7 +237,7 @@ h2{
   margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 70vw;
+  min-width: 78vw;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -268,6 +272,10 @@ h2{
   float: right;
 }
 
+.title-row h2{
+  float: left;
+}
+
 .title-row{
-  display: inline-flex;
+  align-items: center;
 }

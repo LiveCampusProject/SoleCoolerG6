@@ -9,7 +9,7 @@ require_once("../inc/header.php");
 require_once("../inc/footer.php");
 require_once '../inc/utils.php';
 
-ajouterProduit();
+ajouterArticle();
 ?>
 
 <?php require_once '../inc/head.php'; ?>
@@ -20,7 +20,7 @@ ajouterProduit();
 
 <div class="container mt-3">
     <div class="row">
-        <h1 class="text-center">Ajouter un produit</h1>
+        <h1 class="text-center">Ajouter un article</h1>
     </div>
     
     <!-- Message d'erreur ou de succès de l'ajout -->
@@ -36,32 +36,23 @@ ajouterProduit();
         
         ?>
     </div>
+
     <div class="row">
         <form method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col">
-                    <label for="reference" class="form-label">Référence</label>
-                    <input type="text" name="reference" id="reference" class="form-control" required />
+                    <label for="libelle" class="form-label">Libelle</label>
+                    <input type="text" name="libelle" id="libelle" class="form-control" required />
                 </div>
                 <div class="col">
-                    <label for="libelle" class="form-label">Libellé</label>
-                    <input type="text" name="libelle" id="libelle" class="form-control" required />
+                    <label for="date" class="form-label">Date de parution</label>
+                    <input type="date" name="date" id="date" class="form-control" required />
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" name="description" id="description" class="form-control" required />
-                </div>
-                <div class="col">
-                    <label for="price" class="form-label">Prix</label>
-                    <input type="number" name="price" id="price" class="form-control" required />
-                </div>
-            </div> <br>
-            <div class="row">
-                <div class="col">
-                    <label for="productFile" class="form-label">Choisir un fichier</label>
-                    <input class="form-control" type="file" id="productFile" name="productFile">
+                    <label for="lien" class="form-label">Lien</label>
+                    <input type="link" name="lien" id="lien" class="form-control" required />
                 </div>
             </div>
             <div class="row mt-3">

@@ -7,7 +7,7 @@ require_once("../inc/head.php");
 require_once("../inc/header.php");
 require_once '../inc/utils.php';
 // On appelle voirProduit qui renverra le produit recherché
-$produit = voirProduit();
+$actualite = voirActu();
 ?>
 
 <!-- On voit le produit ici -->
@@ -16,9 +16,9 @@ $produit = voirProduit();
         
 
         <div class="content">
-            <h1><?= $produit['libelle'] ?> (<?= $produit['reference'] ?>)</h1>
-            <p><?= $produit['description'] ?></p>
-            <em><?= $produit['price'] ?>€</em>
+            <h1><?= $actualite['libelle'] ?></h1>
+            <p><?= $actualite['date'] ?></p>
+            <p><?= $actualite['description'] ?></p>
         </div>                       
     </div>
     

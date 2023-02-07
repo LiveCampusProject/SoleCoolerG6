@@ -84,6 +84,28 @@
         return $commandes;
     }
 
+    function listeActualites(): array{
+        global $pdo;
+
+        $requete = $pdo->prepare("SELECT * FROM actualites");
+        $requete->execute();
+        $commandes = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $commandes;
+    }
+
+    function listeArticles(): array{
+        global $pdo;
+
+        $requete = $pdo->prepare("SELECT * FROM articles");
+        $requete->execute();
+        $articles = $requete->fetchAll(PDO::FETCH_ASSOC);
+
+
+        return $articles;
+    }
+
     /*
     *   Fonction permetant d'afficher la liste des produits
     */
@@ -105,6 +127,15 @@
     }
 
     /*
+    *   Fonction permetant d'afficher la liste des articles
+    */
+    function articles(): array{
+        $articles = listeArticles();
+        return $articles;
+    }
+
+
+    /*
     *   Fonction permetant d'afficher la liste des utilisateurs
     */
     function users(): array{
@@ -118,6 +149,14 @@
     function commandes(): array{
         $commandes = listeCommandes();
         return $commandes;
+    }
+
+    /*
+    *   Fonction permetant d'afficher la liste des actualites
+    */
+    function actualites(): array{
+        $actualites = listeActualites();
+        return $actualites;
     }
 
      /*
@@ -141,6 +180,29 @@
             return null;
         }
         return $leProduit ;
+    }
+
+    /*
+    *   Fonction permetant de voir les détails d'un produit
+    */
+    function voirActu(){
+        $reference = filter_input(INPUT_GET, "referenceActualite");
+        $actualites = listeActualites();
+
+        // Recherche de la référence du produit
+        $actu = null;
+        foreach ($actualites as $actualite) {
+            if ($actualite['actualiteID'] == $reference) {
+                $actu = $actualite;
+                break;
+            }
+        }
+        if ($actu == null) {
+            // Je n'ai pas trouvé le produit -> 404
+            http_response_code(404);
+            return null;
+        }
+        return $actu ;
     }
 
      /*
@@ -214,6 +276,72 @@
                 return `Nouveau produit ajouté avec succès !`;
             } catch(PDOException $e) {
                 return "Une erreur est survenue lors de l'ajout du produit";
+            }
+        }
+    }
+
+    /*
+    *   Fonction permetant d'ajouter un produit
+    */
+    function ajouterActualite(){
+        global $pdo;
+
+        $libelle = filter_input(INPUT_POST, "libelle");
+        $description = filter_input(INPUT_POST, "description");
+        $date = filter_input(INPUT_POST, "date");
+
+        // On vérifie la méthode de la requête HTTP
+        // Si c'est du GET, on affiche juste la page
+        // Par contre, si c'est du POST, il y a des données, on les vérifie.
+        $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
+        if ($method == "POST") {
+            try {
+                $requete = $pdo->prepare("INSERT INTO actualites (libelle, description, date)
+                VALUES (:libelle, :description, :date)");
+                
+                $requete->bindParam(':libelle', $libelle);
+                $requete->bindParam(':description', $description);
+                $requete->bindParam(':date', $date);
+
+                $requete->execute();
+
+                
+                return `Nouvelle actualité ajouté avec succès !`;
+            } catch(PDOException $e) {
+                return "Une erreur est survenue lors de l'ajout de l'actualité";
+            }
+        }
+    }
+
+    /*
+    *   Fonction permetant d'ajouter un produit
+    */
+    function ajouterArticle(){
+        global $pdo;
+
+        $libelle = filter_input(INPUT_POST, "libelle");
+        $lien = filter_input(INPUT_POST, "lien");
+        $date = filter_input(INPUT_POST, "date");
+
+        // On vérifie la méthode de la requête HTTP
+        // Si c'est du GET, on affiche juste la page
+        // Par contre, si c'est du POST, il y a des données, on les vérifie.
+        $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
+        if ($method == "POST") {
+            try {
+                $requete = $pdo->prepare("INSERT INTO articles (libelle, lien, date)
+                VALUES (:libelle, :lien, :date)");
+                
+                $requete->bindParam(':libelle', $libelle);
+                $requete->bindParam(':lien', $lien);
+                $requete->bindParam(':date', $date);
+
+                $requete->execute();
+
+                
+                return `Nouvel article ajouté avec succès !`;
+            } catch(PDOException $e) {
+                return "Une erreur est survenue lors de l'ajout de l'article";
             }
         }
     }
@@ -305,6 +433,26 @@
     }
 
     /*
+    *   Fonction permetant de supprimer un avis
+    */
+    function articleSupprimer(){
+        global $pdo;
+
+        $reference = filter_input(INPUT_GET, "referenceArticle");
+
+        // On vérifie la méthode de la requête HTTP
+        // Si c'est du GET, on affiche juste la page
+        // Par contre, si c'est du POST, il y a des données, on les vérifie.
+        $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
+        if ($method == "GET" && isset($reference)) {
+            echo $reference;
+            $requete = $pdo->prepare("DELETE FROM articles WHERE articleID = :reference");
+            $requete->bindParam(':reference', $reference);
+            $requete->execute();
+        }
+    }
+
+    /*
     *   Fonction permetant de supprimer un utilisateur
     */
     function userSupprimer(){
@@ -341,6 +489,25 @@
         if ($method == "GET" && isset($reference)) {
             $requete = $pdo->prepare("DELETE FROM commandes WHERE commandeID = :commandeID");
             $requete->bindParam(':commandeID', $reference);
+            $requete->execute();
+        }
+    }
+
+    /*
+    *   Fonction permetant de supprimer un utilisateur
+    */
+    function actuSupprimer(){
+        global $pdo;
+
+        $reference = filter_input(INPUT_GET, "referenceActualite");
+
+        // On vérifie la méthode de la requête HTTP
+        // Si c'est du GET, on affiche juste la page
+        // Par contre, si c'est du POST, il y a des données, on les vérifie.
+        $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
+        if ($method == "GET" && isset($reference)) {
+            $requete = $pdo->prepare("DELETE FROM actualites WHERE actualiteID = :actualiteID");
+            $requete->bindParam(':actualiteID', $reference);
             $requete->execute();
         }
     }
@@ -502,6 +669,91 @@
         }
     }
 
+    /*
+    *   Fonction permetant de modifier une actualité
+    */
+    function actuModifier(){
+        global $pdo;
 
+        $InitialReference = filter_input(INPUT_GET, "referenceActualite");
+        $libelle = filter_input(INPUT_POST, "libelle");
+        $description = filter_input(INPUT_POST, "description");
+        $date = filter_input(INPUT_POST, "date");
+        
+
+        // On vérifie la méthode de la requête HTTP
+        // Si c'est du GET, on affiche la page avec les données du produits
+        // Par contre, si c'est du POST, il y a des données, on les vérifie et les modifie.
+        $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
+        if ($method == "GET") {
+            if(isset($InitialReference)){
+                $requete = $pdo->prepare("SELECT * FROM actualites WHERE actualiteID = :actualiteID");
+                $requete->bindParam(':actualiteID', $InitialReference);
+                $requete->execute();
+                $produit = $requete->fetch();
+    
+                return $produit;
+            }
+
+        } else if ($method == "POST" && isset($InitialReference)) {
+        
+            $requete = $pdo->prepare("UPDATE actualites
+            SET libelle = :libelle, description = :description, date = :date
+            WHERE actualiteID = :actualiteID ;");
+
+            
+            $requete->bindParam(':libelle', $libelle);
+            $requete->bindParam(':description', $description);
+            $requete->bindParam(':date', $date);
+            $requete->bindParam(':actualiteID', $InitialReference);
+
+            $requete->execute();
+            header('Location: ./index.php');
+        }
+    }
+
+
+     /*
+    *   Fonction permetant de modifier une actualité
+    */
+    function articleModifier(){
+        global $pdo;
+
+        $InitialReference = filter_input(INPUT_GET, "referenceArticle");
+        $libelle = filter_input(INPUT_POST, "libelle");
+        $lien = filter_input(INPUT_POST, "lien");
+        $date = filter_input(INPUT_POST, "date");
+        
+
+        // On vérifie la méthode de la requête HTTP
+        // Si c'est du GET, on affiche la page avec les données du produits
+        // Par contre, si c'est du POST, il y a des données, on les vérifie et les modifie.
+        $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
+        if ($method == "GET") {
+            if(isset($InitialReference)){
+                $requete = $pdo->prepare("SELECT * FROM articles WHERE articleID = :articleID");
+                $requete->bindParam(':articleID', $InitialReference);
+                $requete->execute();
+                $produit = $requete->fetch();
+    
+                return $produit;
+            }
+
+        } else if ($method == "POST" && isset($InitialReference)) {
+        
+            $requete = $pdo->prepare("UPDATE articles
+            SET libelle = :libelle, lien = :lien, date = :date
+            WHERE articleID = :articleID ;");
+
+            
+            $requete->bindParam(':libelle', $libelle);
+            $requete->bindParam(':lien', $lien);
+            $requete->bindParam(':date', $date);
+            $requete->bindParam(':actualiteID', $InitialReference);
+
+            $requete->execute();
+            header('Location: ./index.php');
+        }
+    }
 
 ?>

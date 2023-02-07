@@ -17,11 +17,17 @@
           </div>
           <h4>Accueil</h4>
         </a>
-        <a href="/back-office/produits/index.php" class="sidebar_item">
+        <a href="/back-office/actualites/index.php" class="sidebar_item">
           <div class="sidebar_icon">
-            <i class="fa-solid fa-shoe-prints"></i>
+            <i class="fa-solid fa-newspaper"></i>
           </div>
-          <h4>Produits</h4>
+          <h4>Actualités</h4>
+        </a>
+        <a href="/back-office/articles/index.php" class="sidebar_item">
+          <div class="sidebar_icon">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+          <h4>Articles</h4>
         </a>
         <a href="/back-office/avis/index.php" class="sidebar_item">
           <div class="sidebar_icon">
@@ -34,6 +40,12 @@
             <i class="fas fa-shopping-cart"></i>
           </div>
           <h4>Commandes</h4>
+        </a>
+        <a href="/back-office/produits/index.php" class="sidebar_item">
+          <div class="sidebar_icon">
+            <i class="fa-solid fa-shoe-prints"></i>
+          </div>
+          <h4>Produits</h4>
         </a>
         <a href="/back-office/utilisateurs/index.php" class="sidebar_item">
           <div class="sidebar_icon">
