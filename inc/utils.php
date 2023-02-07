@@ -22,9 +22,9 @@
         try {
 
             $utilisateur = "root";
-            $motdepasse = "root";
+            $motdepasse = "";
             $hote = "localhost";
-            $port = 8889;
+            $port = 3306;
             $moteur = "mysql";
             $bdd = "solecooler";
             $pdo = new PDO("$moteur:host=$hote:$port;dbname=$bdd", $utilisateur, $motdepasse, [

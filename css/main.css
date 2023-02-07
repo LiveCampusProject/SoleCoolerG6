@@ -1024,4 +1024,63 @@ body:not(#index) main {
 #product .details p {
   line-height: 150%;
   width: 80%;
+}
+
+#login main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+@media (max-width: 768px) {
+  #login main {
+    flex-wrap: wrap;
+  }
+}
+#login main > div {
+  width: 50%;
+}
+@media (max-width: 768px) {
+  #login main > div {
+    width: 100%;
+  }
+}
+#login main > div.left {
+  text-align: center;
+}
+#login main > div.left lottie-player {
+  pointer-events: none;
+  margin-top: -150px;
+}
+@media (max-width: 768px) {
+  #login main > div.left lottie-player {
+    margin-top: -250px;
+  }
+}
+@media (max-width: 768px) {
+  #login main > div.right {
+    order: -1;
+  }
+}
+#login main > div.right > * {
+  margin-bottom: 24px;
+}
+#login main > div.right > * > * {
+  margin-bottom: 16px;
+}
+#login main > div.right form label {
+  display: block;
+}
+#login main > div.right form label.section {
+  font-weight: bold;
+}
+#login main > div.right form input[type=text], #login main > div.right form input[type=email], #login main > div.right form input[type=password] {
+  padding: 10px 14px;
+  border: none;
+  border-bottom: 2px solid #031221;
+  background-color: unset;
+  width: 100%;
+}
+#login main > div.right form button {
+  border: none;
 }/*# sourceMappingURL=main.css.map */
