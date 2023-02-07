@@ -120,18 +120,30 @@ h2.h2-tiny {
   color: #F9F9FA;
   background-color: #E54138;
 }
+.button-1 * {
+  color: #F9F9FA;
+}
 .button-1:hover {
   color: #F9F9FA;
   background-color: #0C579D;
+}
+.button-1:hover * {
+  color: #F9F9FA;
 }
 
 .button-2 {
   color: #F9F9FA;
   background-color: #0C579D;
 }
+.button-2 * {
+  color: #F9F9FA;
+}
 .button-2:hover {
   color: #F9F9FA;
   background-color: #E54138;
+}
+.button-2:hover * {
+  color: #F9F9FA;
 }
 
 /* Slider */
@@ -770,12 +782,22 @@ footer .copyright p {
 body:not(#index) main {
   margin-top: 250px;
 }
+@media (max-width: 768px) {
+  body:not(#index) main {
+    margin-top: 150px;
+  }
+}
 
 #contact .infos {
   transform: translateY(-50%);
   background: #F9F9FA;
   border-radius: 20px;
   box-shadow: 0 20px 30px -30px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 768px) {
+  #contact .infos {
+    transform: unset;
+  }
 }
 #contact .infos .grid {
   grid-template-columns: repeat(3, 1fr) !important;
@@ -857,6 +879,12 @@ body:not(#index) main {
   width: fit-content;
   float: right;
   border: none;
+}
+@media (max-width: 768px) {
+  #contact form#contact-form > div:last-of-type input[type=submit] {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 #contact main {
   position: relative;
