@@ -5,13 +5,8 @@
   color: #031221;
 }
 
-@-webkit-keyframes wavesEffectLeft {
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(20px, 20px);
-  }
+p {
+  font-family: "Oxygen";
 }
 
 @keyframes wavesEffectLeft {
@@ -22,31 +17,12 @@
     transform: translate(20px, 20px);
   }
 }
-@-webkit-keyframes wavesEffectRight {
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(-20px, -20px);
-  }
-}
 @keyframes wavesEffectRight {
   from {
     transform: translate(0);
   }
   to {
     transform: translate(-20px, -20px);
-  }
-}
-@-webkit-keyframes rotate {
-  0% {
-    transform: rotate(-90deg) scale(1);
-  }
-  50% {
-    transform: rotate(0) scale(0.75);
-  }
-  100% {
-    transform: rotate(90) scale(1);
   }
 }
 @keyframes rotate {
@@ -84,11 +60,7 @@ ul {
 .container {
   max-width: 1200px;
   margin: auto;
-}
-@media (max-width: 992px) {
-  .container {
-    padding: 0 50px;
-  }
+  padding: 0 50px;
 }
 
 .space-arround-m {
@@ -120,18 +92,30 @@ h2.h2-tiny {
   color: #F9F9FA;
   background-color: #E54138;
 }
+.button-1 * {
+  color: #F9F9FA;
+}
 .button-1:hover {
   color: #F9F9FA;
   background-color: #0C579D;
+}
+.button-1:hover * {
+  color: #F9F9FA;
 }
 
 .button-2 {
   color: #F9F9FA;
   background-color: #0C579D;
 }
+.button-2 * {
+  color: #F9F9FA;
+}
 .button-2:hover {
   color: #F9F9FA;
   background-color: #E54138;
+}
+.button-2:hover * {
+  color: #F9F9FA;
 }
 
 /* Slider */
@@ -142,7 +126,6 @@ h2.h2-tiny {
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
@@ -550,8 +533,7 @@ footer .copyright p {
   top: -20px;
 }
 #index #hero > div.corner-top > svg > path:first-of-type {
-  -webkit-animation: wavesEffectLeft infinite 10s ease-in-out alternate;
-          animation: wavesEffectLeft infinite 10s ease-in-out alternate;
+  animation: wavesEffectLeft infinite 10s ease-in-out alternate;
 }
 #index #hero > div.corner-top > svg > path:last-of-type {
   animation: wavesEffectLeft infinite 5s ease-in-out alternate-reverse;
@@ -562,8 +544,7 @@ footer .copyright p {
   bottom: -20px;
 }
 #index #hero > div.corner-bottom > svg > path:first-of-type {
-  -webkit-animation: wavesEffectRight infinite 10s ease-in-out alternate;
-          animation: wavesEffectRight infinite 10s ease-in-out alternate;
+  animation: wavesEffectRight infinite 10s ease-in-out alternate;
 }
 #index #hero > div.corner-bottom > svg > path:last-of-type {
   animation: wavesEffectRight infinite 5s ease-in-out alternate-reverse;
@@ -611,7 +592,7 @@ footer .copyright p {
 }
 @media (max-width: 768px) {
   #index #product .contents > img,
-#index #product .contents > div {
+  #index #product .contents > div {
     width: 100%;
   }
 }
@@ -658,8 +639,7 @@ footer .copyright p {
 }
 #index #product .points .grid .cards:nth-of-type(even) svg > path:first-of-type {
   transform-origin: center;
-  -webkit-animation: rotate 20s infinite linear alternate;
-          animation: rotate 20s infinite linear alternate;
+  animation: rotate 20s infinite linear alternate;
 }
 #index #product .points .grid .cards:nth-of-type(odd) svg {
   transform-box: fill-box;
@@ -770,12 +750,22 @@ footer .copyright p {
 body:not(#index) main {
   margin-top: 250px;
 }
+@media (max-width: 768px) {
+  body:not(#index) main {
+    margin-top: 150px;
+  }
+}
 
 #contact .infos {
   transform: translateY(-50%);
   background: #F9F9FA;
   border-radius: 20px;
   box-shadow: 0 20px 30px -30px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 768px) {
+  #contact .infos {
+    transform: unset;
+  }
 }
 #contact .infos .grid {
   grid-template-columns: repeat(3, 1fr) !important;
@@ -852,11 +842,16 @@ body:not(#index) main {
 }
 #contact form#contact-form > div:last-of-type input[type=submit] {
   grid-area: submit;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   float: right;
   border: none;
+}
+@media (max-width: 768px) {
+  #contact form#contact-form > div:last-of-type input[type=submit] {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
 #contact main {
   position: relative;
@@ -871,4 +866,162 @@ body:not(#index) main {
 #contact main > svg:last-of-type {
   top: 75%;
   right: 0;
+}
+
+#product .intro {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+@media (max-width: 992px) {
+  #product .intro {
+    display: block;
+  }
+}
+#product .intro .img .cover {
+  position: relative;
+  padding: 0 75px;
+}
+#product .intro .img .cover img {
+  width: 100%;
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  cursor: pointer;
+}
+#product .intro .img .cover svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  #product .intro .img .cover svg {
+    width: 50%;
+  }
+}
+#product .intro .img .gallery {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 50px;
+}
+#product .intro .img .gallery > img {
+  height: 75px;
+  width: 75px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  cursor: pointer;
+}
+#product .intro .info > * {
+  margin-bottom: 16px;
+}
+#product .intro .info h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+}
+#product .intro .info p {
+  font-size: 16px;
+}
+#product .intro .info form > * {
+  margin-bottom: 16px;
+}
+#product .intro .info form > div > span {
+  display: block;
+}
+#product .intro .info form > div .wrap {
+  display: flex;
+  gap: 16px;
+}
+#product .intro .info form > div .wrap input[type=radio] {
+  display: none;
+}
+#product .intro .info form > div .wrap input[type=radio] + label {
+  padding: 10px 16px;
+  background-color: white;
+  border-radius: 4px;
+}
+#product .intro .info form > div .wrap input[type=radio]:checked + label {
+  background-color: #F3D9DA;
+}
+#product .intro .info form > div .section {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+#product .intro .info form > div #qty {
+  padding: 10px;
+  width: 75px;
+  font-weight: bold;
+}
+#product .intro .info form > div.price {
+  display: flex;
+}
+#product .intro .info form > div.price > span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #E54138;
+}
+#product .intro .info form button {
+  border: none;
+}
+#product .details > div {
+  margin-bottom: 50px;
+}
+#product .details > div .open-box {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 150px;
+}
+#product .details > div .open-box ol {
+  margin-left: 50px;
+}
+#product .details > div .open-box ol li {
+  margin: 16px 0;
+}
+#product .details > div .open-box ol li::marker {
+  font-size: 24px;
+}
+#product .details > div.description p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+#product .details > div#cut > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  #product .details > div#cut > div {
+    display: grid;
+  }
+}
+#product .details > div#cut ol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  gap: 50px;
+  padding: 50px;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  #product .details > div#cut ol {
+    order: 1;
+  }
+}
+#product .details > div#cut ol li::marker {
+  font-size: 24px;
+}
+@media (max-width: 768px) {
+  #product .details > div#cut iframe {
+    order: 2;
+  }
+}
+#product .details h3 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+#product .details p {
+  line-height: 150%;
+  width: 80%;
 }/*# sourceMappingURL=main.css.map */

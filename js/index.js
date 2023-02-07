@@ -29,6 +29,9 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  productGallery();
+  productCover();
+
   openMenu();
 
   scrollMenu();
@@ -36,8 +39,39 @@ document.addEventListener('DOMContentLoaded', () => {
   comments();
 
   animateHero();
-
 });
+
+const productGallery = () => {
+  if (document.querySelector('#product')) {
+    const cover = document.querySelector('#product .cover img');
+    let imgs = document.querySelectorAll('#product .gallery img');
+
+    imgs.forEach((img) => {
+      img.addEventListener('click', () => {
+        console.log('OK');
+        cover.src = img.src;
+      });
+    });
+  }
+}
+
+const productCover = () => {
+  if (document.querySelector('body#product')) {
+    let i = 1;
+    const cover = document.querySelector('#product .cover img');
+    let imgs = document.querySelectorAll('#product .gallery img');
+
+    cover.addEventListener('click', () => {
+      if (imgs.length > i+1) {
+        cover.src = imgs[i].src;
+        i++;
+      } else {
+        cover.src = imgs[1].src;
+        i = 0;
+      }
+    });
+  }
+}
 
 
 
@@ -148,3 +182,7 @@ const animateHero = () => {
     .fromTo(cb, 2, { bottom: "-100%" }, { bottom: '0%', ease: Power2.easeInOut }, "-=2")
     .fromTo(bgt, 1.2, { opacity: "0" }, { opacity: '0.1', ease: Power2.easeInOut });
 }
+
+
+
+
