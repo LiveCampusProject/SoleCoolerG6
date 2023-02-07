@@ -17,9 +17,9 @@
         try {
 
             $utilisateur = "root";
-            $motdepasse = "";
+            $motdepasse = "root";
             $hote = "localhost";
-            $port = 3306;
+            $port = 8889;
             $moteur = "mysql";
             $bdd = "solecooler";
             $pdo = new PDO("$moteur:host=$hote:$port;dbname=$bdd", $utilisateur, $motdepasse, [
@@ -183,7 +183,7 @@
     function is_user_logged_in(): bool
     {
         // check the session
-        if ($_SESSION['loggedin'] == TRUE) {
+        if (isset($_SESSION['loggedin'])) {
             return true;
         }
 
@@ -378,7 +378,7 @@
     function send_activation_email(string $email, string $activation_code): void
     {
         // create the activation link
-        $activation_link = APP_URL . "/activate.php?email=$email&activation_code=$activation_code";
+        $activation_link = APP_URL . "activate.php?email=$email&activation_code=$activation_code";
 
         // set email subject & body
         $subject = 'Please activate your account';
@@ -443,7 +443,7 @@
         );
     }
 
-    function forgot_change_password() {
+    function forgot_change_password($user) {
         
         $messageErreur="";
         $password = filter_input(INPUT_POST, "password");
@@ -453,15 +453,17 @@
 
             if (strlen($_POST['password']) > 20 || strlen($password) < 5) {
                 $messageErreur='Password must be between 5 and 20 characters long!';
-            
             }
-            if ($password != $confirm){
+            else if ($password != $confirm){
                 $messageErreur='Les mots de passe doivent être identique';
             }
             else {
 
                 $password = password_hash($password,PASSWORD_DEFAULT);
-                save_password($password);
+                save_password($password,$user);
+                deldelete_pwd_token($user["userID"]);
+                redirection("./login.php");
+                
 
             }
         }
@@ -470,18 +472,9 @@
         
     }
     
-    function change_password() {
-        
-        $messageErreur="";
-        $pdo=db_connect();
-        $requete = $pdo->prepare("SELECT * FROM users WHERE `users`.`userID` = :userID");
-        $requete->execute(
-            [
-                "userID" => $_SESSION['id']
-            ]
-        );
+    function change_password(array $user) {
 
-        $user= $requete->fetch(PDO::FETCH_ASSOC);
+        $messageErreur="";
         $oldPassword = filter_input(INPUT_POST, "oldPassword");
         $password = filter_input(INPUT_POST, "password");
         $confirm = filter_input(INPUT_POST,"confirm");
@@ -512,44 +505,71 @@
     }
 
     function save_password($password, $user) {
+
+        $pdo = db_connect();
         $requete = $pdo->prepare("UPDATE `users` SET `password`= :password WHERE `userID` = :userID ");
         $requete->execute(
             [
                 "password" => $password,
-                "userID" => $user,
+                "userID" => $user["userID"],
             ]
         );
     }
 
+    function deldelete_pwd_token($userID) {
+
+        $pdo = db_connect();
+        $requete = $pdo->prepare("UPDATE `users` SET `pwd_token`= :pwd WHERE `userID` = :userID ");
+        $requete->execute(
+            [
+                "pwd" => NULL,
+                "userID" => $userID,
+            ]
+        );
+    } 
+
     function forgot_password() {
+        
+        $pdo = db_connect();
+        $messageErreur="";
+        $email = filter_input(INPUT_POST, "email");
 
-        $pdo=db_connect();
-        $requete = $pdo->prepare("SELECT * FROM users WHERE `users`.`userID` = :userID");
-        $requete->execute(
-            [
-                "userID" => $_SESSION['id']
-            ]
-        );
-        $user= $requete->fetch(PDO::FETCH_ASSOC);
+            if($email) {
 
-        $token = generate_activation_code();
-        send_recovery_email($user["email"], $token);
+                $requete = $pdo->prepare("SELECT * FROM users WHERE `users`.`email` = :email");
+                $requete->execute(
+                    [
+                    "email" => $email
+                    ]
+                );
+                $checkEmail = $requete->fetch(PDO::FETCH_ASSOC);
+                // Si il existe erreur 
+                if(!$checkEmail){
+                    $messageErreur='Le Mail fourni ne correspond à aucun compte ';
+                }
+                else {
+        
+                    $token = generate_activation_code();
+                    send_recovery_email($checkEmail["email"], $token);
 
-        $requete = $pdo->prepare("UPDATE `users` SET `pwd_token`= :token WHERE `userID` = :userID ");
-    
-        $requete->execute(
-            [
-                "token" => password_hash($token,PASSWORD_DEFAULT),
-                "userID" => $user["userID"],
-            ]
-        );
+                    $requete = $pdo->prepare("UPDATE `users` SET `pwd_token`= :token WHERE `userID` = :userID ");
+                
+                    $requete->execute(
+                        [
+                            "token" => password_hash($token,PASSWORD_DEFAULT),
+                            "userID" => $checkEmail["userID"],
+                        ]
+                    );
+                }
+            }
 
+            return $messageErreur;
     }
 
     function send_recovery_email(string $email, string $activation_code): void
     {
         // create the activation link
-        $activation_link = APP_URL . "/change.php?email=$email&activation_code=$activation_code";
+        $activation_link = APP_URL . "change.php?email=$email&activation_code=$activation_code";
 
         // set email subject & body
         $subject = 'Password reset';
@@ -583,9 +603,8 @@
         );
 
         $user = $requete->fetch(PDO::FETCH_ASSOC);
-
         if ($user) {
-        
+            
             // Vérification pwdToken
             if (password_verify($activation_code, $user['pwd_token'])) {
                 return $user;

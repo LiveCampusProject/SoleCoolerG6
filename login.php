@@ -38,7 +38,7 @@ $messageErreur = login_user();
       </div>
       <div>
       <label>
-        <a href="">Mot de passe oublié ?</a>
+        <a href="./forgot.php">Mot de passe oublié ?</a>
       </label>
       </div>
       <button type="submit">Connexion</button>
@@ -46,6 +46,7 @@ $messageErreur = login_user();
     </form>
     <?php if ($messageErreur != "") : ?>
       <h1><?php echo $messageErreur ?> </h1>
-    <?php endif 
+    </main>
+    <?php endif;
     require_once("./inc/footer.php");
   ?>

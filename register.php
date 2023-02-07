@@ -4,11 +4,11 @@
      *  Puis on insère les élements redondants footer et head  
      */
     $js = "js/register.js";
-    $css="";
+    $css="./css/main.css";
+    $bodyId="";
     $titre = "SoleCooler S'inscrire";
     require_once("./inc/head.php");
-    require_once("./inc/nav.php");
-    require_once("./inc/footer.php");
+    require_once("./inc/header.php");
     require_once("./inc/utils.php");
     $messageErreur = create_user();    
 ?>
@@ -49,3 +49,5 @@
   <?php endif ?>
 
 </main>
+
+<?php     require_once("./inc/footer.php"); ?>

@@ -3,24 +3,24 @@
      *  On définie le path de tout les fichier nécéssaire et le titre de notre page 
      *  Puis on insère les élements redondants footer et head  
      */
-    $js = "";
+    $js = "js/register.js";
     $css="";
     $titre = "SoleCooler Connexion";
     require_once("./inc/head.php");
-    require_once("./inc/nav.php");
-    require_once("./inc/footer.php");
+    require_once("./inc/header.php");
     require_once("./inc/utils.php");
 
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
         $email = filter_input(INPUT_GET, "email");
-        $code = filter_input(INPUT_GET, "pwd_code");
-    
+        $code = filter_input(INPUT_GET, "activation_code");
+        
         if ($email && $code) {
     
             $user = find_user_pwd_token($code, $email);
-    
-            if ($user ): ?>
+
+            if ($user ): 
+                
+                $messageErreur = forgot_change_password($user);
+            ?>
  
     
                 <main>
@@ -28,7 +28,7 @@
                         <h1>Mot de passe oublié</h1>
 
                         <div>
-                            <input type="password" placeholder="Password" name ="password" id= "password">
+                            <input type="password" placeholder="Password" name ="password" onkeyup='validatePassword()' id= "password">
                             <label> Nouveau Motdepasse</label>
                         </div> 
                         <div>
@@ -46,8 +46,11 @@
 
 <?php
         
-            endif;
+                else: redirection("./login.php");?>
+                
+<?php   endif;
+        } 
+        else {
+            redirection("./login.php");
         }
-    } 
-redirection("./login.php");
 ?>

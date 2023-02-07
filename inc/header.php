@@ -1,5 +1,6 @@
 <?php
-session_start();
+    require_once("./inc/utils.php");
+    session_start();
     if (!(is_user_logged_in())):
 ?>
 
@@ -16,7 +17,7 @@ session_start();
         <div id="navbar" class="container">
 
             <!-- Logo -->
-            <a id="logo" href="#"><img src="./assets/img/general/Logo SoleCooler.svg" alt="logo SoleCooler"></a>
+            <a id="logo" href="./index.php"><img src="./assets/img/general/Logo SoleCooler.svg" alt="logo SoleCooler"></a>
             <!-- End Logo -->
 
             <!-- Main Nav -->
@@ -36,7 +37,7 @@ session_start();
             <div id="icons">
                 <ul>
                     <li>
-                        <a href="<?php if (!isset($_SESSION['loggedin'])) echo './login.php'; ?>">
+                        <a href="<?php echo './login.php'; ?>">
                             <img src="./assets/img/icons/icon_user.svg" width="25" alt="Mon compte">
                         </a>
                     </li>
@@ -61,3 +62,4 @@ session_start();
         <!-- End Navbar -->
 
     </header>
+<?php endif;?>
