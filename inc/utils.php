@@ -1,6 +1,11 @@
 <?php
     const APP_URL = 'http://localhost:8888/';
     const SENDER_EMAIL_ADDRESS = 'no-reply@solecooler.fr';
+    require_once './vendor/autoload.php';
+    use Symfony\Component\Mailer\Transport;
+    use Symfony\Component\Mailer\Mailer;
+    use Symfony\Component\Mime\Email;
+
     /*
     *   Fonction utilitaire, redirige l'utilisateur et arrête PHP.
     */
@@ -375,24 +380,32 @@
        
     }
 
-    function send_activation_email(string $email, string $activation_code): void
+    function send_activation_email(string $useremail, string $activation_code): void
     {
         // create the activation link
         $activation_link = APP_URL . "activate.php?email=$email&activation_code=$activation_code";
 
-        // set email subject & body
-        $subject = 'Please activate your account';
-        $message = <<<MESSAGE
-                Hi,
-                Please click the following link to activate your account:
-                $activation_link
-                MESSAGE;
-        // email header
-        $header = "From:" . SENDER_EMAIL_ADDRESS;
-
-        // send the email
-        mail($email, $subject, nl2br($message), $header);
         var_dump($activation_link);
+
+        // Create a Transport object 
+        $transport = Transport::fromDsn('smtp://localhost:1025');
+        // Create a Mailer object 
+        $mailer = new Mailer($transport); 
+        // Create an Email object 
+        $email = (new Email());
+        // Set the "From address" 
+        $email->from(SENDER_EMAIL_ADDRESS);
+        // Set the "From address" 
+        $email->to($useremail);
+        // Set a "subject" 
+        $email->subject('Please activate your account');
+        // Set the plain-text "Body" 
+        $email->text('');
+        // Set HTML "Body" 
+        $email->html($activation_link);
+        // Send the message 
+        $mailer->send($email);
+
 
     }
 
@@ -566,24 +579,30 @@
             return $messageErreur;
     }
 
-    function send_recovery_email(string $email, string $activation_code): void
+    function send_recovery_email(string $useremail, string $activation_code): void
     {
         // create the activation link
         $activation_link = APP_URL . "change.php?email=$email&activation_code=$activation_code";
-
-        // set email subject & body
-        $subject = 'Password reset';
-        $message = <<<MESSAGE
-                Hi,
-                Please click the following link to activate your account:
-                $activation_link
-                MESSAGE;
-        // email header
-        $header = "From:" . SENDER_EMAIL_ADDRESS;
-
-        // send the email
-        mail($email, $subject, nl2br($message), $header);
         var_dump($activation_link);
+
+        // Create a Transport object 
+        $transport = Transport::fromDsn('smtp://localhost:1025');
+        // Create a Mailer object 
+        $mailer = new Mailer($transport); 
+        // Create an Email object 
+        $email = (new Email());
+        // Set the "From address" 
+        $email->from(SENDER_EMAIL_ADDRESS);
+        // Set the "From address" 
+        $email->to($useremail);
+        // Set a "subject" 
+        $email->subject('Reset your account');
+        // Set the plain-text "Body" 
+        $email->text('');
+        // Set HTML "Body" 
+        $email->html($activation_link);
+        // Send the message 
+        $mailer->send($email);
 
     }
 
@@ -604,7 +623,7 @@
 
         $user = $requete->fetch(PDO::FETCH_ASSOC);
         if ($user) {
-            
+
             // Vérification pwdToken
             if (password_verify($activation_code, $user['pwd_token'])) {
                 return $user;
