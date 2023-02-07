@@ -56,7 +56,7 @@ const productGallery = () => {
 }
 
 const productCover = () => {
-  if (document.querySelector('#product')) {
+  if (document.querySelector('body#product')) {
     let i = 1;
     const cover = document.querySelector('#product .cover img');
     let imgs = document.querySelectorAll('#product .gallery img');

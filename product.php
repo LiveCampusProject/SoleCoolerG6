@@ -82,11 +82,13 @@ require_once("./inc/header.php");
     <section class="details container">
         <h2>Informations</h2>
 
-        <div>
+        <div class="description">
             <p>
                 Selon vos objectifs, la course à pied peut mettre votre corps à rude épreuve en hiver. Nous avons donc conçu nos semelles CLIMFEET afin que vos performances ne soient pas diminuées par des pieds froids.
                 <br>
+                <br>
                 Nos semelles vous apporteront un confort thermique et même mécanique inégalable, sans s’encombrer de batteries car activées par vos propres pas et donc sans empreinte carbone.
+                <br>
                 <br>
                 Les semelles CLIMFEET comportent des centaines de mini pompes à chaleur miniatures brevetées, constituées de 2 alvéoles remplies d’air et c’est votre pied qui joue le rôle de compresseur (la compression de l’air l’échauffe naturellement) et c’est l’hyper-élasticité de notre matériau qui joue le rôle de détendeur (la détente de l’air au travers d’une tuyère le refroidit naturellement).
             </p>
@@ -122,16 +124,39 @@ require_once("./inc/header.php");
             </div>
 
             <a href="#" target="_blank" rel="noopener noreferrer">
-                        En savoir plus sur l'emballage
-                    </a>
+                En savoir plus sur l'emballage
+            </a>
         </div>
 
-        <div>
+        <div id="cut">
             <h3>Comment découper vos semelles</h3>
 
-            <img src="./assets/img/products/climfeet/cut.png" alt="">
+            <div>
+                <iframe width="480" height="270" src="https://www.youtube.com/embed/8ZZGjnxTXnc" title="how to cut ExtreMWear products" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                
+                    <ol>
+                    <li>
+                        <div>Enlever la semelle</div>
+                        <img src="./assets/img/products/climfeet/cut_step_1.png" alt="Comment découper vos semelles - 1">
+                    </li>
 
-            <iframe width="480" height="270" src="https://www.youtube.com/embed/8ZZGjnxTXnc" title="how to cut ExtreMWear products" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <li>
+                        <div>Tracez la forme</div>
+                        <img src="./assets/img/products/climfeet/cut_step_2.png" alt="Comment découper vos semelles - 2">
+                    </li>
+
+                    <li>
+                        <div>Découpez prudemment</div>
+                        <img src="./assets/img/products/climfeet/cut_step_3.png" alt="Comment découper vos semelles - 3">
+                    </li>
+
+                    <li>
+                        <div>Insérez et profitez !</div>
+                        <img src="./assets/img/products/climfeet/cut_step_4.png" alt="Comment découper vos semelles - 4">
+                    </li>
+                </ol>
+            </div>
+
         </div>
 
 
