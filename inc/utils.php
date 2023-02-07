@@ -1,5 +1,6 @@
 <?php
-
+    const APP_URL = 'http://localhost:8888/';
+    const SENDER_EMAIL_ADDRESS = 'no-reply@solecooler.fr';
     /*
     *   Fonction utilitaire, redirige l'utilisateur et arrête PHP.
     */
@@ -16,9 +17,9 @@
         try {
 
             $utilisateur = "root";
-            $motdepasse = "";
+            $motdepasse = "root";
             $hote = "localhost";
-            $port = 3306;
+            $port = 8889;
             $moteur = "mysql";
             $bdd = "solecooler";
             $pdo = new PDO("$moteur:host=$hote:$port;dbname=$bdd", $utilisateur, $motdepasse, [
@@ -103,7 +104,7 @@
             // Si il n'y a aucune erreur on enregistre dans la base de donnée.
             if($messageErreur==""){
                 register_user($user);
-                redirection("./login.php");
+                //redirection("./login.php");
             }
             }
         
@@ -115,17 +116,21 @@
     */
 
     function register_user(array $user){
-
+        $activation_code = generate_activation_code();
+        $user["activation_expiry"] = date('Y-m-d H:i:s',  time() + (1 * 24  * 60 * 60));
+        $user["activation_code"] = password_hash($activation_code, PASSWORD_DEFAULT);
         $pdo = db_connect();
-        $requete = $pdo->prepare("INSERT INTO `users` (`nom`, `email`, `password`) VALUES (:nom, :email, :password)");
+        $requete = $pdo->prepare("INSERT INTO `users` (`nom`, `email`, `password`, `activation_code`, `activation_expiry`) VALUES (:nom, :email, :password, :activation_code, :activation_expiry)");
         $requete->execute($user);
+        send_activation_email($user["email"], $activation_code);
+        
     }
     /*
     *   Fonction qui permet à l'utilisateur de se connecter.
     */
 
     function login_user(): string{
-        // On se connecte à  la base de donnée
+         // On se connecte à  la base de donnée
         $pdo=db_connect();
         // On définie la variable qui affichera un message d'erreur si il ya eu une erreur dans le formulaire.
         $messageErreur="";
@@ -133,11 +138,12 @@
 
         $email = filter_input(INPUT_POST, "email");
         $password = filter_input(INPUT_POST, "password");
+        $rememberMe = filter_input(INPUT_POST, "remember-me");
 
         // On vérifie que le formulaire à bien été rempli.
         if($email && $password){
 
-            // On cherche le pseudo dans la base de donnée.
+            // On cherche le mail dans la base de donnée.
             $requete = $pdo->prepare("SELECT * FROM users WHERE `users`.`email` = :email");
             $requete->execute(
                 [
@@ -154,29 +160,458 @@
             // Si le pseudo existe on check si le mot de passe correspond 
             elseif (password_verify($password,$checkUser['password'])) {
                 
-           
-                session_regenerate_id();                            //On créer une session.
-		        $_SESSION['loggedin'] = TRUE;
-		        $_SESSION['email'] = $checkUser['email'];
-		        $_SESSION['id'] = $checkUser['userID'];
-                redirection("./index.php");                         // On redirige l'utilisateur connecté vers la page d'accueil.
+                // On vérifie si l'utilisateur à activer son compte par mail
+                if (!(is_user_active($checkUser))) {
+                    $messageErreur="Vous devez activer votre compte pour vous connecter";
+                }
+                else {
+                log_user_in($checkUser);
+                    if ($rememberMe == "on") {
+                        remember_me($checkUser["userID"]);
+                    }
+                    redirection("./index.php");                    // On redirige l'utilisateur connecté vers la page d'accueil.
+                }                   
             }
+           
             else{
-                $messageErreur="Email ou mot de passe incorrect";
+                $messageErreur="email ou mot de passe incorrect";
             }
         }
         return $messageErreur;
     }
 
-    /*
-    * Fonction qui permet à l'utilisateur de se deconnecter
-    */
+    function is_user_logged_in(): bool
+    {
+        // check the session
+        if (isset($_SESSION['loggedin'])) {
+            return true;
+        }
+
+        // check the remember_me in cookie
+        $token = filter_input(INPUT_COOKIE, 'remember_me', FILTER_SANITIZE_STRING);
+        if ($token && token_is_valid($token)) {
+
+            $user = find_user_by_token($token);
+            var_dump(log_user_in($user)); 
+            if ($user) {
+                return log_user_in($user);
+            }
+        }
+        return false;
+    }
+
+    function log_user_in(array $user): bool
+    {
+        // prevent session fixation attack
+        if (session_regenerate_id()) {
+            // set username & id in the session
+            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['id'] = $user['userID'];
+            return true;
+        }
+
+        return false;
+    }
 
     function logout_user(){
-    session_start();
-    session_destroy();
-    // Redirect to the login page:
-    redirection('/index.php');
+        session_start();
+        if (is_user_logged_in()) {
+
+            // delete the user token
+            delete_user_token($_SESSION['id']);
+
+            // delete session
+            unset($_SESSION['username'], $_SESSION['id`']);
+
+            // remove the remember_me cookie
+            if (isset($_COOKIE['remember_me'])) {
+                unset($_COOKIE['remember_me']);
+                setcookie('remember_me', null, -1);
+            }
+        }
+        session_destroy();
+        // Redirect to the login page:
+        //redirection('/index.php');
+    }
+
+    function remember_me(int $user_id, int $day = 30)
+    {
+        [$selector, $validator, $token] = generate_tokens();
+
+        // remove all existing token associated with the user id
+        delete_user_token($user_id);
+
+        // set expiration date
+        $expired_seconds = time() + 60 * 60 * 24 * $day;
+
+        // insert a token to the database
+        $hash_validator = password_hash($validator, PASSWORD_DEFAULT);
+        $expiry = date('Y-m-d H:i:s', $expired_seconds);
+
+        if (insert_user_token($user_id, $selector, $hash_validator, $expiry)) {
+            setcookie('remember_me', $token, $expired_seconds);
+        }
+    }
+
+    function generate_tokens(): array
+    {
+        $selector = bin2hex(random_bytes(16));
+        $validator = bin2hex(random_bytes(32));
+
+        return [$selector, $validator, $selector . ':' . $validator];
+    }
+
+    function parse_token(string $token): ?array
+    {
+        $parts = explode(':', $token);
+
+        if ($parts && count($parts) == 2) {
+            return [$parts[0], $parts[1]];
+        }
+        return null;
+    }
+
+    function token_is_valid(string $token): bool 
+    { 
+        // parse the token to get the selector and validator 
+        [$selector, $validator] = parse_token($token);
+
+        $tokens = find_user_token_by_selector($selector);
+        if (!$tokens) {
+            return false;
+        }
+        
+        return password_verify($validator, $tokens['hashed_validator']);
+    }
+
+    function find_user_by_token(string $token)
+    {
+        $pdo = db_connect();
+        $tokens = parse_token($token);
+        if (!$tokens) {
+            return null;
+        }
+        $requete = $pdo->prepare(   "SELECT users.`userID`
+                                    FROM users
+                                    INNER JOIN user_tokens ON user_tokens.`userID` = users.`userID`
+                                    WHERE `selector` = :selector AND
+                                    expiry > now()
+                                    LIMIT 1"
+        );
+        $requete->execute(
+            [
+            "selector" => $tokens[0],
+            ]
+        );
+        $user= $requete->fetch(PDO::FETCH_ASSOC);
+
+        return $user;
+    }
+
+
+
+    function find_user_token_by_selector(string $selector)
+    {
+        $pdo = db_connect();
+        $requete = $pdo->prepare(   "SELECT `tokenID`, `selector`, `hashed_validator`, `userID`, `expiry`
+                                    FROM user_tokens
+                                    WHERE selector = :selector AND
+                                    expiry >= now()
+                                    LIMIT 1"
+        );
+
+        $requete->execute(
+            [
+            "selector" => $selector,
+            ]
+        );
+
+        $userToken= $requete->fetch(PDO::FETCH_ASSOC);
+
+        return $userToken;
+    }
+
+    function insert_user_token(int $userID, string $selector, string $hashed_validator, string $expiry): bool
+    {   
+        $pdo = db_connect();
+        $requete = $pdo->prepare("INSERT INTO `user_tokens` (`userID`, `selector` , `hashed_validator`, `expiry`)
+                VALUES(:userID, :selector, :hashed_validator, :expiry)");
+
+        return $requete->execute(
+            [
+                "userID" => $userID,
+                "selector" => $selector,
+                "hashed_validator" => $hashed_validator,
+                "expiry" => $expiry,
+            ]
+        );
+
+    }
+
+    function delete_user_token(int $user_id): bool
+    {
+        $pdo = db_connect();
+        $requete = $pdo->prepare("DELETE FROM user_tokens WHERE userID = :userID");
+        return $requete->execute(
+            [
+            "userID" => $user_id
+            ]
+        );
+    }
+
+    function generate_activation_code(): string
+    {
+        return bin2hex(random_bytes(16));
+    }
+    function is_user_active($user)
+    {
+        if ((int)$user['active'] === 1) {
+            return true;
+        }
+        else {
+            return false;
+        }
+       
+    }
+
+    function send_activation_email(string $email, string $activation_code): void
+    {
+        // create the activation link
+        $activation_link = APP_URL . "activate.php?email=$email&activation_code=$activation_code";
+
+        // set email subject & body
+        $subject = 'Please activate your account';
+        $message = <<<MESSAGE
+                Hi,
+                Please click the following link to activate your account:
+                $activation_link
+                MESSAGE;
+        // email header
+        $header = "From:" . SENDER_EMAIL_ADDRESS;
+
+        // send the email
+        mail($email, $subject, nl2br($message), $header);
+        var_dump($activation_link);
+
+    }
+
+    function find_unverified_user(string $activation_code, string $email)
+    {
+
+        $pdo = db_connect();
+       
+        $requete = $pdo->prepare(   "SELECT `userID`, `activation_code`, `activation_expiry` < now() as expired
+                                    FROM users
+                                    WHERE `active` = 0 AND `email`= :email"
+        );
+        $requete->execute(
+            [
+            "email" => $email,
+            ]
+        );
+
+        $user = $requete->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            
+            // Si le code d'activation est expiré
+            if ((int)$user['expired'] === 1) {
+                delete_user_by_id($user['id']);
+                return null;
+            }
+            // Vérification du code d'activation
+            if (password_verify($activation_code, $user['activation_code'])) {
+                return $user;
+            }
+        }
+
+        return null;
+    }
+
+    function activate_user(int $user_id): bool
+    {
+        $pdo = db_connect();
+        $requete = $pdo->prepare(   "UPDATE users
+                                    SET `active` = 1, `activated_at` = CURRENT_TIMESTAMP
+                                    WHERE `userID`=:userID;"
+        );
+        return $requete->execute(
+            [
+            "userID" => $user_id,
+            ]
+        );
+    }
+
+    function forgot_change_password($user) {
+        
+        $messageErreur="";
+        $password = filter_input(INPUT_POST, "password");
+        $confirm = filter_input(INPUT_POST,"confirm");
+
+        if ($password && $confirm) {
+
+            if (strlen($_POST['password']) > 20 || strlen($password) < 5) {
+                $messageErreur='Password must be between 5 and 20 characters long!';
+            }
+            else if ($password != $confirm){
+                $messageErreur='Les mots de passe doivent être identique';
+            }
+            else {
+
+                $password = password_hash($password,PASSWORD_DEFAULT);
+                save_password($password,$user);
+                deldelete_pwd_token($user["userID"]);
+                redirection("./login.php");
+                
+
+            }
+        }
+
+        return $messageErreur;
+        
+    }
+    
+    function change_password(array $user) {
+
+        $messageErreur="";
+        $oldPassword = filter_input(INPUT_POST, "oldPassword");
+        $password = filter_input(INPUT_POST, "password");
+        $confirm = filter_input(INPUT_POST,"confirm");
+
+        if ($user && $oldPassword && $password && $confirm ) {
+
+            if (password_verify($password,$user['password'])){
+            
+                if (strlen($_POST['password']) > 20 || strlen($password) < 5) {
+                    $messageErreur='Password must be between 5 and 20 characters long!';
+                
+                }
+                if ($password != $confirm){
+                    $messageErreur='Les mots de passe doivent être identique';
+                }
+                else {
+
+                    $password = password_hash($password,PASSWORD_DEFAULT);
+                    save_password($password, $user["userID"]);
+
+                }
+            }
+            else {
+                $messageErreur='Mot de passe incorect.';
+            }
+        }
+        return $messageErreur;
+    }
+
+    function save_password($password, $user) {
+
+        $pdo = db_connect();
+        $requete = $pdo->prepare("UPDATE `users` SET `password`= :password WHERE `userID` = :userID ");
+        $requete->execute(
+            [
+                "password" => $password,
+                "userID" => $user["userID"],
+            ]
+        );
+    }
+
+    function deldelete_pwd_token($userID) {
+
+        $pdo = db_connect();
+        $requete = $pdo->prepare("UPDATE `users` SET `pwd_token`= :pwd WHERE `userID` = :userID ");
+        $requete->execute(
+            [
+                "pwd" => NULL,
+                "userID" => $userID,
+            ]
+        );
+    } 
+
+    function forgot_password() {
+        
+        $pdo = db_connect();
+        $messageErreur="";
+        $email = filter_input(INPUT_POST, "email");
+
+            if($email) {
+
+                $requete = $pdo->prepare("SELECT * FROM users WHERE `users`.`email` = :email");
+                $requete->execute(
+                    [
+                    "email" => $email
+                    ]
+                );
+                $checkEmail = $requete->fetch(PDO::FETCH_ASSOC);
+                // Si il existe erreur 
+                if(!$checkEmail){
+                    $messageErreur='Le Mail fourni ne correspond à aucun compte ';
+                }
+                else {
+        
+                    $token = generate_activation_code();
+                    send_recovery_email($checkEmail["email"], $token);
+
+                    $requete = $pdo->prepare("UPDATE `users` SET `pwd_token`= :token WHERE `userID` = :userID ");
+                
+                    $requete->execute(
+                        [
+                            "token" => password_hash($token,PASSWORD_DEFAULT),
+                            "userID" => $checkEmail["userID"],
+                        ]
+                    );
+                }
+            }
+
+            return $messageErreur;
+    }
+
+    function send_recovery_email(string $email, string $activation_code): void
+    {
+        // create the activation link
+        $activation_link = APP_URL . "change.php?email=$email&activation_code=$activation_code";
+
+        // set email subject & body
+        $subject = 'Password reset';
+        $message = <<<MESSAGE
+                Hi,
+                Please click the following link to activate your account:
+                $activation_link
+                MESSAGE;
+        // email header
+        $header = "From:" . SENDER_EMAIL_ADDRESS;
+
+        // send the email
+        mail($email, $subject, nl2br($message), $header);
+        var_dump($activation_link);
+
+    }
+
+    function find_user_pwd_token(string $activation_code, string $email)
+    {
+
+        $pdo = db_connect();
+       
+        $requete = $pdo->prepare(   "SELECT `userID`, `pwd_token`
+                                    FROM users
+                                    WHERE `email`= :email"
+        );
+        $requete->execute(
+            [
+            "email" => $email,
+            ]
+        );
+
+        $user = $requete->fetch(PDO::FETCH_ASSOC);
+        if ($user) {
+            
+            // Vérification pwdToken
+            if (password_verify($activation_code, $user['pwd_token'])) {
+                return $user;
+            }
+        }
+
+        return null;
     }
 
 ?>

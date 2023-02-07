@@ -36,16 +36,17 @@ $messageErreur = login_user();
           <input type="checkbox" value="remember-me"> Se souvenir de moi
         </label>
       </div>
+      <div>
+      <label>
+        <a href="./forgot.php">Mot de passe oublié ?</a>
+      </label>
+      </div>
       <button type="submit">Connexion</button>
 
     </form>
     <?php if ($messageErreur != "") : ?>
       <h1><?php echo $messageErreur ?> </h1>
-    <?php endif ?>
-  </div>
-
-</main>
-
-<?php
-require_once("./inc/footer.php");
-?>
+    </main>
+    <?php endif;
+    require_once("./inc/footer.php");
+  ?>
