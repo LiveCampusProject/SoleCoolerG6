@@ -26,10 +26,7 @@ ul {
 .container {
     max-width: 1200px;
     margin: auto;
-
-    @media (max-width: $tablet) {
-        padding: 0 50px;
-    }
+    padding: 0 50px;
 }
 
 .space {

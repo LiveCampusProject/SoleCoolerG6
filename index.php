@@ -363,5 +363,8 @@ require_once("./inc/header.php");
       <img src="./assets/img/home/bruno-aubert.png" alt="Bruno Aubert">
     </div>
   </section>
-
 </main>
+
+<?php
+require_once("./inc/footer.php");
+?>
