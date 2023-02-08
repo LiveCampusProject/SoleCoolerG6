@@ -45,6 +45,7 @@
                     <li>
                         <form>
                             <select name="lang" id="languages">
+                                <option value="fr">FR</option>
                                 <option value="en">EN</option>
                                 <option value="de">DE</option>
                                 <option value="es">ES</option>
