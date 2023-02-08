@@ -75,16 +75,16 @@ require_once("./inc/header.php");
   <section class="container space-arround-m">
     <h2 data-i18n="Home.partnership.title" class="h2-tiny">Nos partenaires</h2>
     <div class="customer-logos slider">
-      <div class="slide"><img src="./assets/img/logos/logo Elkem.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo - agefiph.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo Ansys fluent.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo Ceei.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo Initiative.png"></div>
-      <div class="slide"><img src="./assets/img/logos/logo Elkem.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo - agefiph.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo Ansys fluent.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo Ceei.png"></div>
-      <div class="slide"><img src="./assets/img/logos/Logo Initiative.png"></div>
+      <div class="slide"><img src="./assets/img/logos/logo Elkem.png" alt="logo Elkem"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo - agefiph.png" alt="Logo - agefiph"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ansys fluent.png" alt="Logo Ansys fluent"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ceei.png" alt="Logo Ceei"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Initiative.png" alt="Logo Initiative"></div>
+      <div class="slide"><img src="./assets/img/logos/logo Elkem.png" alt="logo Elkem"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo - agefiph.png" alt="Logo - agefiph"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ansys fluent.png" alt="Logo Ansys fluent"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Ceei.png" alt="Logo Ceei"></div>
+      <div class="slide"><img src="./assets/img/logos/Logo Initiative.png" alt="Logo Initiative"></div>
       <!-- <div class="slide"><img src="./assets/img/logos/"></div> -->
     </div>
   </section>
@@ -95,7 +95,7 @@ require_once("./inc/header.php");
   <section id="product">
     <div class="contents container">
 
-      <img src="./assets/img/products/Produit SoleCooler.png" alt="">
+      <img src="./assets/img/products/Produit SoleCooler.png" alt="ClimFeet">
 
       <div>
         <h2 data-i18n="Home.product.title">CLIMFEET : La semelle réversible thermo-régulée</h2>
@@ -105,9 +105,10 @@ require_once("./inc/header.php");
           <span data-i18n="Home.product.$2"> Elle garde vos pieds au chaud en situation de froid tout en créant du frais durant les périodes estivales. </span>
         </p>
         
-        <a href="#" class="button-2">
+        <a href="./product.php" class="button-2">
           <span data-i18n="Home.product.button" >Acheter</span>
         </a>
+        
       </div>
     </div>
 

@@ -22,7 +22,7 @@ $messageErreur = login_user();
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <lottie-player src="./assets/lottie/60867-waiting.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
 
-    <a href="">
+    <a href="/register.php">
       Pas encore de compte ?
     </a>
 

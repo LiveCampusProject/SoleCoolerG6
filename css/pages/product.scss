@@ -138,7 +138,7 @@
 
                     li {
                         margin: 16px 0;
-                        
+
                         &::marker {
                             font-size: 24px;
                         }
@@ -199,6 +199,29 @@
         p {
             line-height: 150%;
             width: 80%;
+        }
+    }
+
+
+
+
+
+    #box {
+        #middle {
+            animation: alternate infinite 4s show ease-in-out;
+
+            #cut {
+                stroke-dasharray: 14;
+                animation: infinite 4s cut linear;
+            }
+        }
+
+        #top {
+            animation: alternate infinite breakUp ease-in-out 4s;
+        }
+
+        #bottom {
+            animation: alternate infinite breakDown ease-in-out 4s;
         }
     }
 }

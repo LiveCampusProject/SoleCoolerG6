@@ -7,7 +7,7 @@
 <header>
   <div class="sidebar">
       <div class="sidebar_header">
-        <img src="../../assets/img/general/Logo-SoleCooler-white.png" alt="">
+        <img src="../../assets/img/general/Logo-SoleCooler-white.png" alt="Logo SoleCooler">
       </div>
 
       <div class="sidebar_menu">
