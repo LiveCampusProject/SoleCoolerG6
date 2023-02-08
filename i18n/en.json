@@ -1,11 +1,46 @@
 {
-    "title": "How To Cook A Juicy Chicken Breast",
-    "content": "There’s a big difference between juicy chicken breasts and rubbery chicken breasts. Obviously, you want to avoid the latter at all costs. Follow these 4 steps and you’re gold. You want to add protein to favorites like Caesar salad or fix up a quick chicken salad or club sandwich? Try this method and savor the results.",
-    "ingredients": {
-      "title": "Ingredients",
-      "$0": "1 pound boneless chicken breasts",
-      "$1": "2 teaspoons olive oil",
-      "$2": "salt and pepper"
+  "Home": {
+    "hero": {
+      "title": "The heated sole",
+      "subtitle": "thanks to the energy of your steps",
+      "content": "CLIMFEET : Keep your feet warm or cool without time limit",
+      "button": "Discover"
+    },
+    "partnership": {
+      "title": "Our partners"
+    },
+    "product": {
+      "title": "CLIMFEET : The reversible thermo-regulated sole",
+      "$1":"A flexible honeycomb sole that generates heat and cold by the mere pressure of your steps and without a carbon footprint.",
+      "$2":"It keeps your feet warm in cold situations while creating coolness during the summer.",
+      "button":"Buy",
+      "$3":"Effective",
+      "$4":"-4°C or +4°C",
+      "$5":"from 7 steps",
+      "$6":"Resistant",
+      "$7":"Designed to work",
+      "$8":"between -40°C and +60°C",
+      "$9":"Reusable",
+      "$10":"Can be washed with",
+      "$11":"soap and water",
+      "$12":"100% French",
+      "$13":"Product designed, manufactured",
+      "$14":"and packed in France"
+    },
+    "company": {
+      "title":"SoleCooler : Inspired by Nature / Activated by your feet",
+      "$1":"Created in 2019, SoleCooler has developed a thermo-regulated sole: the CLIMFEET. Thanks to its multiple air-filled cells, the CLIMFEET sole directly converts the mechanical energy of the user's steps into heat and cold.",
+      "button":"Discover our technology"
+    },
+    "comments": {
+      "title": "They trusted us"
+    },
+    "founder": {
+      "title":"The founder",
+      "$1":"Bruno Aubert is the president of Solecooler. He is a graduate of ENSCI and has been an expert in innovation for 38 years. After 13 years of developing new waste treatment processes in the nuclear industry, he created Occigerm in 1996 to industrialize an innovative medical waste disinfection process that he sold all over the world (US Navy, Hitachi Medical, French Navy...). He then worked as a consultant for large groups such as Bekaert to develop a bio-aerosol filtration process in hospitals, and then co-founded Occipol and then EM Research Lab to develop a process for extracting metals (heavy, precious...) without effluents. In 2006 he created Cairpol to industrialize a new miniature air pollution sensor that is widely used in the world (USA, Mexico, Chile, Korea, Japan...) for monitoring, in autonomous and wireless networks, sensitive sites of waste treatment centers (Véolia, Suez, Degremont, NASA, EPA, Total...). In 2019, he created Solecooler to develop a thermo-regulated sole with the sole mechanical energy of our own steps and without carbon footprint."
     }
+
   }
+
+}
   
