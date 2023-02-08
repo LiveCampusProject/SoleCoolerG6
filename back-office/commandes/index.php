@@ -16,6 +16,7 @@ require_once '../inc/utils.php';
 
 // On appelle avis() qui renverra la liste des avis
 $commandes = commandes();
+
  
 ?>
 
@@ -33,7 +34,8 @@ $commandes = commandes();
                     <tr>
                         <th>#</th>
                         <th>Produit</th>
-                        <th>User</th>
+                        <th>Nom</th>
+                        <th>Email</th>
                         <th class="text-center">Date</th>
                         <th class="text-center">Quantité</th>
                         <th class="text-center">Total</th>
@@ -46,7 +48,9 @@ $commandes = commandes();
                         <tr>
                             <td scope="row"><?= $commande['commandeID'] ?></td>
                             <td><?= $commande['produitId'] ?></td>
-                            <td><?= $commande['userId'] ?></td>
+                            <?php $userCommande = getUserbyID($commande['userId']);?>
+                            <td><?= $userCommande['nom'] ?></td>
+                            <td><?= $userCommande['email'] ?></td>
                             <td class="text-center"><?= $commande['commandeDate'] ?></td>
                             <td class="text-center"><?= $commande['quantite'] ?></td>
                             <td class="text-center"><?= $commande['total'] ?></td>

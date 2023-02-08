@@ -756,4 +756,17 @@
         }
     }
 
+
+    /* Récupère un utilisateur en fonction de son ID*/
+    function getUserbyID($id){
+        global $pdo;
+
+        $requete = $pdo->prepare("SELECT * FROM users WHERE userID = :userID");
+        $requete->bindParam(':userID', $id);
+        $requete->execute();
+        $user = $requete->fetch();
+        
+        return $user;
+    }
+
 ?>
