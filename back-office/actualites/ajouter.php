@@ -18,10 +18,11 @@ ajouterActualite();
 <!-- Au dessus c'est habituel, toujours pareil -->
 <!-- En dessous aussi -->
 
-<div class="container mt-3">
+<div class="container">
+    <div class="content">
     <div class="row">
         <h1 class="text-center">Ajouter une actualité</h1>
-    </div>
+    </div> <br>
     
     <!-- Message d'erreur ou de succès de l'ajout -->
     <div class="col">
@@ -37,27 +38,26 @@ ajouterActualite();
         ?>
     </div>
 
-    <div class="row">
         <form method="POST" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col">
-                    <label for="libelle" class="form-label">Libelle</label>
-                    <input type="text" name="libelle" id="libelle" class="form-control" required />
+            <div class="wrapper">
+                <div class="group">
+                    <input type="text" name="libelle" id="libelle"required />
+                    <label for="libelle">Libelle</label>
                 </div>
-                <div class="col">
-                    <label for="date" class="form-label">Date de publication</label>
-                    <input type="date" name="date" id="date" class="form-control" required />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" name="description" id="description" class="form-control" required />
+                <div class="group">
+                    <label for="date" class="date">Date de publication</label>
+                    <input type="date" name="date" id="date" required />
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <input type="submit" value="Envoyer" class="btn btn-success"/>
+            <div class="wrapperRow">
+                <div class="group">
+                    <textarea name="description" id="description" required ></textarea>
+                    <label for="description">Description</label>
+                </div>
+            </div>
+            <div class="">
+                <div class="text-center">
+                    <input type="submit" value="Ajouter" class="button-1"/>
                 </div>
             </div>
         </form>

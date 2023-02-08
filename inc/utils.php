@@ -1,5 +1,5 @@
 <?php
-    const APP_URL = 'http://localhost:8888/';
+    const APP_URL = 'http://localhost:8080/';
     const SENDER_EMAIL_ADDRESS = 'no-reply@solecooler.fr';
     require_once './vendor/autoload.php';
     use Symfony\Component\Mailer\Transport;
@@ -24,7 +24,7 @@
             $utilisateur = "root";
             $motdepasse = "root";
             $hote = "localhost";
-            $port = 8889;
+            $port = 3306;
             $moteur = "mysql";
             $bdd = "solecooler";
             $pdo = new PDO("$moteur:host=$hote:$port;dbname=$bdd", $utilisateur, $motdepasse, [
@@ -383,7 +383,7 @@
     function send_activation_email(string $useremail, string $activation_code): void
     {
         // create the activation link
-        $activation_link = APP_URL . "activate.php?email=$email&activation_code=$activation_code";
+        $activation_link = APP_URL . "activate.php?email=$useremail&activation_code=$activation_code";
 
         var_dump($activation_link);
 
@@ -430,7 +430,7 @@
             
             // Si le code d'activation est expiré
             if ((int)$user['expired'] === 1) {
-                delete_user_by_id($user['id']);
+                // delete_user_by_id($user['id']);
                 return null;
             }
             // Vérification du code d'activation

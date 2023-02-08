@@ -5,15 +5,6 @@
   color: #031221;
 }
 
-@-webkit-keyframes wavesEffectLeft {
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(20px, 20px);
-  }
-}
-
 @keyframes wavesEffectLeft {
   from {
     transform: translate(0);
@@ -22,31 +13,12 @@
     transform: translate(20px, 20px);
   }
 }
-@-webkit-keyframes wavesEffectRight {
-  from {
-    transform: translate(0);
-  }
-  to {
-    transform: translate(-20px, -20px);
-  }
-}
 @keyframes wavesEffectRight {
   from {
     transform: translate(0);
   }
   to {
     transform: translate(-20px, -20px);
-  }
-}
-@-webkit-keyframes rotate {
-  0% {
-    transform: rotate(-90deg) scale(1);
-  }
-  50% {
-    transform: rotate(0) scale(0.75);
-  }
-  100% {
-    transform: rotate(90) scale(1);
   }
 }
 @keyframes rotate {
@@ -142,7 +114,6 @@ h2.h2-tiny {
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
@@ -550,8 +521,7 @@ footer .copyright p {
   top: -20px;
 }
 #index #hero > div.corner-top > svg > path:first-of-type {
-  -webkit-animation: wavesEffectLeft infinite 10s ease-in-out alternate;
-          animation: wavesEffectLeft infinite 10s ease-in-out alternate;
+  animation: wavesEffectLeft infinite 10s ease-in-out alternate;
 }
 #index #hero > div.corner-top > svg > path:last-of-type {
   animation: wavesEffectLeft infinite 5s ease-in-out alternate-reverse;
@@ -562,8 +532,7 @@ footer .copyright p {
   bottom: -20px;
 }
 #index #hero > div.corner-bottom > svg > path:first-of-type {
-  -webkit-animation: wavesEffectRight infinite 10s ease-in-out alternate;
-          animation: wavesEffectRight infinite 10s ease-in-out alternate;
+  animation: wavesEffectRight infinite 10s ease-in-out alternate;
 }
 #index #hero > div.corner-bottom > svg > path:last-of-type {
   animation: wavesEffectRight infinite 5s ease-in-out alternate-reverse;
@@ -611,7 +580,7 @@ footer .copyright p {
 }
 @media (max-width: 768px) {
   #index #product .contents > img,
-#index #product .contents > div {
+  #index #product .contents > div {
     width: 100%;
   }
 }
@@ -658,8 +627,7 @@ footer .copyright p {
 }
 #index #product .points .grid .cards:nth-of-type(even) svg > path:first-of-type {
   transform-origin: center;
-  -webkit-animation: rotate 20s infinite linear alternate;
-          animation: rotate 20s infinite linear alternate;
+  animation: rotate 20s infinite linear alternate;
 }
 #index #product .points .grid .cards:nth-of-type(odd) svg {
   transform-box: fill-box;
@@ -852,7 +820,6 @@ body:not(#index) main {
 }
 #contact form#contact-form > div:last-of-type input[type=submit] {
   grid-area: submit;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   float: right;

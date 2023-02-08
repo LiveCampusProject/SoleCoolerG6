@@ -11,7 +11,7 @@
       </div>
 
       <div class="sidebar_menu">
-        <a href="../index.php" class="sidebar_item">
+        <a href="/back-office/index.php" class="sidebar_item">
           <div class="sidebar_icon">
             <i class="fa-solid fa-house"></i>
           </div>

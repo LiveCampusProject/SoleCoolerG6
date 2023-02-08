@@ -1,16 +1,98 @@
 // Variables
-@import '_variables';
-@import '_fonts';
-@import '_colors';
-@import '_animations';
-@import '_responsive';
-@import '_init';
+// @import '../../css/_animations';
+@import '../../css/_fonts';
+@import '../../css/_colors';
+@import '../../css/_variables';
+@import '../../css/_responsive';
+@import '../../css/_init';
 
 // Components
-@import 'components/buttons';
-@import 'components/brands_slider';
+@import '/back-office/css/components/buttons.scss';
 
 // Styles
-@import 'pages/header';
-@import 'pages/home';
-@import 'pages/page';
+/*  Sidebar Menu  */
+#index-backoffice .sidebar {
+    width: 20vw;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--pine-tree);
+    transition: width 0.3s linear;
+  }
+  
+  #index-backoffice .sidebar_header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+  }
+  
+  #index-backoffice .sidebar_menu {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #index-backoffice .sidebar_item {
+    width: 100%;
+    height: 50px;
+    padding: var(--padding);
+    font-size: var(--font-size);
+    background-color: var(--pine-tree);
+    color: #ffffff;
+    display: block;
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  #index-backoffice .sidebar_item::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--underline);
+    transform: scale(0);
+    transform-origin: left;
+    transition: all 0.3s linear;
+  }
+  
+  #index-backoffice .sidebar_item:hover::before {
+    transform: scale(1);
+  }
+  
+  #index-backoffice .sidebar_item:hover {
+    background-color: #2a4055;
+    color: var(--smoky-black);
+    transition: all 0.3s linear;
+  }
+  
+  #index-backoffice .sidebar_item:active {
+    transform: translateY(0.2rem);
+  }
+  
+  #index-backoffice .sidebar_icon {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  #index-backoffice .sidebar_item h4 {
+    width: 80%;
+    display: inline-block;
+  }
+  
+  #index-backoffice .active {
+    width: 20vw;
+  }
+  #index-backoffice .active_margin_left {
+    margin-left: 20vw;
+  }
