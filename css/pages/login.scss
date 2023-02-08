@@ -1,0 +1,74 @@
+#login {
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+
+        @media (max-width: $mobile) {
+            flex-wrap: wrap;
+        }
+
+        >div {
+            width: 50%;
+
+            @media (max-width: $mobile) {
+                width: 100%;
+            }
+
+            &.left {
+                text-align: center;
+
+                lottie-player {
+                    pointer-events: none;
+                    margin-top: -150px;
+
+                    @media (max-width: $mobile) {
+                        margin-top: -250px;
+                    }
+                }
+            }
+
+            &.right {
+                @media (max-width: $mobile) {
+                    order: -1;
+                }
+
+                >* {
+                    margin-bottom: 24px;
+
+                    >* {
+                        margin-bottom: 16px;
+                    }
+                }
+
+                form {
+                    label {
+                        display: block;
+
+                        &.section {
+                            font-weight: bold;
+                        }
+                    }
+
+                    input {
+
+                        &[type=text],
+                        &[type=email],
+                        &[type=password] {
+                            padding: 10px 14px;
+                            border: none;
+                            border-bottom: 2px solid $black;
+                            background-color: unset;
+                            width: 100%;
+                        }
+                    }
+
+                    button {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+}
