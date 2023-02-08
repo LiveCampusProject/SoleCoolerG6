@@ -31,7 +31,7 @@ require_once("./inc/header.php");
 
             <div class="gallery">
                 <img src="./assets/img/products/climfeet/SoleCooler - Climfeet.png" alt="Climfeet par SoleCooler">
-                <img src="./assets/img/products/climfeet/paire_new_shape90 1.png">
+                <img src="./assets/img/products/climfeet/paire_new_shape90 1.png" alt="Paire Climfeet">
             </div>
         </div>
         <!-- End Image -->
@@ -120,7 +120,23 @@ require_once("./inc/header.php");
                     </p> -->
                 </div>
 
-                <img src="./assets/img/products/climfeet/emballage.png" alt="">
+                <!-- <img src="./assets/img/products/climfeet/emballage.png" alt="Emballage Climfeet"> -->
+                <svg id="box" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.84 1106.96" height="400px">
+                    <rect x="55.82" width="54.17" height="1106.96" style="fill:none" />
+                    <g id="bottom">
+                        <polygon points="181.93 511.02 171.74 865.33 75.96 906.27 9.24 848.14 7.45 496.07 80.26 528.18 81.25 528.62 181.93 511.02" style="fill:#1757a1" />
+                        <polygon points="181.93 511.02 81.25 528.62 80.26 528.18 7.45 496.07 98.79 480.88 181.93 511.02" style="fill:#1757a1;stroke:#000;stroke-miterlimit:10" />
+                        <line x1="81.25" y1="528.61" x2="75.96" y2="906.27" style="fill:none;stroke:#1720a1;stroke-miterlimit:10" />
+                    </g>
+                    <g id="top">
+                        <polygon points="196.84 175.71 196.84 190.9 190.9 198.82 181.94 510.43 181.93 511.02 81.25 528.62 80.26 528.18 7.45 496.07 5.94 200.15 0 192.22 0 175.71 84.55 152.59 196.84 175.71" style="fill:#e74138" />
+                        <line x1="84.55" y1="152.58" x2="81.25" y2="528.61" style="fill:none;stroke:#a90000;stroke-miterlimit:10" />
+                    </g>
+                    <g id="middle">
+                        <polygon points="5.45 426 7.45 661.43 78.79 704.42 179.47 676.64 186.33 431.85 81.95 449.19 5.45 426" style="fill:#fff;stroke:#000;stroke-miterlimit:10" />
+                        <polyline id="cut" points="183.79 559.92 83 576.67 6.5 553.48" style="fill:#fff;stroke:#000;stroke-miterlimit:10" />
+                    </g>
+                </svg>
             </div>
 
             <a href="#" target="_blank" rel="noopener noreferrer">
@@ -133,8 +149,8 @@ require_once("./inc/header.php");
 
             <div>
                 <iframe width="480" height="270" src="https://www.youtube.com/embed/8ZZGjnxTXnc" title="how to cut ExtreMWear products" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                
-                    <ol>
+
+                <ol>
                     <li>
                         <div>Enlever la semelle</div>
                         <img src="./assets/img/products/climfeet/cut_step_1.png" alt="Comment découper vos semelles - 1">

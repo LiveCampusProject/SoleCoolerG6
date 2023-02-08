@@ -37,6 +37,38 @@ p {
     transform: rotate(90) scale(1);
   }
 }
+@keyframes show {
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes cut {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 100;
+  }
+}
+@keyframes breakUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-90px);
+  }
+}
+@keyframes breakDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100px);
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -1025,6 +1057,19 @@ body:not(#index) main {
 #product .details p {
   line-height: 150%;
   width: 80%;
+}
+#product #box #middle {
+  animation: alternate infinite 4s show ease-in-out;
+}
+#product #box #middle #cut {
+  stroke-dasharray: 14;
+  animation: infinite 4s cut linear;
+}
+#product #box #top {
+  animation: alternate infinite breakUp ease-in-out 4s;
+}
+#product #box #bottom {
+  animation: alternate infinite breakDown ease-in-out 4s;
 }
 
 #login main {

@@ -49,7 +49,7 @@
                         <input class="form-control" type="file" id="productFile" name="productFile">
                     </div>
                     <div class="col">
-                        <img src="../inc/images/<?= $produit['reference'] ?>.png" alt="" style="height:200px">
+                        <img src="../inc/images/<?= $produit['reference'] ?>.png" alt="Choisir une image" style="height:200px">
                     </div>
                 </div>
                 
