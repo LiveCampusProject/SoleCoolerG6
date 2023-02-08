@@ -104,7 +104,7 @@ require_once("./inc/header.php");
           <br><br>
           Elle garde vos pieds au chaud en situation de froid tout en créant du frais durant les périodes estivales.
         </p>
-        <a href="#" class="button-2">
+        <a href="./product.php" class="button-2">
           <span>Acheter</span>
         </a>
       </div>
