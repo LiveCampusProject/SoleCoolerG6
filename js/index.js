@@ -29,6 +29,23 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('#techno')) {
+    const techno = document.querySelectorAll('#techno .body > div');
+    const active = document.querySelector('#techno #active');
+    const move = 65;
+
+    window.addEventListener('scroll', () => {
+      techno.forEach((section, index) => {
+
+        if (section.getBoundingClientRect().top <= 150 || section.getBoundingClientRect().bottom <= window.innerHeight) {
+          console.log('Element is partially visible in screen');
+          let moved = 'translateY(' + (index) * move + 'px)';
+          active.style.transform = moved;
+        }
+
+      });
+    });
+  }
   productGallery();
   productCover();
 
@@ -41,6 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
   animateHero();
 });
 
+
+/**
+ * Product Page
+ */
 const productGallery = () => {
   if (document.querySelector('#product')) {
     const cover = document.querySelector('#product .cover img');
@@ -62,7 +83,7 @@ const productCover = () => {
     let imgs = document.querySelectorAll('#product .gallery img');
 
     cover.addEventListener('click', () => {
-      if (imgs.length > i+1) {
+      if (imgs.length > i + 1) {
         cover.src = imgs[i].src;
         i++;
       } else {
