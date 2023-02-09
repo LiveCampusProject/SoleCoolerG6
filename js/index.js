@@ -29,32 +29,12 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelector('#techno')) {
-    const techno = document.querySelectorAll('#techno .body > div');
-    const active = document.querySelector('#techno #active');
-    const move = 65;
-
-    window.addEventListener('scroll', () => {
-      techno.forEach((section, index) => {
-
-        if (section.getBoundingClientRect().top <= 150 || section.getBoundingClientRect().bottom <= window.innerHeight) {
-          console.log('Element is partially visible in screen');
-          let moved = 'translateY(' + (index) * move + 'px)';
-          active.style.transform = moved;
-        }
-
-      });
-    });
-  }
+  ourTechnoPage();
   productGallery();
   productCover();
-
   openMenu();
-
   scrollMenu();
-
   comments();
-
   animateHero();
 });
 
@@ -207,3 +187,22 @@ const animateHero = () => {
 
 
 
+const ourTechnoPage = () => {
+  if (document.querySelector('#techno')) {
+    const techno = document.querySelectorAll('#techno .body > div');
+    const active = document.querySelector('#techno #active');
+    const move = 65;
+
+    window.addEventListener('scroll', () => {
+      techno.forEach((section, index) => {
+
+        if (section.getBoundingClientRect().top <= 150 || section.getBoundingClientRect().bottom <= window.innerHeight) {
+          console.log('Element is partially visible in screen');
+          let moved = 'translateY(' + (index) * move + 'px)';
+          active.style.transform = moved;
+        }
+
+      });
+    });
+  }
+}
