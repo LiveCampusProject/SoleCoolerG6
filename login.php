@@ -13,14 +13,46 @@ require_once("./inc/header.php");
 require_once("./inc/utils.php");
 
 $messageErreur = login_user();
+
 ?>
 
 <main class="container space-arround-m">
 
+<?php 
+    if (isset($_SESSION["message"])):
+?> 
+    <div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <lottie-player src="./assets/lottie/eclatsronds.json"  background="transparent"  speed="0.5"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+    <h2> <?php echo $_SESSION["message"] ?> </h2>
+    <a href="/index.php">
+      Revenir sur le site 
+    </a>
+    </div>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      div {
+        margin-left: auto;
+        margin-right: auto 
+      }
+      lottie-player {
+        margin-left: auto;
+        margin-right: auto 
+      }
+
+    </style>
+    </main>
+
+<?php 
+    else:
+?> 
   <div class="left">
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <lottie-player src="./assets/lottie/60867-waiting.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
+    <lottie-player src="./assets/lottie/solecooler.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
 
     <a href="/register.php">
       Pas encore de compte ?
@@ -54,11 +86,15 @@ $messageErreur = login_user();
 
     </form>
     <?php if ($messageErreur != "") : ?>
-      <h1><?php echo $messageErreur ?> </h1>
+      <div style="display: flex; align-items: center;">
+        <lottie-player src="./assets/lottie/error.json" background="transparent" speed="1" style="width: auto; height: 70px;" loop autoplay></lottie-player>
+        <h3 style="width: 80%;"><?php echo $messageErreur ?>  </h3>
+      </div>
     <?php endif; ?>
 </main>
 
-
 <?php
+endif;
+unset($_SESSION["message"]);
 require_once("./inc/footer.php");
 ?>
