@@ -72,11 +72,10 @@
                 <p>Liens utiles</p>
 
                 <ul>
-                    <li><a href="#">La semelle</a></li>
-                    <li><a href="#">Comment ça marche</a></li>
+                    <li><a href="./our-technologie.php">Notre technologie</a></li>
                     <li><a href="#">Actualités</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="./contact.php">Contact</a></li>
                 </ul>
             </div>
             <div>

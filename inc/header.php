@@ -26,7 +26,6 @@ if (!(is_user_logged_in())) :
 
                 <ul>
                     <li><a href="./our-technologie.php">Notre technologie</a></li>
-                    <li><a href="#">Nos histoire</a></li>
                     <li><a href="#">Actualités</a></li>
                     <li><a href="./contact.php">Contact</a></li>
                 </ul>
