@@ -198,7 +198,6 @@ const ourTechnoPage = () => {
       techno.forEach((section, index) => {
 
         if (section.getBoundingClientRect().top <= 150 || section.getBoundingClientRect().bottom <= window.innerHeight) {
-          console.log('Element is partially visible in screen');
           let moved = 'translateY(' + (index) * move + 'px)';
           active.style.transform = moved;
         }

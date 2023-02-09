@@ -37,7 +37,7 @@ require_once("./inc/header.php");
                     <div class="label">Classique</div>
                     <div class="qty">
                         <div>Quantité</div>
-                        <input type="number" name="qty" id="qty" min="0" step="1">
+                        <input type="number" name="qty" id="qty" min="0" step="1" value="1">
                     </div>
                 </div>
 

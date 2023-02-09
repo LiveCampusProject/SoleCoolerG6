@@ -149,6 +149,7 @@
 
                 li {
                     margin: $space-small;
+                    position: relative;
 
                     form {
                         position: relative;
@@ -182,6 +183,22 @@
                         img {
                             height: 24px;
                             width: 24px;
+                        }
+                    }
+
+                    &.quantity {
+                        >div {
+                            width: 20px;
+                            height: 20px;
+                            background: #EDEDED;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            transform: translate(50%, -50%);
+                            border-radius: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                         }
                     }
                 }
