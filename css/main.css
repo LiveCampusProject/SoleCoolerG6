@@ -1482,4 +1482,51 @@ body:not(#index) main {
 }
 #techno .body > div ul {
   list-style-type: disc;
+}
+
+#news .list {
+  margin-top: 50px;
+}
+#news .list .card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+@media (max-width: 768px) {
+  #news .list .card {
+    display: block;
+  }
+}
+#news .list .card:nth-last-of-type(even) {
+  grid-template-columns: 1fr 2fr;
+}
+#news .list .card:nth-last-of-type(even) > div:last-of-type {
+  order: -1;
+}
+#news .list .card > div:first-of-type * {
+  margin-bottom: 16px;
+}
+@media (max-width: 768px) {
+  #news .list .card > div:first-of-type {
+    margin-bottom: 50px;
+  }
+}
+#news .list .card > div:last-of-type > div {
+  position: relative;
+}
+#news .list .card > div:last-of-type > div::before {
+  content: "";
+  height: calc(100% + 25px);
+  width: calc(100% + 25px);
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%, -51%);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+}
+#news .list .card > div:last-of-type > div img {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

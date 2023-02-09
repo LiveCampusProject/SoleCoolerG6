@@ -74,7 +74,7 @@
                 <ul>
                     <li><a href="./product.php">La semelle</a></li>
                     <li><a href="./our-technologie.php">Notre technologie</a></li>
-                    <li><a href="#">Actualités</a></li>
+                    <li><a href="./news.php">Actualités</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="./contact.php">Contact</a></li>
                 </ul>
