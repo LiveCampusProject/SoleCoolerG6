@@ -8,8 +8,8 @@ if (!(is_user_logged_in())) :
     <header id="header">
         <!-- Top Banner -->
         <!-- <div id="banner-top">
-        <div class="container">Livraison en France et à l’international</div>
-    </div> -->
+            <div class="container">Livraison en France et à l’international</div>
+        </div> -->
         <!-- End Top Banner -->
 
 
@@ -25,8 +25,8 @@ if (!(is_user_logged_in())) :
                 <img id="mobile-menu-toggle-close" src="./assets/img/icons/icon_close.svg" alt="Fermer le menu">
 
                 <ul>
-                    <li><a href="#">Notre technologie</a></li>
-                    <li><a href="#">Nos histoire</a></li>
+                    <li><a href="./product.php">La semelle</a></li>
+                    <li><a href="./our-technologie.php">Notre technologie</a></li>
                     <li><a href="#">Actualités</a></li>
                     <li><a href="./contact.php">Contact</a></li>
                 </ul>
@@ -45,7 +45,10 @@ if (!(is_user_logged_in())) :
                     <!-- End User -->
 
                     <!-- Cart -->
-                    <li><a href="./checkout.php"><img src="./assets/img/icons/icon_cart.svg" width="25" alt="Panier"></a></li>
+                    <li class="quantity">
+                        <a href="./checkout.php"><img src="./assets/img/icons/icon_cart.svg" width="25" alt="Panier"></a>
+                        <div>1</div>
+                    </li>
                     <!-- End Cart -->
 
                     <!-- Languages -->

@@ -112,16 +112,10 @@ require_once("./inc/header.php");
                         <li>Découper l'étiquette</li>
                         <li>Tirer les deux parties pour les séparer</li>
                     </ol>
-
-                    <!-- <p>
-                        Nous avons voulu limiter notre impact sur l’environnement en choisissant un seul emballage pour protéger ET expédier vos semelles. Le matériau de cet emballage est en polypropylène ou polyéthylène HD recyclable. Gardez-le car il servira ainsi au retour pour le renouvellement de vos semelles pour être recyclées (merci d’y joindre aussi la partie inutile des semelles lors de leurs découpes). Ainsi, il n’y aura pas de déchets dans la nature. Vous bénéficierez alors d’un discount de 10% pour votre nouvelle commande.
-
-                        Les couleurs bleue et rouge permettent de rappeler que nos semelles sont réversibles (chaud et froid) mais c’est aussi, avec l’étiquette blanche au milieu, un petit rappel à notre cher drapeau français car c’est un produit entièrement conçu en France. Pour ouvrir l’emballage, prenez un petit outil pointu (mais pas forcément coupant, attention à vous) et insérez le dans l’espace entre les parties bleue et rouge reconnaissable au petit décroché, pour découper l’étiquette. Vous pouvez alors tirer les 2 parties pour les séparer (elles sont juste emboitées). Vous trouverez aussi, à l’intérieur, une pochette en lin qui vous est offerte pour emmener vos Climfeet au bout du monde...
-                    </p> -->
                 </div>
 
                 <!-- <img src="./assets/img/products/climfeet/emballage.png" alt="Emballage Climfeet"> -->
-                <svg id="box" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.84 1106.96" height="400px">
+                <svg id="box" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196.84 1106.96" height="400px" width="50%">
                     <rect x="55.82" width="54.17" height="1106.96" style="fill:none" />
                     <g id="bottom">
                         <polygon points="181.93 511.02 171.74 865.33 75.96 906.27 9.24 848.14 7.45 496.07 80.26 528.18 81.25 528.62 181.93 511.02" style="fill:#1757a1" />
@@ -139,7 +133,7 @@ require_once("./inc/header.php");
                 </svg>
             </div>
 
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://cdn.website-editor.net/s/441c284abd2648ffa97a9d57623833bc/files/uploaded/comment%2520ouvrir.pdf?Expires=1678465876&Signature=dNCZC~pahUDI-MnWz098wAmH3pXRRHhiofJ-7e7cfO74Qq5ntM~lxOf61sTEVxtTNk2lyVkabtoLMJTDMfzQuj7N8A--tyEykO9Qp~U-UedFS3240iSQQlegSzjc7~54JO2q2HZw3AF8lSz9-DHS-nkuDKSR~4lzlS7Mf-M7izdPdjDnvTE41fEfZ-jvnYrT5myenSL778tkOg8B2Uw2AlC9IBDy1gpuaRWpNW1pOPQDCoG-9Jm0C-rxCfZ5TP0aG0CJvymI6j9ip8gec-Vrw5niDHImWPF-4Y2LYSjUt8oNssdPVPExBx2e2DgQnWGV7IhSaqbv5rcc7GY~3cBlGQ__&Key-Pair-Id=K2NXBXLF010TJW" target="_blank" rel="noopener noreferrer">
                 En savoir plus sur l'emballage
             </a>
         </div>

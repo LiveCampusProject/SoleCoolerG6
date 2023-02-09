@@ -29,18 +29,20 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  currentPage();
+  ourTechnoPage();
   productGallery();
   productCover();
-
   openMenu();
-
   scrollMenu();
-
   comments();
-
   animateHero();
 });
 
+
+/**
+ * Product Page
+ */
 const productGallery = () => {
   if (document.querySelector('#product')) {
     const cover = document.querySelector('#product .cover img');
@@ -62,7 +64,7 @@ const productCover = () => {
     let imgs = document.querySelectorAll('#product .gallery img');
 
     cover.addEventListener('click', () => {
-      if (imgs.length > i+1) {
+      if (imgs.length > i + 1) {
         cover.src = imgs[i].src;
         i++;
       } else {
@@ -103,16 +105,16 @@ const scrollMenu = () => {
   const nav = document.querySelector('#header');
   const top = nav.offsetTop;
 
-  if (window.scrollY <= 100) {
+  if (window.scrollY <= 50) {
     nav.classList.remove('menu-bg');
   }
 
   window.addEventListener('scroll', () => {
 
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       nav.classList.add('menu-bg');
       nav.style.top = '0';
-    } else if (window.scrollY < 100) {
+    } else if (window.scrollY < 50) {
       nav.classList.remove('menu-bg');
       nav.style.top = top + 'px';
     }
@@ -186,3 +188,31 @@ const animateHero = () => {
 
 
 
+const ourTechnoPage = () => {
+  if (document.querySelector('#techno')) {
+    const techno = document.querySelectorAll('#techno .body > div');
+    const active = document.querySelector('#techno #active');
+    const move = 65;
+
+    window.addEventListener('scroll', () => {
+      techno.forEach((section, index) => {
+
+        if (section.getBoundingClientRect().top <= 150 || section.getBoundingClientRect().bottom <= window.innerHeight) {
+          let moved = 'translateY(' + (index) * move + 'px)';
+          active.style.transform = moved;
+        }
+
+      });
+    });
+  }
+}
+
+
+
+const currentPage = () => {
+  document.querySelectorAll('#main-nav ul li a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+}
