@@ -142,7 +142,9 @@ require_once("./inc/header.php");
                     <div id="chaud-froid">
                          <h2>Chaud & Froid</h2>
 
-                         <img src="./assets/img/technologie/solecooler-chaud-froid.jpg" alt="Chaud & Froid">
+                         <div>
+                              <img src="./assets/img/technologie/solecooler-chaud-froid.jpg" alt="Chaud & Froid">
+                         </div>
 
                          <p>
                               Notre technologie fonctionne sur le même principe qu’un climatiseur. Sauf que vos pas sont les compresseurs !

@@ -1337,14 +1337,31 @@ body:not(#index) main {
   display: grid;
   grid-template-columns: 1fr 4fr;
 }
+@media (max-width: 768px) {
+  #techno .content {
+    display: block;
+  }
+}
 #techno .content .summary {
   border-right: 2px solid #031221;
   margin-right: 50px;
   padding-right: 50px;
 }
+@media (max-width: 768px) {
+  #techno .content .summary {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
 #techno .content .summary ul {
   position: sticky;
   top: 200px;
+}
+@media (max-width: 768px) {
+  #techno .content .summary ul {
+    text-align: center;
+  }
 }
 #techno .content .summary ul li {
   margin-bottom: 44px;
@@ -1388,13 +1405,30 @@ body:not(#index) main {
 #techno .body > div > div > img {
   width: 48%;
 }
+@media (max-width: 768px) {
+  #techno .body > div > div > img {
+    width: 100%;
+  }
+}
 #techno .body > div ul,
 #techno .body > div ol {
   margin-left: 50px;
 }
+@media (max-width: 768px) {
+  #techno .body > div ul,
+  #techno .body > div ol {
+    margin-left: 16px;
+  }
+}
 #techno .body > div ul img,
 #techno .body > div ol img {
   margin-top: 16px;
+}
+@media (max-width: 768px) {
+  #techno .body > div ul img,
+  #techno .body > div ol img {
+    width: 100%;
+  }
 }
 #techno .body > div ul {
   list-style-type: disc;

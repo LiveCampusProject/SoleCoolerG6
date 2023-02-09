@@ -1,0 +1,171 @@
+#techno {
+    overflow: unset !important;
+
+    .cover {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 150px;
+
+
+        >figure {
+            margin: 0 -3.5%;
+            width: 35%;
+            transition: all .5s;
+            position: relative;
+            clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+            overflow: hidden;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 650px;
+                object-fit: cover;
+                object-position: center;
+                transition: all .5s;
+
+                @media (max-width: $mobile) {
+                    height: 350px;
+                }
+            }
+
+            figcaption {
+                opacity: 0;
+                text-align: center;
+                color: white;
+                font-size: 18;
+                font-weight: bold;
+                padding: 16px;
+                text-transform: uppercase;
+                transition: all .5s;
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.908000700280112) 0%, rgba(255, 255, 255, 0) 100%);
+
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 7px;
+            }
+
+            &:hover {
+                width: 100%;
+                z-index: 9;
+                transition: all .5s;
+                clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+
+                figcaption {
+                    opacity: 1;
+                    transition: all .5s;
+                }
+            }
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+
+        @media (max-width: $mobile) {
+            display: block;
+        }
+
+        .summary {
+            border-right: 2px solid $black;
+            margin-right: 50px;
+            padding-right: 50px;
+
+            @media (max-width: $mobile) {
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            ul {
+                position: sticky;
+                top: 200px;
+
+                @media (max-width: $mobile) {
+                    text-align: center;
+                }
+
+                li {
+                    margin-bottom: 44px;
+
+                    &::after {
+                        content: '';
+                        height: 24px;
+                        width: 24px;
+                        background: #E7F2FD;
+                        position: absolute;
+                        right: -51px;
+                        transform: translateX(50%);
+                        border-radius: 100%;
+                    }
+                }
+
+                #active {
+                    position: absolute;
+                    top: -24px;
+                    right: -80px;
+                    transform: translateY(0);
+                    transition: .5s;
+                }
+            }
+        }
+    }
+
+    .body {
+        h2 {
+            margin-bottom: 46px;
+            text-decoration: underline;
+        }
+
+        h3 {
+            margin-bottom: 24px;
+        }
+
+        >div {
+            padding-top: 150px;
+            // margin-bottom: 100px;
+
+            p {
+                margin-bottom: 50px;
+            }
+
+            >div {
+                display: inline-flex;
+                flex-wrap: wrap;
+                gap: 25px;
+                margin-bottom: 50px;
+
+                >img {
+                    width: 48%;
+
+                    @media (max-width: $mobile) {
+                        width: 100%;
+                    }
+                }
+            }
+
+            ul,
+            ol {
+                margin-left: 50px;
+
+                @media (max-width: $mobile) {
+                    margin-left: 16px;
+                }
+
+                img {
+                    margin-top: 16px;
+
+                    @media (max-width: $mobile) {
+                        width: 100%;
+                    }
+                }
+            }
+
+            ul {
+                list-style-type: disc;
+            }
+        }
+    }
+}
