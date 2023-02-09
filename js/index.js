@@ -29,6 +29,7 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  currentPage();
   ourTechnoPage();
   productGallery();
   productCover();
@@ -205,4 +206,14 @@ const ourTechnoPage = () => {
       });
     });
   }
+}
+
+
+
+const currentPage = () => {
+  document.querySelectorAll('#main-nav ul li a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
 }

@@ -92,6 +92,12 @@
                         text-decoration: none;
                         color: $black;
 
+                        &[aria-current=page] {
+                            text-decoration: underline 2px $black;
+                            text-underline-offset: 8px;
+                            font-weight: bold;
+                        }
+
                         @media (max-width: $mobile) {
                             color: $white;
                         }

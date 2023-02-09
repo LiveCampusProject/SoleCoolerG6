@@ -338,6 +338,12 @@ h2.h2-tiny {
   text-decoration: none;
   color: #031221;
 }
+#header #navbar #main-nav ul li a[aria-current=page] {
+  -webkit-text-decoration: underline 2px #031221;
+          text-decoration: underline 2px #031221;
+  text-underline-offset: 8px;
+  font-weight: bold;
+}
 @media (max-width: 768px) {
   #header #navbar #main-nav ul li a {
     color: #F9F9FA;

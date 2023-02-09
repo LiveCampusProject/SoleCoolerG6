@@ -72,6 +72,7 @@
                 <p>Liens utiles</p>
 
                 <ul>
+                    <li><a href="./product.php">La semelle</a></li>
                     <li><a href="./our-technologie.php">Notre technologie</a></li>
                     <li><a href="#">Actualités</a></li>
                     <li><a href="#">FAQ</a></li>
@@ -94,8 +95,8 @@
 
                 <ul>
                     <li><a href="#">Suivre mes commandes</a></li>
-                    <li><a href="/login.php">Se connecter</a></li>
-                    <li><a href="/register.php">Créer un compte</a></li>
+                    <li><a href="./login.php">Se connecter</a></li>
+                    <li><a href="./register.php">Créer un compte</a></li>
                 </ul>
             </div>
             <div>
