@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-    const APP_URL = 'http://localhost:8080/';
-=======
     const APP_URL = 'http://vps-f1409149.vps.ovh.net/';
->>>>>>> main
     const SENDER_EMAIL_ADDRESS = 'no-reply@solecooler.fr';
     require_once './vendor/autoload.php';
     use Symfony\Component\Mailer\Transport;
@@ -435,10 +431,6 @@
             
             // Si le code d'activation est expiré
             if ((int)$user['expired'] === 1) {
-<<<<<<< HEAD
-                // delete_user_by_id($user['id']);
-=======
->>>>>>> main
                 return null;
             }
             // Vérification du code d'activation
