@@ -21,7 +21,7 @@ $messageErreur = create_user();
   <div class="left">
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <lottie-player src="./assets/lottie/60867-waiting.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
+    <lottie-player src="./assets/lottie/solecooler.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
 
     <a href="/login.php">
       Déjà un compte ?
@@ -56,7 +56,12 @@ $messageErreur = create_user();
 
     </form>
     <?php if ($messageErreur != "") : ?>
-      <h1><?php echo $messageErreur ?> </h1>
+      
+      <div style="display: flex; align-items: center;">
+        <lottie-player src="./assets/lottie/error.json" background="transparent" speed="1" style="width: auto; height: 70px;" loop autoplay></lottie-player>
+        <h3 style="width: 80%;"><?php echo $messageErreur ?>  </h3>
+      </div>
+
     <?php endif; ?>
 </main>
 

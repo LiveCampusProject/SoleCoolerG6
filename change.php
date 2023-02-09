@@ -45,10 +45,13 @@
                 </main>
 
 <?php
-        
-                else: redirection("./login.php");?>
+                $_SESSION["message"] = "Votre mot de passe à été chnagé avec succès";
+                else:
+                redirection("./login.php") ; ?>
                 
-<?php   endif;
+<?php   
+        
+        endif;
         } 
         else {
             redirection("./login.php");
