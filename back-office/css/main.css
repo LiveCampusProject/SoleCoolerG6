@@ -214,7 +214,7 @@ h2.h2-tiny {
   transition: 0.4s;
 }
 #index-backoffice .sidebar.open .toggle {
-  transform: translateY(45px);
+  transform: translateY(10px);
 }
 #index-backoffice .sidebar.open .toggle i {
   transform: rotateY(180deg);
@@ -297,8 +297,8 @@ h2.h2-tiny {
   cursor: pointer;
   position: absolute;
   color: #fff;
-  top: 180px;
-  right: -20px;
+  top: 390px;
+  right: -22px;
   font-size: 38px;
   line-height: 50%;
   text-align: center;

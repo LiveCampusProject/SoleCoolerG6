@@ -5,7 +5,7 @@
 
 
 <header>
-  <div class="sidebar open">
+  <div class="sidebar">
 
 		<div class="toggle">
 			<i class="bx bx-chevron-right"></i>
