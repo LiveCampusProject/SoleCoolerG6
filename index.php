@@ -199,7 +199,7 @@ require_once("./inc/header.php");
     <div class="container">
       <h2 data-i18n="Home.company.title">SoleCooler : Inspiré par la Nature / Activé par vos pieds</h2>
       <p data-i18n="Home.company.$1">Créée en 2019, SoleCooler a développé une semelle thermo-régulée : la CLIMFEET. Grâce à ses multiples alvéoles remplies d’air, la semelle CLIMFEET convertit directement l’énergie mécanique des pas de l'utilisateur en chaleur et en froid.</p>
-      <a href="#" class="button-2">
+      <a href="./our-technologie.php" class="button-2">
         <span data-i18n="Home.company.button">Découvrir notre technologie</span>
       </a>
     </div>
