@@ -1,7 +1,6 @@
 <?php
 require_once("./inc/utils.php");
 session_start();
-if (!(is_user_logged_in())) :
 ?>
 
 
@@ -17,7 +16,7 @@ if (!(is_user_logged_in())) :
         <div id="navbar" class="container">
 
             <!-- Logo -->
-            <a id="logo" href="./index.php"><img src="./assets/img/general/Logo SoleCooler.svg" alt="logo SoleCooler"></a>
+            <a id="logo" href="."><img src="./assets/img/general/Logo SoleCooler.svg" alt="logo SoleCooler"></a>
             <!-- End Logo -->
 
             <!-- Main Nav -->
@@ -38,7 +37,7 @@ if (!(is_user_logged_in())) :
                 <ul>
                     <!-- User -->
                     <li>
-                        <a href="<?php echo './login.php'; ?>">
+                        <a href="<?php if (!(is_user_logged_in())) {echo './login.php';} else {echo './my-account.php';} ?>">
                             <img src="./assets/img/icons/icon_user.svg" width="25" alt="Mon compte">
                         </a>
                     </li>
@@ -77,4 +76,3 @@ if (!(is_user_logged_in())) :
         <!-- End Navbar -->
 
     </header>
-<?php endif; ?>
