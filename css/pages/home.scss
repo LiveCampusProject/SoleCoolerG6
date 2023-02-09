@@ -138,23 +138,6 @@
 
             .grid {
                 @include grid;
-                padding: 60px 0;
-
-                .card {
-                    svg {
-                        height: 50px;
-                    }
-
-                    p {
-                        &:first-of-type {
-                            font-size: 16px;
-                        }
-                       
-                        &:last-of-type {
-                            font-size: 14px;
-                        }
-                    }
-                }
 
                 .cards {
                     &:nth-of-type(even) {
@@ -185,7 +168,6 @@
 
 
     #solecooler {
-        background-attachment: fixed;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

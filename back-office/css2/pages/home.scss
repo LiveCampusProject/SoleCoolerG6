@@ -1,0 +1,120 @@
+#index {
+    #hero {
+        background-image: url('../assets/img/home/Hero\ Bg.jpg');
+        height: 850px;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+
+        &::after {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../assets/img/home/Hero\ Bg\ Top.png');
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            background-size: contain;
+            pointer-events: none;
+        }
+
+        >div.corner {
+
+            &-top,
+            &-bottom {
+                position: relative;
+                pointer-events: none;
+            }
+
+            &-top {
+                >svg {
+                    position: absolute;
+                    left: -20px;
+                    top: -20px;
+
+                    >path:first-of-type {
+                        animation: wavesEffectLeft infinite 10s ease-in-out alternate;
+                    }
+
+                    >path:last-of-type {
+                        animation: wavesEffectLeft infinite 5s ease-in-out alternate-reverse;
+                    }
+                }
+            }
+
+            &-bottom {
+                >svg {
+                    position: absolute;
+                    right: -20px;
+                    bottom: -20px;
+
+                    >path:first-of-type {
+                        animation: wavesEffectRight infinite 10s ease-in-out alternate;
+                    }
+
+                    >path:last-of-type {
+                        animation: wavesEffectRight infinite 5s ease-in-out alternate-reverse;
+                    }
+                }
+            }
+        }
+
+        .container {
+            width: 100%;
+            z-index: 2;
+
+            --width: 710px;
+
+            h1 {
+                max-width: var(--width);
+                font-size: 49px;
+                font-weight: 600;
+                line-height: 120%;
+
+                b {
+                    font-size: 62px;
+                }
+            }
+
+            p {
+                max-width: var(--width);
+                font-size: 26px;
+                font-weight: 200;
+                margin-top: $space-standard;
+                margin-bottom: $space-large;
+            }
+        }
+
+        #bg-text {
+            -webkit-text-stroke-color: white;
+            color: transparent;
+            -webkit-text-stroke-width: 3px;
+            font-size: 150px;
+            position: absolute;
+            bottom: 25%;
+            right: 0;
+            opacity: .1;
+            font-family: oxygen;
+        }
+    }
+
+
+    #product {
+        .contents {
+            display: flex;
+            align-items: center;
+        }
+
+        .points {
+            
+        }
+    }
+}

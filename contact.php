@@ -153,13 +153,6 @@ require_once("./inc/header.php");
             </div>
 
             <div>
-                <label>
-                    <input type="checkbox" name="rgpd" id="rgpd">
-                    <span>Oui, j'accepte de transmettre les données personnelles saisies pour pouvoir obtenir une réponse à ma demande. Vous pouvez en savoir plus sur la gestion de vos données et de vos droits en consultant en bas de page notre "Politique de confidentialité"</span>
-                </label>
-            </div>
-
-            <div>
                 <input class="button-2" type="submit" value="Envoyer">
             </div>
         </form>

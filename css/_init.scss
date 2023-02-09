@@ -26,7 +26,10 @@ ul {
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 0 50px;
+
+    @media (max-width: $tablet) {
+        padding: 0 50px;
+    }
 }
 
 .space {
@@ -51,14 +54,4 @@ h2.h2-tiny {
     text-transform: uppercase;
     font-weight: 400;
     margin-bottom: 32px;
-}
-
-
-
-
-#breadcrumb {
-    a {
-        text-decoration: none;
-        font-weight: bold;
-    }
 }

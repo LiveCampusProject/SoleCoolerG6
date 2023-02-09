@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css et bootstrap pour l'index -->
+	<link href="/back-office/css/bootstrap.min.css" rel="stylesheet">
+	<link href="back-office/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/back-office/css/datepicker3.css" rel="stylesheet">
+	<link href="/back-office/css/styles.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+
     <!-- On charge le css du footer présent sur toute les pages -->
     <link rel="stylesheet" href="../css/footer.css">
     <!-- On charge le script de traduction présent sur toute les pages -->

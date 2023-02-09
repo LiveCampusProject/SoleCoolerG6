@@ -2,10 +2,6 @@ body {
     &:not(#index) {
         main {
             margin-top: 250px;
-
-            @media (max-width: $mobile) {
-                margin-top: 150px;
-            }
         }
     }
 }
