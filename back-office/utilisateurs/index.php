@@ -26,47 +26,48 @@ $users = users();
 <main class="main">
     <div class="container">
         
-
-        <div class="content">
-            <table class="styled-table">
-                <thead>
+        <div class="title-row">
+            <h2>Utilisateurs</h2>
+            <a href="/back-office/utilisateurs/ajouter.php" class="add-btn">Nouvel utilisateur</a>
+        </div> <br><br>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th class="text-center">isAdmin</th>
+                    <th class="text-center">Date de création</th>
+                    <th class="text-center">Modifier</th>
+                    <th class="text-center">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($users as $user): ?>
                     <tr>
-                        <th>#</th>
-                        <th>Nom</th>
-                        <th>Email</th>
-                        <th class="text-center">isAdmin</th>
-                        <th class="text-center">Date de création</th>
-                        <th class="text-center">Modifier</th>
-                        <th class="text-center">Supprimer</th>
+                        <td class="text-center"><?= $user['userID'] ?></td>
+                        <td class="text-center"><?= $user['nom'] ?></td>
+                        <td class="text-center"><?= $user['email'] ?></td>
+                        <td class="text-center">
+                            <?php 
+                                if($user['isAdmin'] == 1){
+                                    echo 'Oui';
+                                }else if($user['isAdmin'] == 0){
+                                    echo 'Non';
+                                }
+                            ?>
+                        </td>
+                        <td class="text-center"><?= $user['registerDate'] ?></td>
+                        <td class="text-center">
+                            <a href="modifier.php?referenceUser=<?= $user['userID'] ?>"><span class="edit-btn">Modifier</span></a>
+                        </td>
+                        <td class="text-center">
+                        <a href="supprimer.php?referenceUser=<?= $user['userID'] ?>"><span class="delete-btn">Supprimer</span></a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($users as $user): ?>
-                        <tr>
-                            <td scope="row"><?= $user['userID'] ?></td>
-                            <td><?= $user['nom'] ?></td>
-                            <td><?= $user['email'] ?></td>
-                            <td class="text-center">
-                                <?php 
-                                    if($user['isAdmin'] == 1){
-                                        echo 'Oui';
-                                    }else if($user['isAdmin'] == 0){
-                                        echo 'Non';
-                                    }
-                                ?>
-                            </td>
-                            <td class="text-center"><?= $user['registerDate'] ?></td>
-                            <td class="text-center">
-                                <a href="modifier.php?referenceUser=<?= $user['userID'] ?>"><i class="fa-solid fa-pencil"></i></a>
-                            </td>
-                            <td class="text-center">
-                            <a href="supprimer.php?referenceUser=<?= $user['userID'] ?>"><i class="fa-solid fa-xmark"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>                       
+                <?php endforeach; ?>
+            </tbody>
+        </table>                     
     </div>
     <!-- Tabs navs -->
 </main>

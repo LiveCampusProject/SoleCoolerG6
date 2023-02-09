@@ -14,8 +14,8 @@ require_once("../inc/header.php");
 // require_once("./inc/nav.php");
 require_once '../inc/utils.php';
 
-// On appelle avis() qui renverra la liste des avis
-$avis = avis();
+// On appelle la liste des actualites
+$articles = articles();
  
 ?>
 
@@ -26,36 +26,34 @@ $avis = avis();
 <main class="main">
     <div class="container">
         <div class="title-row">
-            <h2>Avis</h2>
+            <h2>Articles</h2>
+            <a href="./ajouter.php" class="add-btn">Nouvel article</a>
         </div>
         <table class="styled-table">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Utilisateur</th>
-                    <th>Note</th>
-                    <th>description</th>
-                    <th class="text-center">Détail</th>
+                    <th>Libellé</th>
+                    <th>Date de publication</th>
+                    <th class="text-center">Lien</th>
+                    <th class="text-center">Modifier</th>
                     <th class="text-center">Supprimer</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($avis as $avi): ?>
+                <?php foreach($articles as $article): ?>
                     <tr>
-                        <td class="text-center"><?= $avi['avisID'] ?></td>
-                        <?php $userCommande = getUserbyID($avi['userID']);?>
-                        <td class="text-center"><?= $userCommande['nom'] ?></td>
-                        <td class="text-center"><?= $avi['note'] ?></td>
-                        <td class="text-center"><?= $avi['description'] ?></td>
+                        <td class="text-center"><?= $article['articleID'] ?></td>
+                        <td class="text-center"><?= $article['libelle'] ?></td>
+                        <td class="text-center"><?= $article['date'] ?></td>
                         <td class="text-center">
-                            <a href="voir-avis.php?referenceAvis=<?= $avi['avisID'] ?>">
-                                Voir avis
-                            </a>
+                            <a href="<?= $article['lien'] ?>"><i class="fa-solid fa-link"></i></a>
                         </td>
                         <td class="text-center">
-                            <a href="supprimer.php?referenceAvis=<?= $avi['avisID'] ?>">
-                                <span class="delete-btn">Supprimer</span>
-                            </a>
+                            <a href="modifier.php?referenceArticle=<?= $article['articleID'] ?>"><span class="edit-btn">Modifier</span></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="supprimer.php?referenceArticle=<?= $article['articleID'] ?>"><span class="delete-btn">Supprimer</span></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

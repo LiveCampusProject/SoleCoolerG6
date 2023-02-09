@@ -5,11 +5,14 @@
   color: #031221;
 }
 
+<<<<<<< HEAD
+=======
 p {
   font-family: "Oxygen";
   line-height: 150%;
 }
 
+>>>>>>> main
 @keyframes wavesEffectLeft {
   from {
     transform: translate(0);
@@ -29,6 +32,8 @@ p {
 @keyframes rotate {
   0% {
     transform: rotate(-90deg) scale(1);
+<<<<<<< HEAD
+=======
   }
   50% {
     transform: rotate(0) scale(0.75);
@@ -40,6 +45,7 @@ p {
 @keyframes show {
   40% {
     opacity: 1;
+>>>>>>> main
   }
   100% {
     opacity: 0;

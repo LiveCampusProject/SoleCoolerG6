@@ -14,8 +14,8 @@ require_once("../inc/header.php");
 // require_once("./inc/nav.php");
 require_once '../inc/utils.php';
 
-// On appelle avis() qui renverra la liste des avis
-$avis = avis();
+// On appelle la liste des actualites
+$actualites = actualites();
  
 ?>
 
@@ -26,34 +26,38 @@ $avis = avis();
 <main class="main">
     <div class="container">
         <div class="title-row">
-            <h2>Avis</h2>
-        </div>
+            <h2>Actualites</h2>
+            <a href="/back-office/actualites/ajouter.php" class="add-btn">Nouvelle actualité</a>
+        </div> <br><br>
         <table class="styled-table">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Utilisateur</th>
-                    <th>Note</th>
-                    <th>description</th>
+                    <th>Libellé</th>
+                    <th>Date de publication</th>
                     <th class="text-center">Détail</th>
+                    <th class="text-center">Modifier</th>
                     <th class="text-center">Supprimer</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($avis as $avi): ?>
+                <?php foreach($actualites as $actualite): ?>
                     <tr>
-                        <td class="text-center"><?= $avi['avisID'] ?></td>
-                        <?php $userCommande = getUserbyID($avi['userID']);?>
-                        <td class="text-center"><?= $userCommande['nom'] ?></td>
-                        <td class="text-center"><?= $avi['note'] ?></td>
-                        <td class="text-center"><?= $avi['description'] ?></td>
+                        <td class="text-center"><?= $actualite['actualiteID'] ?></td>
+                        <td class="text-center"><?= $actualite['libelle'] ?></td>
+                        <td class="text-center"><?= $actualite['date'] ?></td>
                         <td class="text-center">
-                            <a href="voir-avis.php?referenceAvis=<?= $avi['avisID'] ?>">
-                                Voir avis
+                            <a href="voir-actu.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
+                                Voir l'actualité
                             </a>
                         </td>
                         <td class="text-center">
-                            <a href="supprimer.php?referenceAvis=<?= $avi['avisID'] ?>">
+                            <a href="modifier.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
+                                <span class="edit-btn">Modifier</span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="supprimer.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
                                 <span class="delete-btn">Supprimer</span>
                             </a>
                         </td>

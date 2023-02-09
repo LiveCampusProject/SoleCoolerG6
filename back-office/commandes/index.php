@@ -16,6 +16,7 @@ require_once '../inc/utils.php';
 
 // On appelle avis() qui renverra la liste des avis
 $commandes = commandes();
+
  
 ?>
 
@@ -25,42 +26,45 @@ $commandes = commandes();
 <!-- En dessous aussi -->
 <main class="main">
     <div class="container">
-        
-
-        <div class="content">
-            <table class="styled-table">
-                <thead>
+        <div class="title-row">
+            <h2>Commandes</h2>
+        </div>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Produit</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Quantité</th>
+                    <th class="text-center">Total</th>
+                    <th class="text-center">Modifier</th>
+                    <th class="text-center">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($commandes as $commande): ?>
                     <tr>
-                        <th>#</th>
-                        <th>Produit</th>
-                        <th>User</th>
-                        <th class="text-center">Date</th>
-                        <th class="text-center">Quantité</th>
-                        <th class="text-center">Total</th>
-                        <th class="text-center">Modifier</th>
-                        <th class="text-center">Supprimer</th>
+                        <td><?= $commande['commandeID'] ?></td>
+                        <?php $produit = getProduitbyID($commande['produitId'])?>
+                        <td class="text-center"><?= $produit['libelle'] ?></td>
+                        <?php $userCommande = getUserbyID($commande['userId']);?>
+                        <td class="text-center"><?= $userCommande['nom'] ?></td>
+                        <td class="text-center"><?= $userCommande['email'] ?></td>
+                        <td class="text-center"><?= $commande['commandeDate'] ?></td>
+                        <td class="text-center"><?= $commande['quantite'] ?></td>
+                        <td class="text-center"><?= $commande['total'] ?></td>
+                        <td class="text-center">
+                            <a href="modifier.php?referenceCommande=<?= $commande['commandeID'] ?>"><span class="edit-btn">Modifier</span></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="supprimer.php?referenceCommande=<?= $commande['commandeID'] ?>"><span class="delete-btn">Supprimer</span></a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($commandes as $commande): ?>
-                        <tr>
-                            <td scope="row"><?= $commande['commandeID'] ?></td>
-                            <td><?= $commande['produitId'] ?></td>
-                            <td><?= $commande['userId'] ?></td>
-                            <td class="text-center"><?= $commande['commandeDate'] ?></td>
-                            <td class="text-center"><?= $commande['quantite'] ?></td>
-                            <td class="text-center"><?= $commande['total'] ?></td>
-                            <td class="text-center">
-                                <a href="modifier.php?referenceCommande=<?= $commande['commandeID'] ?>"><i class="fa-solid fa-pencil"></i></a>
-                            </td>
-                            <td class="text-center">
-                                <a href="supprimer.php?referenceCommande=<?= $commande['commandeID'] ?>"><i class="fa-solid fa-xmark"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>                       
+                <?php endforeach; ?>
+            </tbody>
+        </table>                       
     </div>
     <!-- Tabs navs -->
 </main>

@@ -11,14 +11,8 @@ $titre = "SoleCooler";
 $bodyId = "index-backoffice";
 require_once("./inc/head.php");
 require_once("./inc/header.php");
-// require_once("./inc/nav.php");
 require_once './inc/utils.php';
 
-// On appelle listeProduits qui renverra la liste des produits
-[$titre, $description, $produits] = produits();
-$avis = avis();
-$users = users();
-$commandes = commandes();
  
 ?>
 

@@ -25,6 +25,14 @@
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 
+    <!-- BoxIcons v2.1.2 -->
+	<link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"   rel="stylesheet">
+
     <title><?php echo $titre?> </title>
 </head>
 <body <?= $bodyId ? 'id="' . $bodyId . '"' : '' ?>>
+
+<?php if ($bodyId == "index-backoffice"){ ?>
+    <img src="/back-office/inc/images/blob-1.svg" alt="" class="blob-blue">
+    <img src="/back-office/inc/images/blob-2.svg" alt="" class="blob-red">
+<?php } ?>

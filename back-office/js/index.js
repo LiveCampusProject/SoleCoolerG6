@@ -12,13 +12,43 @@
 
 // window.onload = load;
 
-// function load() {
-//   let btnToggle = document.querySelector(".btn-toggle");
+/* Récupérer le lien actuel */
+function getCurrentURL () {
+	return window.location.href
+}
 
-//   btnToggle.addEventListener("click", (e) => {
-//     let sidebar = document.querySelector(".sidebar");
-//     let container = document.querySelector(".container");
-//     sidebar.classList.toggle("active");
-//     container.classList.toggle("active_margin_left");
-//   });
-// }
+let url = getCurrentURL();
+
+const sidebar = document.querySelector('.sidebar');
+const navItems = document.querySelectorAll('nav .nav-item');
+const toggle = document.querySelector('.sidebar .toggle');
+
+
+toggle.addEventListener('click', () => {
+
+	if (sidebar.className === 'sidebar')
+		sidebar.classList.add('open');
+	else{
+        sidebar.classList.remove('open');
+    }
+		
+});
+
+navItems.forEach(navItem => {
+	if (url.includes('back-office')){
+		if(url.includes(navItem.id)){
+			navItem.classList.add('active');
+		}
+	}
+	navItem.addEventListener('click', () => {
+
+		navItems.forEach(navItem => {
+			navItem.classList.remove('active');
+		});
+
+		navItem.classList.add('active');
+
+	});
+
+
+});

@@ -1,61 +1,56 @@
 <?php
-/*
- *  On définie le path de tout les fichiers nécéssaires et le titre de notre page 
- *  Puis on insère les élements redondants footer nav et header 
- */
-
-
 $js = "../js/index.js";
 $css = "../css/main.css";
 $titre = "SoleCooler";
 $bodyId = "index-backoffice";
 require_once("../inc/head.php");
 require_once("../inc/header.php");
+// require_once("./inc/nav.php");
 require_once '../inc/utils.php';
 
-$info = ajouterUser();
- 
+ajouterActualite();
 ?>
 
 <!-- Là c'est le contenu spécifique de la page -->
 <!-- Au dessus c'est habituel, toujours pareil -->
-
 <!-- En dessous aussi -->
 <main class="main">
     <div class="container">
-        <form method="POST" id="addUser">
+        <h1 class="text-center">Ajouter une actualité</h1>
+
+        <form method="POST" enctype="multipart/form-data" id="addActualite-form">
+
             <div class="input">
                 <label>
-                    <div>Nom</div>
-                    <input type="text" name="name" id="name" required />
+                    <div>Libelle</div>
+                    <input type="text" name="libelle" id="libelle" placeholder="Libelle" required />
                 </label>
             </div>
             <div class="input">
                 <label>
-                    <div>Email</div>
-                    <input type="email" name="mail" id="mail" required />
+                    <div>Date de publication</div>
+                    <input type="date" name="date" id="date" placeholder="Date de publication" required />
+                </label>
+            </div>
+            <div class="input">
+                <label>
+                    <div>Description</div>
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Votre description..." require=""></textarea>
                 </label>
             </div>
 
             <div class="input">
                 <label>
-                    <div>Administrateur</div>
-                    <input type="checkbox" name="administrateur" id="administrateur">
-                </label>
-            </div>
-
-            <div class="input">
-                <label>
-                    <div>Mot de passe</div>
-                    <input type="password" name="password" id="password" required />
+                    <div>Choisir un fichier</div>
+                    <input type="file" id="actuFile" name="actuFile">
                 </label>
             </div>
 
             <div>
                 <input type="submit" value="Ajouter"/>
             </div>
-        </form>                     
+        </form>
     </div>
-    <!-- Tabs navs -->
 </main>
-<?php require_once("../inc/footer.php"); ?>
+
+<?php require_once '../inc/footer.php'; ?>
