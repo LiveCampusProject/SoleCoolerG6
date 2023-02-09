@@ -1,46 +1,11 @@
 {
-  "Home": {
-    "hero": {
-      "title": "La semelle chauffante",
-      "subtitle": "grâce à l'énergie de vos pas",
-      "content": "CLIMFEET : Conserver vos pieds au chaud ou au frais sans limite de temps",
-      "button": "Découvrir"
-    },
-    "partnership": {
-      "title": "Nos partenaires"
-    },
-    "product": {
-      "title": "CLIMFEET : La semelle réversible thermo-régulée",
-      "$1":"Une semelle souple alvéolaire qui produit de la chaleur et du froid par la seule pression de vos pas et sans empreinte carbone.",
-      "$2":"Elle garde vos pieds au chaud en situation de froid tout en créant du frais durant les périodes estivales.",
-      "button":"Acheter",
-      "$3":"Efficace",
-      "$4":"-4°C ou +4°C",
-      "$5":"dès 7 pas",
-      "$6":"Résistant",
-      "$7":"Conçu pour travailler",
-      "$8":"entre -40°C et +60°C",
-      "$9":"Réutilisable",
-      "$10":"Lavable avec",
-      "$11":"de l'eau et du savon",
-      "$12":"100% français",
-      "$13":"Produit conçu, fabriqué",
-      "$14":"et emballé en France"
-    },
-    "company": {
-      "title":"SoleCooler : Inspiré par la Nature / Activé par vos pieds",
-      "$1":"Créée en 2019, SoleCooler a développé une semelle thermo-régulée : la CLIMFEET. Grâce à ses multiples alvéoles remplies d’air, la semelle CLIMFEET convertit directement l’énergie mécanique des pas de l'utilisateur en chaleur et en froid.",
-      "button":"Découvrir notre technologie"
-    },
-    "comments": {
-      "title": "Ils nous ont fait confiance"
-    },
-    "founder": {
-      "title":"Le fondateur",
-      "$1":"Bruno Aubert est le président de Solecooler. Il est diplômé de l’ ENSCI et est, depuis 38 ans, un expert de l’innovation. Après avoir développé pendant 13 ans de nouveaux procédés de traitements de déchets dans l’industrie nucléaire, il a créé Occigerm, en 1996 pour industrialiser un procédé innovant de désinfection des déchets médicaux qu’il a vendu un peu partout dans le monde (US Navy, Hitachi Medical, Marine Française…).Il a ensuite été consultant auprès de grands groupes comme Bekaert pour développer un procédé de filtration des bio-aérosols dans les hôpitaux, puis a co-fondé Occipol puis EM Research Lab pour développer un procédé d’extraction de métaux (lourds, précieux…) sans effluents. En 2006 il crée Cairpol pour industrialiser un nouveau capteur miniature de pollution de l’air qui est largement utilisé dans le monde (USA, Mexique, Chili, Corée, Japon…) pour la surveillance, en réseaux autonomes et sans fils, des sites sensibles de centres de traitements de déchets (Véolia, Suez, Degremont, NASA, EPA, Total…). En 2019, il crée Solecooler pour développer une semelle thermo-régulée avec la seule énergie mécanique de nos propres pas et sans empreinte carbone."
+    "title": "How To Cook A Juicy Chicken Breast",
+    "content": "There’s a big difference between juicy chicken breasts and rubbery chicken breasts. Obviously, you want to avoid the latter at all costs. Follow these 4 steps and you’re gold. You want to add protein to favorites like Caesar salad or fix up a quick chicken salad or club sandwich? Try this method and savor the results.",
+    "ingredients": {
+      "title": "Ingredients",
+      "$0": "1 pound boneless chicken breasts",
+      "$1": "2 teaspoons olive oil",
+      "$2": "salt and pepper"
     }
-
-  }
-
 }
   

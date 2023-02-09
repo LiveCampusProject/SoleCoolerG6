@@ -1,68 +1,58 @@
-<?php
-
-/**
- *  On définie le path de tout les fichier nécéssaire et le titre de notre page 
- *  Puis on insère les élements redondants footer et head  
- */
-$js = "js/register.js";
-$css = "./css/main.css";
-$bodyId = "login";
-$titre = "SoleCooler S'inscrire";
-require_once("./inc/head.php");
-require_once("./inc/header.php");
-require_once("./inc/utils.php");
-$messageErreur = create_user();
+<?php 
+    /**
+     *  On définie le path de tout les fichier nécéssaire et le titre de notre page 
+     *  Puis on insère les élements redondants footer et head  
+     */
+    $js = "js/register.js";
+    $css="";
+    $titre = "SoleCooler S'inscrire";
+    require_once("./inc/head.php");
+    require_once("./inc/nav.php");
+    require_once("./inc/footer.php");
+    require_once("./inc/utils.php");
+    $messageErreur = create_user();    
 ?>
 
+<main>
+  <form method="post" >
+    
+    <!--<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+
+    <h1>Inscrivez-vous</h1> 
+
+    <div>
+      <input type="text" placeholder="Nom Prénom" name = "nom" id="nom">
+      <label >Nom</label>
+    </div>
+
+    <div>
+      <input type="email" placeholder="name@example.com" name="email" id="email">
+      <label>Adresse email</label>
+    </div>
 
 
-<main class="container space-arround-m">
+    <div>
+      <input name="password" type="password" placeholder="Motdepasse" onkeyup='validatePassword()' id="password">
+      <label>Motdepasse</label>
+    </div>
 
-  <div class="left">
+    <div>
+      <input name="confirm" type="password" placeholder="ConfirmezMotdepasse" onkeyup='validatePassword()' id="confirm">
+      <label>Confirmez le Motdepasse</label>
+    </div>
+   
 
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <lottie-player src="./assets/lottie/solecooler.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
+    <div>
+      <label>
+        <input type="checkbox" value="remember-me"> Se souvenir de moi
+      </label>
+    </div>
 
-    <a href="/login.php">
-      Déjà un compte ?
-    </a>
+    <button type="submit">Créer un compte</button>
+  </form>
 
-  </div>
-  <div class="right">
-    <h1>Inscrivez-vous</h1>
-    <form method="POST">
+  <?php if($messageErreur!=""): ?>
+  <h1><?php echo $messageErreur ?> </h1>
+  <?php endif ?>
 
-      <div>
-        <label for="nom">Nom & Prénom</label>
-        <input type="text" placeholder="Nom & Prénom" name="nom" id="nom">
-      </div>
-
-      <div>
-        <label for="email">Adresse email</label>
-        <input type="email" placeholder="name@example.com" name="email" id="email">
-      </div>
-
-      <div>
-        <label for="password">Mot de passe</label>
-        <input name="password" type="password" placeholder="Mot de passe" onkeyup='validatePassword()' id="password">
-      </div>
-
-      <div>
-        <label for="confirm">Confirmez le Mot de passe</label>
-        <input name="confirm" type="password" placeholder="Confirmez Mot de passe" onkeyup='validatePassword()' id="confirm">
-      </div>
-
-      <button type="submit" class="button-2">Créer un compte</button>
-
-    </form>
-    <?php if ($messageErreur != "") : ?>
-      
-      <div style="display: flex; align-items: center;">
-        <lottie-player src="./assets/lottie/error.json" background="transparent" speed="1" style="width: auto; height: 70px;" loop autoplay></lottie-player>
-        <h3 style="width: 80%;"><?php echo $messageErreur ?>  </h3>
-      </div>
-
-    <?php endif; ?>
 </main>
-
-<?php require_once("./inc/footer.php"); ?>

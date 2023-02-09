@@ -1,12 +1,13 @@
 <!-- Entête html du site -->
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico">
+    <!-- On charge le css du footer présent sur toute les pages -->
+    <link rel="stylesheet" href=/css/footer.css>
     <!-- On charge le script de traduction présent sur toute les pages -->
     <script type="module" src="js/index.js"></script>
     <!-- On vérifie si la page que l'on charge à besoin d'un fichier css ou d'un ficher js -->

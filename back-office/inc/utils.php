@@ -17,7 +17,7 @@
             $utilisateur = "root";
             $motdepasse = "root";
             $hote = "localhost";
-            $port = 3306;            ;
+            $port = 3306; 
             $moteur = "mysql";
             $bdd = "solecooler";
             $pdo = new PDO("$moteur:host=$hote:$port;dbname=$bdd", $utilisateur, $motdepasse, [
@@ -196,9 +196,9 @@
                 $type = end($array);
 
                 /* Emplacement du fichier */
-                $location = './inc/images/'.$filename.'.'.$type;
+                $location =  $_SERVER['DOCUMENT_ROOT'] . '/back-office/inc/images/'.$filename.'.'.$type;
 
-                move_uploaded_file($_FILES['productFile']['tmp_name'], $location);
+                copy($_FILES['productFile']['tmp_name'], $location);
 
                 $location2 = $filename.'.'.$type;
                 
@@ -276,8 +276,10 @@
             $requete->execute();
             $produit = $requete->fetch();
 
-            unlink('./inc/images/'.$produit['image']);
-
+            if ($produit['image']){
+                unlink('./inc/images/'.$produit['image']);
+            }
+            
             $requete = $pdo->prepare("DELETE FROM produits WHERE reference = :reference");
             $requete->bindParam(':reference', $reference);
             $requete->execute();
