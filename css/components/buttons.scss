@@ -11,10 +11,20 @@
 .button-1 {
     color: $white;
     background-color: $red;
+    cursor: pointer;
+
+    * {
+        color: $white;
+    }
 
     &:hover {
         color: $white;
         background-color: $blue;
+
+        * {
+            color: $white;
+            cursor: pointer;
+        }
     }
 }
 
@@ -22,9 +32,19 @@
 .button-2 {
     color: $white;
     background-color: $blue;
+    cursor: pointer;
+
+    * {
+        color: $white;
+        cursor: pointer;
+    }
 
     &:hover {
         color: $white;
         background-color: $red;
+
+        * {
+            color: $white;
+        }
     }
 }

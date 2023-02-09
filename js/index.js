@@ -29,15 +29,51 @@ document.querySelector("#languages").addEventListener("change", (evt) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  currentPage();
+  ourTechnoPage();
+  productGallery();
+  productCover();
   openMenu();
-
   scrollMenu();
-
   comments();
-
   animateHero();
-
 });
+
+
+/**
+ * Product Page
+ */
+const productGallery = () => {
+  if (document.querySelector('#product')) {
+    const cover = document.querySelector('#product .cover img');
+    let imgs = document.querySelectorAll('#product .gallery img');
+
+    imgs.forEach((img) => {
+      img.addEventListener('click', () => {
+        console.log('OK');
+        cover.src = img.src;
+      });
+    });
+  }
+}
+
+const productCover = () => {
+  if (document.querySelector('body#product')) {
+    let i = 1;
+    const cover = document.querySelector('#product .cover img');
+    let imgs = document.querySelectorAll('#product .gallery img');
+
+    cover.addEventListener('click', () => {
+      if (imgs.length > i + 1) {
+        cover.src = imgs[i].src;
+        i++;
+      } else {
+        cover.src = imgs[1].src;
+        i = 0;
+      }
+    });
+  }
+}
 
 
 
@@ -69,16 +105,16 @@ const scrollMenu = () => {
   const nav = document.querySelector('#header');
   const top = nav.offsetTop;
 
-  if (window.scrollY <= 100) {
+  if (window.scrollY <= 50) {
     nav.classList.remove('menu-bg');
   }
 
   window.addEventListener('scroll', () => {
 
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       nav.classList.add('menu-bg');
       nav.style.top = '0';
-    } else if (window.scrollY < 100) {
+    } else if (window.scrollY < 50) {
       nav.classList.remove('menu-bg');
       nav.style.top = top + 'px';
     }
@@ -147,4 +183,36 @@ const animateHero = () => {
     .fromTo(ct, 2, { top: "-100%" }, { top: '0%', ease: Power2.easeInOut }, "-=1")
     .fromTo(cb, 2, { bottom: "-100%" }, { bottom: '0%', ease: Power2.easeInOut }, "-=2")
     .fromTo(bgt, 1.2, { opacity: "0" }, { opacity: '0.1', ease: Power2.easeInOut });
+}
+
+
+
+
+const ourTechnoPage = () => {
+  if (document.querySelector('#techno')) {
+    const techno = document.querySelectorAll('#techno .body > div');
+    const active = document.querySelector('#techno #active');
+    const move = 65;
+
+    window.addEventListener('scroll', () => {
+      techno.forEach((section, index) => {
+
+        if (section.getBoundingClientRect().top <= 150 || section.getBoundingClientRect().bottom <= window.innerHeight) {
+          let moved = 'translateY(' + (index) * move + 'px)';
+          active.style.transform = moved;
+        }
+
+      });
+    });
+  }
+}
+
+
+
+const currentPage = () => {
+  document.querySelectorAll('#main-nav ul li a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
 }

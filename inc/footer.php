@@ -72,12 +72,11 @@
                 <p>Liens utiles</p>
 
                 <ul>
-                    <li><a href="#">La semelle</a></li>
-                    <li><a href="#">Comment ça marche</a></li>
-                    <li><a href="#">Notre histoire</a></li>
+                    <li><a href="./product.php">La semelle</a></li>
+                    <li><a href="./our-technologie.php">Notre technologie</a></li>
                     <li><a href="#">Actualités</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="./contact.php">Contact</a></li>
                 </ul>
             </div>
             <div>
@@ -96,8 +95,8 @@
 
                 <ul>
                     <li><a href="#">Suivre mes commandes</a></li>
-                    <li><a href="#">Se connecter</a></li>
-                    <li><a href="#">Créer un compte</a></li>
+                    <li><a href="./login.php">Se connecter</a></li>
+                    <li><a href="./register.php">Créer un compte</a></li>
                 </ul>
             </div>
             <div>
@@ -105,7 +104,7 @@
 
                 <ul class="contact">
                     <li>
-                        <img src="./assets/img/icons/icon_maps-and-flags.svg">
+                        <img src="./assets/img/icons/icon_maps-and-flags.svg" alt="Icone d'adresse">
                         <p>
                             SoleCooler
                             <br>
@@ -119,11 +118,11 @@
                         </p>
                     </li>
                     <li>
-                        <img src="./assets/img/icons/icon_call.svg">
+                        <img src="./assets/img/icons/icon_call.svg" alt="icone de téléphone">
                         <a href="tel:+33756998504">+33 (0)7 56 99 85 04</a>
                     </li>
                     <li>
-                        <img src="./assets/img/icons/icon_email.svg">
+                        <img src="./assets/img/icons/icon_email.svg" alt="icone d'email">
                         <a href="mailto:info@solecooler.com">info@solecooler.com</a>
                     </li>
                 </ul>

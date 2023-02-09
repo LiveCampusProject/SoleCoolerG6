@@ -1,15 +1,15 @@
 <?php
-    require_once("./inc/utils.php");
-    session_start();
-    if (!(is_user_logged_in())):
+require_once("./inc/utils.php");
+session_start();
+if (!(is_user_logged_in())) :
 ?>
 
 
     <header id="header">
         <!-- Top Banner -->
         <!-- <div id="banner-top">
-        <div class="container">Livraison en France et à l’international</div>
-    </div> -->
+            <div class="container">Livraison en France et à l’international</div>
+        </div> -->
         <!-- End Top Banner -->
 
 
@@ -25,8 +25,8 @@
                 <img id="mobile-menu-toggle-close" src="./assets/img/icons/icon_close.svg" alt="Fermer le menu">
 
                 <ul>
-                    <li><a href="#">Notre technologie</a></li>
-                    <li><a href="#">Nos histoire</a></li>
+                    <li><a href="./product.php">La semelle</a></li>
+                    <li><a href="./our-technologie.php">Notre technologie</a></li>
                     <li><a href="#">Actualités</a></li>
                     <li><a href="./contact.php">Contact</a></li>
                 </ul>
@@ -36,24 +36,39 @@
             <!-- Icons -->
             <div id="icons">
                 <ul>
+                    <!-- User -->
                     <li>
                         <a href="<?php echo './login.php'; ?>">
                             <img src="./assets/img/icons/icon_user.svg" width="25" alt="Mon compte">
                         </a>
                     </li>
-                    <li><a href="#"><img src="./assets/img/icons/icon_cart.svg" width="25" alt="Panier"></a></li>
+                    <!-- End User -->
+
+                    <!-- Cart -->
+                    <li class="quantity">
+                        <a href="./checkout.php"><img src="./assets/img/icons/icon_cart.svg" width="25" alt="Panier"></a>
+                        <div>1</div>
+                    </li>
+                    <!-- End Cart -->
+
+                    <!-- Languages -->
                     <li>
                         <form>
                             <select name="lang" id="languages">
+                                <option value="fr">FR</option>
                                 <option value="en">EN</option>
                                 <option value="de">DE</option>
                                 <option value="es">ES</option>
                             </select>
                         </form>
                     </li>
+                    <!-- End Languages -->
+
+                    <!-- Mobile Menu -->
                     <li id="mobile-menu-toggle-open">
                         <img src="./assets/img/icons/icon_menu.svg" alt="Ouvrir le menu">
                     </li>
+                    <!-- End Mobile Menu -->
                 </ul>
             </div>
             <!-- End Icons -->
@@ -62,4 +77,4 @@
         <!-- End Navbar -->
 
     </header>
-<?php endif;?>
+<?php endif; ?>

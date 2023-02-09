@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
     const APP_URL = 'http://localhost:8080/';
+=======
+    const APP_URL = 'http://vps-f1409149.vps.ovh.net/';
+>>>>>>> main
     const SENDER_EMAIL_ADDRESS = 'no-reply@solecooler.fr';
     require_once './vendor/autoload.php';
     use Symfony\Component\Mailer\Transport;
@@ -21,8 +25,8 @@
     function db_connect(): PDO {
         try {
 
-            $utilisateur = "root";
-            $motdepasse = "root";
+            $utilisateur = "root@localhost";
+            $motdepasse = "Vswu7gu2410011030G";
             $hote = "localhost";
             $port = 3306;
             $moteur = "mysql";
@@ -109,7 +113,8 @@
             // Si il n'y a aucune erreur on enregistre dans la base de donnée.
             if($messageErreur==""){
                 register_user($user);
-                //redirection("./login.php");
+                $_SESSION["message"] = "Votre compte à été créer avec succès un lien de connexion va vous être envoyer";
+                redirection("./login.php");
             }
             }
         
@@ -388,7 +393,7 @@
         var_dump($activation_link);
 
         // Create a Transport object 
-        $transport = Transport::fromDsn('smtp://localhost:1025');
+        $transport = Transport::fromDsn('smtp://charly.rousseau@livecampus.tech:mpvruxmfmibkvilk@smtp.gmail.com:587');
         // Create a Mailer object 
         $mailer = new Mailer($transport); 
         // Create an Email object 
@@ -430,7 +435,10 @@
             
             // Si le code d'activation est expiré
             if ((int)$user['expired'] === 1) {
+<<<<<<< HEAD
                 // delete_user_by_id($user['id']);
+=======
+>>>>>>> main
                 return null;
             }
             // Vérification du code d'activation
@@ -573,6 +581,8 @@
                             "userID" => $checkEmail["userID"],
                         ]
                     );
+                    $_SESSION["message"] = "Vous allez recevoir un mail pour changer votre mot de passe";
+                    redirection("./login.php");
                 }
             }
 
@@ -582,11 +592,11 @@
     function send_recovery_email(string $useremail, string $activation_code): void
     {
         // create the activation link
-        $activation_link = APP_URL . "change.php?email=$email&activation_code=$activation_code";
+        $activation_link = APP_URL . "change.php?email=$useremail&activation_code=$activation_code";
         var_dump($activation_link);
 
         // Create a Transport object 
-        $transport = Transport::fromDsn('smtp://localhost:1025');
+        $transport = Transport::fromDsn('smtp://charly.rousseau@livecampus.tech:mpvruxmfmibkvilk@smtp.gmail.com:587');
         // Create a Mailer object 
         $mailer = new Mailer($transport); 
         // Create an Email object 
