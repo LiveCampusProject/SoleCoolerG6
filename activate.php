@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         // if user exists and activate the user successfully
         if ($user && activate_user($user['userID'])) {
+            session_start();
             $_SESSION["message"] = "Compte activé";
             redirection("./login.php");
         }
