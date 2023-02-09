@@ -112,6 +112,11 @@ h2.h2-tiny {
   margin-bottom: 32px;
 }
 
+#breadcrumb a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .button-1,
 .button-2 {
   padding: 16px 48px;
@@ -124,6 +129,7 @@ h2.h2-tiny {
 .button-1 {
   color: #F9F9FA;
   background-color: #E54138;
+  cursor: pointer;
 }
 .button-1 * {
   color: #F9F9FA;
@@ -134,14 +140,17 @@ h2.h2-tiny {
 }
 .button-1:hover * {
   color: #F9F9FA;
+  cursor: pointer;
 }
 
 .button-2 {
   color: #F9F9FA;
   background-color: #0C579D;
+  cursor: pointer;
 }
 .button-2 * {
   color: #F9F9FA;
+  cursor: pointer;
 }
 .button-2:hover {
   color: #F9F9FA;
@@ -1016,6 +1025,7 @@ body:not(#index) main {
   padding: 10px 16px;
   background-color: white;
   border-radius: 4px;
+  cursor: pointer;
 }
 #product .intro .info form > div .wrap input[type=radio]:checked + label {
   background-color: #F3D9DA;
@@ -1051,7 +1061,12 @@ body:not(#index) main {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 150px;
+  gap: 50px;
+}
+@media (max-width: 768px) {
+  #product .details > div .open-box {
+    display: block;
+  }
 }
 #product .details > div .open-box ol {
   margin-left: 50px;
@@ -1068,7 +1083,6 @@ body:not(#index) main {
 }
 #product .details > div#cut > div {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 @media (max-width: 768px) {
@@ -1081,12 +1095,12 @@ body:not(#index) main {
   grid-template-columns: repeat(2, 1fr);
   text-align: center;
   gap: 50px;
-  padding: 50px;
   margin: auto;
 }
 @media (max-width: 768px) {
   #product .details > div#cut ol {
     order: 1;
+    padding: 50px;
   }
 }
 #product .details > div#cut ol li::marker {

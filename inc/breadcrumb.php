@@ -1,4 +1,4 @@
 <section id="breadcrumb" class="container space-arround-m">
-    Accueil > <b>Climfeet</b>
+    <a href=".">Accueil</a> > Climfeet
     <!-- Accueil > <b><?= $actualPage ?></b> -->
 </section>
