@@ -28,7 +28,7 @@ require_once '../inc/utils.php';
         <div class="content">
             <div class="title-row">
                 <h2>Produits</h2>
-                <a href="./ajouter.php" class="add-btn">Ajouter</a>
+                <a href="./ajouter.php" class="add-btn">Nouveau produit</a>
             </div>
             <table class="styled-table">
                 <thead>
@@ -45,20 +45,20 @@ require_once '../inc/utils.php';
                 <tbody>
                     <?php foreach($produits as $produit): ?>
                         <tr>
-                            <td scope="row"><?= $produit['produitID'] ?></td>
-                            <td><?= $produit['libelle'] ?></td>
-                            <td><?= $produit['reference'] ?></td>
-                            <td><?= $produit['price'] ?> €</td>
+                            <td class="text-center"><?= $produit['produitID'] ?></td>
+                            <td class="text-center"><?= $produit['libelle'] ?></td>
+                            <td class="text-center"><?= $produit['reference'] ?></td>
+                            <td class="text-center"><?= $produit['price'] ?> €</td>
                             <td class="text-center">
                                 <a href="voir-produit.php?referenceProduit=<?= $produit['reference'] ?>">
                                     Voir le produit
                                 </a>
                             </td>
                             <td class="text-center">
-                                <a href="modifier.php?referenceProduit=<?= $produit['reference'] ?>"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="modifier.php?referenceProduit=<?= $produit['reference'] ?>"><span class="edit-btn">Modifier</span></a>
                             </td>
                             <td class="text-center">
-                            <a href="supprimer.php?referenceProduit=<?= $produit['reference'] ?>"><i class="fa-solid fa-xmark"></i></a>
+                            <a href="supprimer.php?referenceProduit=<?= $produit['reference'] ?>"><span class="delete-btn">Supprimer</span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

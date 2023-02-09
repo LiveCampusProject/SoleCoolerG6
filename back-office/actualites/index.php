@@ -25,44 +25,46 @@ $actualites = actualites();
 <!-- En dessous aussi -->
 <main class="main">
     <div class="container">
-        <div class="content">
-            <div class="title-row">
-                <h2>Actualites</h2>
-                <a href="./ajouter.php" class="add-btn">Ajouter</a>
-            </div> <br><br>
-            <table class="styled-table">
-                <thead>
+        <div class="title-row">
+            <h2>Actualites</h2>
+            <a href="/back-office/actualites/ajouter.php" class="add-btn">Nouvelle actualité</a>
+        </div> <br><br>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Libellé</th>
+                    <th>Date de publication</th>
+                    <th class="text-center">Détail</th>
+                    <th class="text-center">Modifier</th>
+                    <th class="text-center">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($actualites as $actualite): ?>
                     <tr>
-                        <th>#</th>
-                        <th>Libellé</th>
-                        <th>Date de publication</th>
-                        <th class="text-center">Détail</th>
-                        <th class="text-center">Modifier</th>
-                        <th class="text-center">Supprimer</th>
+                        <td class="text-center"><?= $actualite['actualiteID'] ?></td>
+                        <td class="text-center"><?= $actualite['libelle'] ?></td>
+                        <td class="text-center"><?= $actualite['date'] ?></td>
+                        <td class="text-center">
+                            <a href="voir-actu.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
+                                Voir l'actualité
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="modifier.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
+                                <span class="edit-btn">Modifier</span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="supprimer.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
+                                <span class="delete-btn">Supprimer</span>
+                            </a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($actualites as $actualite): ?>
-                        <tr>
-                            <td scope="row"><?= $actualite['actualiteID'] ?></td>
-                            <td><?= $actualite['libelle'] ?></td>
-                            <td><?= $actualite['date'] ?></td>
-                            <td class="text-center">
-                                <a href="voir-actu.php?referenceActualite=<?= $actualite['actualiteID'] ?>">
-                                    Voir l'actualité
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a href="modifier.php?referenceActualite=<?= $actualite['actualiteID'] ?>"><i class="fa-solid fa-pencil"></i></a>
-                            </td>
-                            <td class="text-center">
-                            <a href="supprimer.php?referenceActualite=<?= $actualite['actualiteID'] ?>"><i class="fa-solid fa-xmark"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>                       
+                <?php endforeach; ?>
+            </tbody>
+        </table>                       
     </div>
     <!-- Tabs navs -->
 </main>

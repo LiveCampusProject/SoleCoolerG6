@@ -258,7 +258,7 @@
                 $type = end($array);
 
                 /* Emplacement du fichier */
-                $location = './inc/images/'.$filename.'.'.$type;
+                $location = $_SERVER['DOCUMENT_ROOT'] .'/back-office/inc/images/'.$filename.'.'.$type;
 
                 move_uploaded_file($_FILES['productFile']['tmp_name'], $location);
 
@@ -296,12 +296,30 @@
         $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
         if ($method == "POST") {
             try {
-                $requete = $pdo->prepare("INSERT INTO actualites (libelle, description, date)
-                VALUES (:libelle, :description, :date)");
+                $requete = $pdo->prepare("INSERT INTO actualites (libelle, description, date, image)
+                VALUES (:libelle, :description, :date, :image)");
+
+                /* Nom du fichier */
+                /* Enlève tous les espaces */
+                $libelle_clean = preg_replace('/\s*/', '', $libelle);
+                $filename = strtolower($libelle_clean);
+                
+                /* On récupère le type de fichier */
+                $array = explode('.', $_FILES['actuFile']['name']);
+                $type = end($array);
+
+                /* Emplacement du fichier */
+                $location = $_SERVER['DOCUMENT_ROOT'] .'/back-office/inc/images/actualites/'.$filename.'.'.$type;
+
+                move_uploaded_file($_FILES['actuFile']['tmp_name'], $location);
+
+                $location2 = $filename.'.'.$type;
+
                 
                 $requete->bindParam(':libelle', $libelle);
                 $requete->bindParam(':description', $description);
                 $requete->bindParam(':date', $date);
+                $requete->bindParam(':image', $location2);
 
                 $requete->execute();
 
@@ -399,16 +417,22 @@
         $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
         if ($method == "GET" && isset($reference)) {
             
-            $requete = $pdo->prepare("SELECT * FROM produits WHERE reference = :reference");
-            $requete->bindParam(':reference', $reference);
-            $requete->execute();
-            $produit = $requete->fetch();
+            try {
+                $requete = $pdo->prepare("SELECT * FROM produits WHERE reference = :reference");
+                $requete->bindParam(':reference', $reference);
+                $requete->execute();
+                $produit = $requete->fetch();
 
-            unlink('./inc/images/'.$produit['image']);
-
-            $requete = $pdo->prepare("DELETE FROM produits WHERE reference = :reference");
-            $requete->bindParam(':reference', $reference);
-            $requete->execute();
+                if ($produit['image']){
+                    unlink('./inc/images/'.$produit['image']);
+                }
+                
+                $requete = $pdo->prepare("DELETE FROM produits WHERE reference = :reference");
+                $requete->bindParam(':reference', $reference);
+                $requete->execute();
+            } catch (Exception $e) {
+                echo 'Une erreur au niveau de la suppression du produit. Vérifiez si elle n\'apparaît pas dans des commandes';
+            }
         }
     }
 
@@ -445,7 +469,6 @@
         // Par contre, si c'est du POST, il y a des données, on les vérifie.
         $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
         if ($method == "GET" && isset($reference)) {
-            echo $reference;
             $requete = $pdo->prepare("DELETE FROM articles WHERE articleID = :reference");
             $requete->bindParam(':reference', $reference);
             $requete->execute();
@@ -506,6 +529,16 @@
         // Par contre, si c'est du POST, il y a des données, on les vérifie.
         $method = filter_input(INPUT_SERVER, "REQUEST_METHOD"); // $_SERVER["REQUEST_METHOD"]
         if ($method == "GET" && isset($reference)) {
+
+            $requete = $pdo->prepare("SELECT * FROM actualites WHERE actualiteID = :actualiteID");
+            $requete->bindParam(':actualiteID', $reference);
+            $requete->execute();
+            $produit = $requete->fetch();
+
+            if ($produit['image']){
+                unlink('/back-office/inc/images/actualites/'.$produit['image']);
+            }
+
             $requete = $pdo->prepare("DELETE FROM actualites WHERE actualiteID = :actualiteID");
             $requete->bindParam(':actualiteID', $reference);
             $requete->execute();
@@ -547,19 +580,29 @@
             SET libelle = :libelle, description = :description, price = :price, reference = :reference, image = :image
             WHERE reference = :referenceInitial ;");
 
-            /* Nom du fichier */
-            $filename = $reference;
-                
-            /* On récupère le type de fichier */
-            $array = explode('.', $_FILES['productFile']['name']);
-            $type = end($array);
+            if(file_exists($_FILES['productFile']['tmp_name']) || is_uploaded_file(($_FILES['productFile']['tmp_name']))){
+                /* Nom du fichier */
+                $filename = $reference;
+                    
+                /* On récupère le type de fichier */
+                $array = explode('.', $_FILES['productFile']['name']);
+                $type = end($array);
 
-            /* Emplacement du fichier */
-            $location = './inc/images/'.$filename.'.'.$type;
+                /* Emplacement du fichier */
+                $location = $_SERVER['DOCUMENT_ROOT'].'/back-office/inc/images/'.$filename.'.'.$type;
 
-            move_uploaded_file($_FILES['productFile']['tmp_name'], $location);
+                move_uploaded_file($_FILES['productFile']['tmp_name'], $location);
 
-            $location2 = $filename.'.'.$type;
+                $location2 = $filename.'.'.$type;
+            }else{
+                $requete2 = $pdo->prepare("SELECT * FROM produits WHERE reference = :reference");
+                $requete2->bindParam(':reference', $InitialReference);
+                $requete2->execute();
+                $produit = $requete2->fetch();
+                /* On remet le nom de l'image initiale */
+                echo'=============>'.$produit['image'];
+                $location2 = $produit['image'];
+            }
             
             $requete->bindParam(':libelle', $libelle);
             $requete->bindParam(':description', $description);
@@ -690,25 +733,50 @@
                 $requete = $pdo->prepare("SELECT * FROM actualites WHERE actualiteID = :actualiteID");
                 $requete->bindParam(':actualiteID', $InitialReference);
                 $requete->execute();
-                $produit = $requete->fetch();
+                $actu = $requete->fetch();
     
-                return $produit;
+                return $actu;
             }
 
         } else if ($method == "POST" && isset($InitialReference)) {
         
             $requete = $pdo->prepare("UPDATE actualites
-            SET libelle = :libelle, description = :description, date = :date
+            SET libelle = :libelle, description = :description, date = :date, :image
             WHERE actualiteID = :actualiteID ;");
 
+            /* Nom du fichier */
+            /* Enlève tous les espaces */
+            $libelle_clean = preg_replace('/\s*/', '', $libelle);
+            $filename = strtolower($libelle_clean);
             
+            if(file_exists($_FILES['actuFile']['tmp_name']) || is_uploaded_file(($_FILES['actuFile']['tmp_name']))){
+                /* On récupère le type de fichier */
+                $array = explode('.', $_FILES['actuFile']['name']);
+                $type = end($array);
+
+                /* Emplacement du fichier */
+                $location = $_SERVER['DOCUMENT_ROOT'] .'/back-office/inc/images/actualites/'.$filename.'.'.$type;
+
+                move_uploaded_file($_FILES['actuFile']['tmp_name'], $location);
+
+                $location2 = $filename.'.'.$type;
+            } else {
+                $requete2 = $pdo->prepare("SELECT * FROM actualites WHERE actualiteID = :actualiteID");
+                $requete2->bindParam(':actualiteID', $InitialReference);
+                $requete2->execute();
+                $actu = $requete2->fetch();
+                /* on remet le nom de l'image initiale */
+                $location2 = $actu['image'];
+            }
+
             $requete->bindParam(':libelle', $libelle);
             $requete->bindParam(':description', $description);
             $requete->bindParam(':date', $date);
+            $requete->bindParam(':image', $location2);
             $requete->bindParam(':actualiteID', $InitialReference);
 
             $requete->execute();
-            header('Location: ./index.php');
+            header('Location: /back-office/actualites/index.php');
         }
     }
 
@@ -767,6 +835,18 @@
         $user = $requete->fetch();
         
         return $user;
+    }
+
+    /* Récupère un produit en fonction de son ID*/
+    function getProduitbyID($id){
+        global $pdo;
+
+        $requete = $pdo->prepare("SELECT * FROM produits WHERE produitID = :produitID");
+        $requete->bindParam(':produitID', $id);
+        $requete->execute();
+        $produit = $requete->fetch();
+        
+        return $produit;
     }
 
 ?>

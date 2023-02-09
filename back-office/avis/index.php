@@ -42,17 +42,20 @@ $avis = avis();
                 <tbody>
                     <?php foreach($avis as $avi): ?>
                         <tr>
-                            <td scope="row"><?= $avi['avisID'] ?></td>
-                            <td><?= $avi['userID'] ?></td>
-                            <td><?= $avi['note'] ?></td>
-                            <td><?= $avi['description'] ?></td>
+                            <td class="text-center"><?= $avi['avisID'] ?></td>
+                            <?php $userCommande = getUserbyID($avi['userID']);?>
+                            <td class="text-center"><?= $userCommande['nom'] ?></td>
+                            <td class="text-center"><?= $avi['note'] ?></td>
+                            <td class="text-center"><?= $avi['description'] ?></td>
                             <td class="text-center">
                                 <a href="voir-avis.php?referenceAvis=<?= $avi['avisID'] ?>">
                                     Voir avis
                                 </a>
                             </td>
                             <td class="text-center">
-                            <a href="supprimer.php?referenceAvis=<?= $avi['avisID'] ?>"><i class="fa-solid fa-xmark"></i></a>
+                                <a href="supprimer.php?referenceAvis=<?= $avi['avisID'] ?>">
+                                    <span class="delete-btn">Supprimer</span>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

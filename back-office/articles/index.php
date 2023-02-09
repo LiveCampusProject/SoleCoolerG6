@@ -25,42 +25,40 @@ $articles = articles();
 <!-- En dessous aussi -->
 <main class="main">
     <div class="container">
-        <div class="content">
-            <div class="title-row">
-                <h2>Articles</h2>
-                <a href="./ajouter.php" class="add-btn">Ajouter</a>
-            </div>
-            <table class="styled-table">
-                <thead>
+        <div class="title-row">
+            <h2>Articles</h2>
+            <a href="./ajouter.php" class="add-btn">Nouvel article</a>
+        </div>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Libellé</th>
+                    <th>Date de publication</th>
+                    <th class="text-center">Lien</th>
+                    <th class="text-center">Modifier</th>
+                    <th class="text-center">Supprimer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($articles as $article): ?>
                     <tr>
-                        <th>#</th>
-                        <th>Libellé</th>
-                        <th>Date de publication</th>
-                        <th class="text-center">Lien</th>
-                        <th class="text-center">Modifier</th>
-                        <th class="text-center">Supprimer</th>
+                        <td class="text-center"><?= $article['articleID'] ?></td>
+                        <td class="text-center"><?= $article['libelle'] ?></td>
+                        <td class="text-center"><?= $article['date'] ?></td>
+                        <td class="text-center">
+                            <a href="<?= $article['lien'] ?>"><i class="fa-solid fa-link"></i></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="modifier.php?referenceArticle=<?= $article['articleID'] ?>"><span class="edit-btn">Modifier</span></a>
+                        </td>
+                        <td class="text-center">
+                            <a href="supprimer.php?referenceArticle=<?= $article['articleID'] ?>"><span class="delete-btn">Supprimer</span></a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php foreach($articles as $article): ?>
-                        <tr>
-                            <td scope="row"><?= $article['articleID'] ?></td>
-                            <td><?= $article['libelle'] ?></td>
-                            <td><?= $article['date'] ?></td>
-                            <td class="text-center">
-                                <a href="<?= $article['lien'] ?>"><i class="fa-solid fa-link"></i></a>
-                            </td>
-                            <td class="text-center">
-                                <a href="modifier.php?referenceArticle=<?= $article['articleID'] ?>"><i class="fa-solid fa-pencil"></i></a>
-                            </td>
-                            <td class="text-center">
-                            <a href="supprimer.php?referenceArticle=<?= $article['articleID'] ?>"><i class="fa-solid fa-xmark"></i></a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>                       
+                <?php endforeach; ?>
+            </tbody>
+        </table>                       
     </div>
     <!-- Tabs navs -->
 </main>

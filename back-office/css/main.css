@@ -61,4 +61,523 @@ h2.h2-tiny {
 .button-2:hover {
   color: #efefef;
   background-color: #E54138;
+}
+
+#index-backoffice .edit-btn {
+  padding: 8px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #efefef;
+  background-color: #1C2938;
+}
+#index-backoffice .delete-btn {
+  padding: 8px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #efefef;
+  background-color: #681b17;
+}
+
+/*  Sidebar Menu  */
+#index-backoffice {
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  /* Table */
+}
+#index-backoffice .text-center {
+  text-align: center;
+}
+#index-backoffice header {
+  margin-top: 64px;
+  margin-left: 30px;
+}
+#index-backoffice .blob-blue {
+  position: absolute;
+  z-index: -999;
+  width: 27vw;
+  top: 41px;
+  left: 0;
+}
+#index-backoffice .blob-red {
+  position: absolute;
+  z-index: -999;
+  width: 20vw;
+  top: 158px;
+  right: 0;
+}
+#index-backoffice .add-btn {
+  grid-column-end: none;
+  padding: 14px 20px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #0C579D;
+  color: #fff;
+  border-radius: 4px;
+  margin-right: 60px;
+  font-size: 1.2em;
+}
+#index-backoffice .add-btn:hover {
+  color: #0C579D;
+  border: solid 1px #0C579D;
+  background-color: #efefef;
+}
+#index-backoffice * {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+#index-backoffice table {
+  margin: 20px;
+  padding: 0px 10px;
+  background: #F8F8F8;
+  border: 1px solid #F1F1F1;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+  border-collapse: unset !important;
+  border-spacing: 0px 10px;
+}
+#index-backoffice table thead tr th {
+  color: #7D7D7D;
+  font-weight: normal;
+}
+#index-backoffice table tbody tr td {
+  background: #FFF;
+  border: 1px solid #FFF;
+}
+#index-backoffice table tbody tr td:first-child {
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
+  width: 130px;
+}
+#index-backoffice table tbody tr td:last-child {
+  border-radius: 0 5px 5px 0;
+  text-align: center;
+  padding: 10px;
+}
+#index-backoffice .container {
+  margin-top: 64px;
+  margin-left: 30px;
+}
+#index-backoffice .container h2 {
+  font-size: 2em;
+}
+#index-backoffice .container .title-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+#index-backoffice .sidebar {
+  width: 120px;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgb(255, 251, 251);
+  box-shadow: 0 0.25px 1px rgb(167, 167, 167);
+  border-right: 2px solid rgba(255, 255, 255, 0.09);
+  transition: 0.4s ease-in-out;
+  /* Sidebar - NAV */
+}
+#index-backoffice .sidebar.open {
+  width: 360px;
+}
+#index-backoffice .sidebar.open .logo img {
+  width: 150px;
+}
+#index-backoffice .sidebar.open .logo h3 {
+  scale: 1;
+  opacity: 1;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+}
+#index-backoffice .sidebar.open .nav-title {
+  opacity: 1;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+}
+#index-backoffice .sidebar.open nav .nav-item span {
+  opacity: 1;
+  pointer-events: visible;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+}
+#index-backoffice .sidebar.open hr {
+  opacity: 1;
+  transition: 0.4s;
+}
+#index-backoffice .sidebar.open .toggle {
+  transform: translateY(45px);
+}
+#index-backoffice .sidebar.open .toggle i {
+  transform: rotateY(180deg);
+}
+#index-backoffice .sidebar .logo {
+  width: 100%;
+  height: 140px;
+  padding: 40px 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+#index-backoffice .sidebar .logo img {
+  width: 80px;
+  transition: 0.4s;
+}
+#index-backoffice .sidebar .logo h3 {
+  color: #fff;
+  font-size: 36px;
+  margin-top: 12px;
+  font-variant: small-caps;
+  pointer-events: none;
+  scale: 0;
+  opacity: 0;
+}
+#index-backoffice .sidebar .nav-title {
+  color: #2d2d2d;
+  margin: 40px 0 18px;
+  pointer-events: none;
+  opacity: 0;
+}
+#index-backoffice .sidebar nav {
+  padding: 0 30px;
+}
+#index-backoffice .sidebar nav a {
+  text-decoration: none;
+}
+#index-backoffice .sidebar nav .nav-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 4px;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  margin: 8px 0;
+  color: #2d2d2d;
+  transition: 0.3s;
+}
+#index-backoffice .sidebar nav .nav-item.active {
+  background: #0C579D !important;
+  color: #fff;
+}
+#index-backoffice .sidebar nav .nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+#index-backoffice .sidebar nav .nav-item i {
+  font-size: 26px;
+}
+#index-backoffice .sidebar nav .nav-item span {
+  font-size: 18px;
+  margin-left: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+#index-backoffice .sidebar nav .nav-item a {
+  text-decoration: none;
+  color: #2d2d2d;
+}
+#index-backoffice .sidebar hr {
+  width: 100%;
+  height: 2px;
+  border-radius: 3px;
+  margin: 40px 0 50px;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+}
+#index-backoffice .sidebar .toggle {
+  cursor: pointer;
+  position: absolute;
+  color: #fff;
+  top: 180px;
+  right: -20px;
+  font-size: 38px;
+  line-height: 50%;
+  text-align: center;
+  border-radius: 50%;
+  padding: 2px 0 2px 2px;
+  background: linear-gradient(90deg, transparent 50%, rgba(10, 10, 10, 0.65) 50%);
+}
+#index-backoffice .sidebar .toggle i {
+  transition: 0.4s linear;
+}
+#index-backoffice form#addActualite-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "libelle date" "description description" "actuFile actuFile" ". submit";
+  gap: 24px 50px;
+  margin-bottom: 150px;
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addActualite-form {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addActualite-form > div.input {
+    margin-bottom: 16px;
+  }
+}
+#index-backoffice form#addActualite-form > div.input input,
+#index-backoffice form#addActualite-form > div.input select,
+#index-backoffice form#addActualite-form > div.input textarea {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #F3F2F2;
+  border: none;
+}
+#index-backoffice form#addActualite-form > div.input:nth-of-type(3) {
+  grid-area: description;
+  grid-column: 1/3;
+}
+#index-backoffice form#addActualite-form > div.input:nth-of-type(4) {
+  grid-area: actuFile;
+  grid-column: 1/3;
+}
+#index-backoffice form#addActualite-form > div.input .req {
+  color: #E54138;
+}
+#index-backoffice form#addActualite-form > div:last-of-type {
+  grid-area: submit;
+}
+#index-backoffice form#addActualite-form > div:last-of-type input[type=submit] {
+  grid-area: submit;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  border: none;
+  padding: 14px 20px;
+  text-align: center;
+  background-color: #0C579D;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2em;
+}
+#index-backoffice form#addActualite-form > div:last-of-type input[type=submit]:hover {
+  color: #0C579D;
+  border: solid 1px #0C579D;
+  background-color: #efefef;
+}
+#index-backoffice form#addArticle-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "libelle date" "lien lien" ". submit";
+  gap: 24px 50px;
+  margin-bottom: 150px;
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addArticle-form {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addArticle-form > div.input {
+    margin-bottom: 16px;
+  }
+}
+#index-backoffice form#addArticle-form > div.input input,
+#index-backoffice form#addArticle-form > div.input select,
+#index-backoffice form#addArticle-form > div.input textarea {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #F3F2F2;
+  border: none;
+}
+#index-backoffice form#addArticle-form > div.input:nth-of-type(3) {
+  grid-area: lien;
+  grid-column: 1/3;
+}
+#index-backoffice form#addArticle-form > div.input .req {
+  color: #E54138;
+}
+#index-backoffice form#addArticle-form > div:last-of-type {
+  grid-area: submit;
+}
+#index-backoffice form#addArticle-form > div:last-of-type input[type=submit] {
+  grid-area: submit;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  border: none;
+  padding: 14px 20px;
+  text-align: center;
+  background-color: #0C579D;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2em;
+}
+#index-backoffice form#addArticle-form > div:last-of-type input[type=submit]:hover {
+  color: #0C579D;
+  border: solid 1px #0C579D;
+  background-color: #efefef;
+}
+#index-backoffice form#addCommandes-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "produitSelect userSelect" "commandeDate quantite" ". submit";
+  gap: 24px 50px;
+  margin-bottom: 150px;
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addCommandes-form {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addCommandes-form > div.input {
+    margin-bottom: 16px;
+  }
+}
+#index-backoffice form#addCommandes-form > div.input input,
+#index-backoffice form#addCommandes-form > div.input select,
+#index-backoffice form#addCommandes-form > div.input textarea {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #F3F2F2;
+  border: none;
+}
+#index-backoffice form#addCommandes-form > div.input .req {
+  color: #E54138;
+}
+#index-backoffice form#addCommandes-form > div:last-of-type {
+  grid-area: submit;
+}
+#index-backoffice form#addCommandes-form > div:last-of-type input[type=submit] {
+  grid-area: submit;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  border: none;
+  padding: 14px 20px;
+  text-align: center;
+  background-color: #0C579D;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2em;
+}
+#index-backoffice form#addCommandes-form > div:last-of-type input[type=submit]:hover {
+  color: #0C579D;
+  border: solid 1px #0C579D;
+  background-color: #efefef;
+}
+#index-backoffice form#addProduit-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "reference libelle" "description description" "price productFile" ". submit";
+  gap: 24px 50px;
+  margin-bottom: 150px;
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addProduit-form {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addProduit-form > div.input {
+    margin-bottom: 16px;
+  }
+}
+#index-backoffice form#addProduit-form > div.input input,
+#index-backoffice form#addProduit-form > div.input select,
+#index-backoffice form#addProduit-form > div.input textarea {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #F3F2F2;
+  border: none;
+}
+#index-backoffice form#addProduit-form > div.input:nth-of-type(3) {
+  grid-area: description;
+  grid-column: 1/3;
+}
+#index-backoffice form#addProduit-form > div.input .req {
+  color: #E54138;
+}
+#index-backoffice form#addProduit-form > div:last-of-type {
+  grid-area: submit;
+}
+#index-backoffice form#addProduit-form > div:last-of-type input[type=submit] {
+  grid-area: submit;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  border: none;
+  padding: 14px 20px;
+  text-align: center;
+  background-color: #0C579D;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2em;
+}
+#index-backoffice form#addProduit-form > div:last-of-type input[type=submit]:hover {
+  color: #0C579D;
+  border: solid 1px #0C579D;
+  background-color: #efefef;
+}
+#index-backoffice form#addUser {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "name mail" "checkbox password" ". submit";
+  gap: 24px 50px;
+  margin-bottom: 150px;
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addUser {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  #index-backoffice form#addUser > div.input {
+    margin-bottom: 16px;
+  }
+}
+#index-backoffice form#addUser > div.input input,
+#index-backoffice form#addUser > div.input select,
+#index-backoffice form#addUser > div.input textarea {
+  width: 100%;
+  padding: 14px 24px;
+  background-color: #F3F2F2;
+  border: none;
+}
+#index-backoffice form#addUser > div.input .req {
+  color: #E54138;
+}
+#index-backoffice form#addUser > div:last-of-type {
+  grid-area: submit;
+}
+#index-backoffice form#addUser > div:last-of-type input[type=submit] {
+  grid-area: submit;
+  width: -moz-fit-content;
+  width: fit-content;
+  float: right;
+  border: none;
+  padding: 14px 20px;
+  text-align: center;
+  background-color: #0C579D;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2em;
+}
+#index-backoffice form#addUser > div:last-of-type input[type=submit]:hover {
+  color: #0C579D;
+  border: solid 1px #0C579D;
+  background-color: #efefef;
+}
+#index-backoffice .voir-produit {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+#index-backoffice .voir-produit span {
+  font-size: 1em;
+  color: #5f5f5f;
+}
+#index-backoffice .voir-produit:nth-child(2) {
+  margin-left: 30px;
 }/*# sourceMappingURL=main.css.map */

@@ -46,19 +46,20 @@ $commandes = commandes();
                 <tbody>
                     <?php foreach($commandes as $commande): ?>
                         <tr>
-                            <td scope="row"><?= $commande['commandeID'] ?></td>
-                            <td><?= $commande['produitId'] ?></td>
+                            <td><?= $commande['commandeID'] ?></td>
+                            <?php $produit = getProduitbyID($commande['produitId'])?>
+                            <td class="text-center"><?= $produit['libelle'] ?></td>
                             <?php $userCommande = getUserbyID($commande['userId']);?>
-                            <td><?= $userCommande['nom'] ?></td>
-                            <td><?= $userCommande['email'] ?></td>
+                            <td class="text-center"><?= $userCommande['nom'] ?></td>
+                            <td class="text-center"><?= $userCommande['email'] ?></td>
                             <td class="text-center"><?= $commande['commandeDate'] ?></td>
                             <td class="text-center"><?= $commande['quantite'] ?></td>
                             <td class="text-center"><?= $commande['total'] ?></td>
                             <td class="text-center">
-                                <a href="modifier.php?referenceCommande=<?= $commande['commandeID'] ?>"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="modifier.php?referenceCommande=<?= $commande['commandeID'] ?>"><span class="edit-btn">Modifier</span></a>
                             </td>
                             <td class="text-center">
-                                <a href="supprimer.php?referenceCommande=<?= $commande['commandeID'] ?>"><i class="fa-solid fa-xmark"></i></a>
+                                <a href="supprimer.php?referenceCommande=<?= $commande['commandeID'] ?>"><span class="delete-btn">Supprimer</span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

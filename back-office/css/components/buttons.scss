@@ -28,3 +28,28 @@
         background-color: $red;
     }
 }
+
+#index-backoffice {
+    .edit-btn{
+        padding: 8px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 4px;
+        color: $white;
+        background-color: #1C2938;
+
+    }
+
+    .delete-btn{
+        padding: 8px;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 4px;
+        color: $white;
+        background-color: #681b17;
+
+    }
+}
+

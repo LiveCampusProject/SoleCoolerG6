@@ -18,6 +18,7 @@ $actualite = voirActu();
         <div class="content">
             <h1><?= $actualite['libelle'] ?></h1>
             <p><?= $actualite['date'] ?></p>
+            <img src="/back-office/inc/images/actualites/<?= $actualite['image'] ?>" alt="" name="image" style="height=200px">
             <p><?= $actualite['description'] ?></p>
         </div>                       
     </div>

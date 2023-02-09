@@ -23,39 +23,38 @@ $info = ajouterUser();
 <!-- En dessous aussi -->
 <main class="main">
     <div class="container">
-        
+        <form method="POST" id="addUser">
+            <div class="input">
+                <label>
+                    <div>Nom</div>
+                    <input type="text" name="name" id="name" required />
+                </label>
+            </div>
+            <div class="input">
+                <label>
+                    <div>Email</div>
+                    <input type="email" name="mail" id="mail" required />
+                </label>
+            </div>
 
-        <div class="content">
-            <form method="POST">
-                <div class="row">
-                    <div class="col">
-                        <label for="name" class="form-label">Nom</label>
-                        <input type="text" name="name" id="name" class="form-control" required />
-                    </div>
-                    <div class="col">
-                        <label for="mail" class="form-label">Email</label>
-                        <input type="email" name="mail" id="mail" class="form-control" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col align-items-center d-flex">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="administrateur" id="administrateur">
-                            <label class="form-check-label" for="administrateur">Administrateur</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" name="password" id="password" class="form-control" required />
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col text-center">
-                        <input type="submit" value="Ajouter" class="btn btn-success"/>
-                    </div>
-                </div>
-            </form>
-        </div>                       
+            <div class="input">
+                <label>
+                    <div>Administrateur</div>
+                    <input type="checkbox" name="administrateur" id="administrateur">
+                </label>
+            </div>
+
+            <div class="input">
+                <label>
+                    <div>Mot de passe</div>
+                    <input type="password" name="password" id="password" required />
+                </label>
+            </div>
+
+            <div>
+                <input type="submit" value="Ajouter"/>
+            </div>
+        </form>                     
     </div>
     <!-- Tabs navs -->
 </main>

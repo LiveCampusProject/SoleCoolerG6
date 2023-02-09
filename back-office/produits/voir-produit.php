@@ -12,14 +12,19 @@ $produit = voirProduit();
 
 <!-- On voit le produit ici -->
 <main class="main">
-<div class="container">
-        
+    <div class="container">
+        <div class="voir-produit">
+            <div>
+                <img src="/back-office/inc/images/<?= $produit['image'] ?>" alt="" name="image" style="height=200px">
+            </div>
+            <div style="margin-left: 30px">
+                <h1><?= $produit['libelle'] ?></h1>
+                <span>Référence : <?= $produit['reference'] ?></span>
 
-        <div class="content">
-            <h1><?= $produit['libelle'] ?> (<?= $produit['reference'] ?>)</h1>
-            <p><?= $produit['description'] ?></p>
-            <em><?= $produit['price'] ?>€</em>
-        </div>                       
+                <p><?= $produit['description'] ?></p>
+                <h4>Prix : <?= $produit['price'] ?>€</p>      
+            </div>
+        </div>
     </div>
     
 </main>
