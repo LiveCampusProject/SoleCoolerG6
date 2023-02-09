@@ -28,6 +28,7 @@
 
         #logo {
             width: 20%;
+            transition: .5s;
 
             @media (max-width: $tablet) {
                 order: 0;
@@ -94,8 +95,16 @@
 
                         &[aria-current=page] {
                             text-decoration: underline 2px $black;
-                            text-underline-offset: 8px;
+                            text-underline-offset: 12px;
                             font-weight: bold;
+
+                            &:hover {
+                                color: $black;
+                            }
+                        }
+
+                        &:hover {
+                            color: $red;
                         }
 
                         @media (max-width: $mobile) {
@@ -190,6 +199,13 @@
 }
 
 .menu-bg {
-    background: $white !important;
+    background: $color-bg !important;
     transition: .4s;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 20%);
+
+    #logo {
+        transform: scale(.5);
+        transform-origin: left;
+        transition: .5s;
+    }
 }

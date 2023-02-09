@@ -35,7 +35,7 @@ require_once("./inc/header.php");
 
     <div class="container">
       <h1>
-        <b data-i18n="Home.hero.title" >La semelle chauffante</b>
+        <b data-i18n="Home.hero.title">La semelle chauffante</b>
         <br>
       </h1>
       <h1 data-i18n="Home.hero.subtitle"> grâce à l'énergie de vos pas </h1>
@@ -104,11 +104,11 @@ require_once("./inc/header.php");
           <br> <br>
           <span data-i18n="Home.product.$2"> Elle garde vos pieds au chaud en situation de froid tout en créant du frais durant les périodes estivales. </span>
         </p>
-        
+
         <a href="./product.php" class="button-2">
-          <span data-i18n="Home.product.button" >Acheter</span>
+          <span data-i18n="Home.product.button">Acheter</span>
         </a>
-        
+
       </div>
     </div>
 
@@ -121,8 +121,11 @@ require_once("./inc/header.php");
           </svg>
 
           <p data-i18n="Home.product.$3">Efficace</p>
-          <p data-i18n="Home.product.$4">-4°C ou +4°C </p>
-          <p data-i18n="Home.product.$5">dès 7 pas</p>
+          <p>
+            <span data-i18n="Home.product.$4">-4°C ou +4°C</span>
+            <br>
+            <span data-i18n="Home.product.$5">dès 7 pas</span>
+          </p>
 
         </div>
         <div class="card">
@@ -141,9 +144,12 @@ require_once("./inc/header.php");
             <path d="M38.5137 36.5449V37.5293H41.0361H43.5586V36.5449V35.5605H41.0361H38.5137V36.5449Z" fill="#0C579D" />
           </svg>
 
-          <p data-i18n="Home.product.$6" >Résistant</p>
-          <p data-i18n="Home.product.$7" >Conçu pour travailler </p>
-          <p data-i18n="Home.product.$8">entre -40°C et +60°C</p>
+          <p data-i18n="Home.product.$6">Résistant</p>
+          <p>
+            <span data-i18n="Home.product.$7">Conçu pour travailler</span>
+            <br>
+            <span data-i18n="Home.product.$8">entre -40°C et +60°C</span>
+          </p>
 
         </div>
         <div class="card">
@@ -153,8 +159,11 @@ require_once("./inc/header.php");
           </svg>
 
           <p data-i18n="Home.product.$9">Réutilisable</p>
-          <p data-i18n="Home.product.$10"> Lavable avec </p>
-          <p data-i18n="Home.product.$11"> de l'eau et du savon</p>
+          <p>
+            <span data-i18n="Home.product.$10"> Lavable avec </span>
+            <br>
+            <span data-i18n="Home.product.$11"> de l'eau et du savon</span>
+          </p>
 
         </div>
         <div class="card">
@@ -172,8 +181,11 @@ require_once("./inc/header.php");
           </svg>
 
           <p data-i18n="Home.product.$12">100% français</p>
-          <p data-i18n="Home.product.$13">Produit conçu, fabriqué </p>
-          <p data-i18n="Home.product.$14"> et emballé en France </p>
+          <p>
+            <span data-i18n="Home.product.$13">Produit conçu, fabriqué </span>
+            <br>
+            <span data-i18n="Home.product.$14"> et emballé en France </span>
+          </p>
 
         </div>
       </div>
@@ -186,7 +198,7 @@ require_once("./inc/header.php");
   <section id="solecooler" style="background-image: url('./assets/img/home/solecooler_bg.jpg');">
     <div class="container">
       <h2 data-i18n="Home.company.title">SoleCooler : Inspiré par la Nature / Activé par vos pieds</h2>
-      <p data-i18n="Home.company.$1" >Créée en 2019, SoleCooler a développé une semelle thermo-régulée : la CLIMFEET. Grâce à ses multiples alvéoles remplies d’air, la semelle CLIMFEET convertit directement l’énergie mécanique des pas de l'utilisateur en chaleur et en froid.</p>
+      <p data-i18n="Home.company.$1">Créée en 2019, SoleCooler a développé une semelle thermo-régulée : la CLIMFEET. Grâce à ses multiples alvéoles remplies d’air, la semelle CLIMFEET convertit directement l’énergie mécanique des pas de l'utilisateur en chaleur et en froid.</p>
       <a href="#" class="button-2">
         <span data-i18n="Home.company.button">Découvrir notre technologie</span>
       </a>

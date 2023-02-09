@@ -105,16 +105,16 @@ const scrollMenu = () => {
   const nav = document.querySelector('#header');
   const top = nav.offsetTop;
 
-  if (window.scrollY <= 100) {
+  if (window.scrollY <= 50) {
     nav.classList.remove('menu-bg');
   }
 
   window.addEventListener('scroll', () => {
 
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       nav.classList.add('menu-bg');
       nav.style.top = '0';
-    } else if (window.scrollY < 100) {
+    } else if (window.scrollY < 50) {
       nav.classList.remove('menu-bg');
       nav.style.top = top + 'px';
     }

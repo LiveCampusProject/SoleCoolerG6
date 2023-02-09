@@ -271,6 +271,7 @@ h2.h2-tiny {
 }
 #header #navbar #logo {
   width: 20%;
+  transition: 0.5s;
 }
 @media (max-width: 992px) {
   #header #navbar #logo {
@@ -341,8 +342,14 @@ h2.h2-tiny {
 #header #navbar #main-nav ul li a[aria-current=page] {
   -webkit-text-decoration: underline 2px #031221;
           text-decoration: underline 2px #031221;
-  text-underline-offset: 8px;
+  text-underline-offset: 12px;
   font-weight: bold;
+}
+#header #navbar #main-nav ul li a[aria-current=page]:hover {
+  color: #031221;
+}
+#header #navbar #main-nav ul li a:hover {
+  color: #E54138;
 }
 @media (max-width: 768px) {
   #header #navbar #main-nav ul li a {
@@ -425,8 +432,14 @@ h2.h2-tiny {
 }
 
 .menu-bg {
-  background: #F9F9FA !important;
+  background: #F6FAFE !important;
   transition: 0.4s;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.menu-bg #logo {
+  transform: scale(0.5);
+  transform-origin: left;
+  transition: 0.5s;
 }
 
 footer #reassurance {
@@ -1013,6 +1026,9 @@ body:not(#index) main {
 }
 #product .intro .info form button {
   border: none;
+}
+#product .details {
+  margin-top: 100px;
 }
 #product .details > div {
   margin-bottom: 50px;
