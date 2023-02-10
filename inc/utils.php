@@ -5,6 +5,9 @@
     use Symfony\Component\Mailer\Transport;
     use Symfony\Component\Mailer\Mailer;
     use Symfony\Component\Mime\Email;
+    
+    ob_start();
+    ob_clean();
 
     /*
     *   Fonction utilitaire, redirige l'utilisateur et arrête PHP.
@@ -20,9 +23,11 @@
 
     function db_connect(): PDO {
         try {
-
+       
             $utilisateur = "nouveau_utilisateur";
             $motdepasse = "mot_de_passe";
+            // $utilisateur = "root";
+            // $motdepasse = "";
             $hote = "localhost";
             $port = 3306;
             $moteur = "mysql";
@@ -175,7 +180,7 @@
                     if ($rememberMe == "on") {
                         remember_me($checkUser["userID"]);
                     }
-                    redirection("./index.php");                    // On redirige l'utilisateur connecté vers la page d'accueil.
+                redirection("./index.php");                    // On redirige l'utilisateur connecté vers la page d'accueil.
                 }                   
             }
            
@@ -198,7 +203,7 @@
         if ($token && token_is_valid($token)) {
 
             $user = find_user_by_token($token);
-            var_dump(log_user_in($user)); 
+            log_user_in($user); 
             if ($user) {
                 return log_user_in($user);
             }
@@ -238,7 +243,7 @@
         }
         session_destroy();
         // Redirect to the login page:
-        //redirection('/index.php');
+        redirection('/index.php');
     }
 
     function remember_me(int $user_id, int $day = 30)
@@ -385,9 +390,6 @@
     {
         // create the activation link
         $activation_link = APP_URL . "activate.php?email=$useremail&activation_code=$activation_code";
-
-        var_dump($activation_link);
-
         // Create a Transport object 
         $transport = Transport::fromDsn('smtp://charly.rousseau@livecampus.tech:mpvruxmfmibkvilk@smtp.gmail.com:587');
         // Create a Mailer object 
@@ -475,8 +477,8 @@
                 $password = password_hash($password,PASSWORD_DEFAULT);
                 save_password($password,$user);
                 deldelete_pwd_token($user["userID"]);
-                redirection("./login.php");
-                
+                $_SESSION["message"] = "Votre mot de passe à été changé avec succès";
+                //redirection("./login.php");              
 
             }
         }
@@ -585,8 +587,6 @@
     {
         // create the activation link
         $activation_link = APP_URL . "change.php?email=$useremail&activation_code=$activation_code";
-        var_dump($activation_link);
-
         // Create a Transport object 
         $transport = Transport::fromDsn('smtp://charly.rousseau@livecampus.tech:mpvruxmfmibkvilk@smtp.gmail.com:587');
         // Create a Mailer object 
