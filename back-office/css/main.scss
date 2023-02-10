@@ -51,15 +51,15 @@
         text-align: center;
         display: inline-block;
         text-decoration: none;
-        background-color: $blue;
+        background-color: #0C579D;
         color: #fff;
         border-radius: 4px;
         margin-right: 60px;
         font-size: 1.2em;
     
         &:hover {
-            color: $blue;
-            border: solid 1px $blue;
+            color: #0C579D;
+            border: solid 1px #0C579D;
             background-color: $white;
         }
     }

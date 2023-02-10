@@ -13,14 +13,7 @@
 ul {
   list-style: none;
 }
-ul {
-  list-style: none;
-}
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
 .container {
   max-width: 1200px;
   margin: auto;
@@ -77,7 +70,7 @@ h2.h2-tiny {
   text-decoration: none;
   border-radius: 4px;
   color: #efefef;
-  background-color: #1C2938;
+  background-color: #3849E5;
 }
 #index-backoffice .delete-btn {
   padding: 8px;
@@ -86,7 +79,7 @@ h2.h2-tiny {
   text-decoration: none;
   border-radius: 4px;
   color: #efefef;
-  background-color: #681b17;
+  background-color: #E54138;
 }
 
 /*  Sidebar Menu  */
