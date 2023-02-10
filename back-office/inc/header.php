@@ -1,6 +1,6 @@
 <?php 
   session_start(); 
-  if (!isset($_SESSION['loggedin'])): 
+  // if (!(is_user_logged_in())):
 ?>
 
 
@@ -85,4 +85,3 @@
 
 	</div>
 </header>
-<?php endif ?>
