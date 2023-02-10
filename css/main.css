@@ -844,7 +844,7 @@ body:not(#index) main {
 
 #contact .infos {
   transform: translateY(-50%);
-  background: #F9F9FA;
+  background: #F6FAFE;
   border-radius: 20px;
   box-shadow: 0 20px 30px -30px rgba(0, 0, 0, 0.15);
 }
@@ -910,9 +910,10 @@ body:not(#index) main {
 #contact form#contact-form > div.input select,
 #contact form#contact-form > div.input textarea {
   width: 100%;
-  padding: 14px 24px;
-  background-color: #F3F2F2;
+  padding: 10px 14px;
+  background-color: unset;
   border: none;
+  border-bottom: 2px solid #031221;
 }
 #contact form#contact-form > div.input:nth-of-type(5) {
   grid-area: objet;
