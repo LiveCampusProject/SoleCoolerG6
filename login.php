@@ -10,8 +10,6 @@ $titre = "SoleCooler Connexion";
 $bodyId = "login";
 require_once("./inc/head.php");
 require_once("./inc/header.php");
-require_once("./inc/utils.php");
-
 $messageErreur = login_user();
 
 ?>
@@ -48,8 +46,8 @@ $messageErreur = login_user();
    
 <?php 
     else:
-      if (is_user_logged_in()) {
-        redirection("./index.php");
+      if(is_user_logged_in()){
+        redirection('./index.php');
       }
 ?>
     <div class="left">
@@ -77,7 +75,7 @@ $messageErreur = login_user();
 
       <div>
         <label>
-          <input type="checkbox" value="remember-me"> Se souvenir de moi
+          <input type="checkbox" name="remember-me" id="remember-me"> Se souvenir de moi
         </label>
       </div>
       <div>

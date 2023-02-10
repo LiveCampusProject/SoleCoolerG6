@@ -6,7 +6,6 @@ $titre = "SoleCooler";
 $bodyId = "login";
 require_once("./inc/head.php");
 require_once("./inc/header.php");
-require_once("./inc/utils.php");
 
 /*
 *   Formulaire de réinisiatlisation de mot de passe 
