@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Créée en 2019, SoleCooler a développé une semelle thermo-régulée : la CLIMFEET. Grâce à ses multiples alvéoles remplies d’air, la semelle CLIMFEET convertit directement l’énergie mécanique des pas de l'utilisateur en chaleur et en froid.">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico">
     <!-- On charge le script de traduction présent sur toute les pages -->
     <script type="module" src="js/index.js"></script>

@@ -14,8 +14,8 @@
     function db_connect(): PDO {
         try {
 
-            $utilisateur = "root";
-            $motdepasse = "root";
+            $utilisateur = "nouveau_utilisateur";
+            $motdepasse = "mot_de_passe";
             $hote = "localhost";
             $port = 3306;            ;
             $moteur = "mysql";
