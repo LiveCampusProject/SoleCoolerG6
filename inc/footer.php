@@ -94,7 +94,7 @@
                 <p>Mon compte</p>
 
                 <ul>
-                    <li><a href="#">Suivre mes commandes</a></li>
+                    <li><a href="./my-account.php">Suivre mes commandes</a></li>
                     <li><a href="./login.php">Se connecter</a></li>
                     <li><a href="./register.php">Créer un compte</a></li>
                 </ul>

@@ -26,6 +26,8 @@
        
             $utilisateur = "nouveau_utilisateur";
             $motdepasse = "mot_de_passe";
+            // $utilisateur = "root";
+            // $motdepasse = "";
             $hote = "localhost";
             $port = 3306;
             $moteur = "mysql";
