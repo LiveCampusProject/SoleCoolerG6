@@ -23,7 +23,7 @@
 
     function db_connect(): PDO {
         try {
-
+       
             $utilisateur = "nouveau_utilisateur";
             $motdepasse = "mot_de_passe";
             $hote = "localhost";

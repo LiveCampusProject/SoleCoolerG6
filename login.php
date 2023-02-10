@@ -1,5 +1,6 @@
 <?php
-
+ob_start();
+ob_clean();
 /**
  *  On définie le path de tout les fichier nécéssaire et le titre de notre page 
  *  Puis on insère les élements redondants footer et head  
