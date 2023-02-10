@@ -21,10 +21,10 @@
     function db_connect(): PDO {
         try {
 
-            $utilisateur = "nouveau_utilisateur";
-            $motdepasse = "mot_de_passe";
+            $utilisateur = "root";
+            $motdepasse = "root";
             $hote = "localhost";
-            $port = 3306;
+            $port = 8889;
             $moteur = "mysql";
             $bdd = "solecooler";
             $pdo = new PDO("$moteur:host=$hote:$port;dbname=$bdd", $utilisateur, $motdepasse, [
@@ -475,8 +475,8 @@
                 $password = password_hash($password,PASSWORD_DEFAULT);
                 save_password($password,$user);
                 deldelete_pwd_token($user["userID"]);
-                redirection("./login.php");
-                
+                $_SESSION["message"] = "Votre mot de passe à été changé avec succès";
+                redirection("./login.php");              
 
             }
         }

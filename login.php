@@ -20,11 +20,11 @@ $messageErreur = login_user();
 
 <?php 
     if (isset($_SESSION["message"])):
-?> 
+?>
     <div>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <lottie-player src="./assets/lottie/eclatsronds.json"  background="transparent"  speed="0.5"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
-    <h2> <?php echo $_SESSION["message"] ?> </h2>
+    <h2> <?php echo $_SESSION["message"] ?></h2>
     <a href="/index.php">
       Revenir sur le site 
     </a>
@@ -45,11 +45,14 @@ $messageErreur = login_user();
 
     </style>
     </main>
-
+   
 <?php 
     else:
-?> 
-  <div class="left">
+      if (is_user_logged_in()) {
+        redirection("./index.php");
+      }
+?>
+    <div class="left">
 
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <lottie-player src="./assets/lottie/solecooler.json" background="transparent" speed="1" style="width: 100%; height: auto;" loop autoplay></lottie-player>
@@ -88,10 +91,10 @@ $messageErreur = login_user();
     <?php if ($messageErreur != "") : ?>
       <div style="display: flex; align-items: center;">
         <lottie-player src="./assets/lottie/error.json" background="transparent" speed="1" style="width: auto; height: 70px;" loop autoplay></lottie-player>
-        <h3 style="width: 80%;"><?php echo $messageErreur ?>  </h3>
+        <h3 style="width: 80%;"><?php echo $messageErreur ?></h3>
       </div>
     <?php endif; ?>
-</main>
+  </main>
 
 <?php
 endif;

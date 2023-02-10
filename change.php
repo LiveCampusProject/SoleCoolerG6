@@ -55,8 +55,6 @@ if ($email && $code) {
         redirection("./login.php"); ?>
 
 <?php
-    $_SESSION["message"] = "Votre mot de passe à été changé avec succès";
-    redirection("./login.php");
     endif;
 } else {
     redirection("./login.php");
