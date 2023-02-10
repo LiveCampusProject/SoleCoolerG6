@@ -14,8 +14,8 @@
     function db_connect(): PDO {
         try {
 
-            $utilisateur = "nouveau_utilisateur";
-            $motdepasse = "mot_de_passe";
+            $utilisateur = "root";
+            $motdepasse = "root";
             $hote = "localhost";
             $port = 3306;            ;
             $moteur = "mysql";
@@ -741,7 +741,7 @@
         } else if ($method == "POST" && isset($InitialReference)) {
         
             $requete = $pdo->prepare("UPDATE actualites
-            SET libelle = :libelle, description = :description, date = :date, :image
+            SET libelle = :libelle, description = :description, date = :date, image = :image
             WHERE actualiteID = :actualiteID ;");
 
             /* Nom du fichier */
@@ -817,7 +817,7 @@
             $requete->bindParam(':libelle', $libelle);
             $requete->bindParam(':lien', $lien);
             $requete->bindParam(':date', $date);
-            $requete->bindParam(':actualiteID', $InitialReference);
+            $requete->bindParam(':articleID', $InitialReference);
 
             $requete->execute();
             header('Location: ./index.php');
