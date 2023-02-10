@@ -110,7 +110,6 @@ if (!(is_user_logged_in())) :
                     <li>
                         <a href="<?php echo './my-account.php'; ?>">
                             <img src="./assets/img/icons/icon_user.svg" width="25" alt="Mon compte">
-                            <h6>compte</h6>
                         </a>
                     </li>
                     <!-- End User -->
